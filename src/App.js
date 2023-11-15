@@ -7,7 +7,6 @@ import {Route, Routes} from 'react-router';
 import Services from './components/pages/services/Services';
 import Connect from './components/pages/connect/Connect';
 import AboutUs from './components/pages/about/AboutUs'
-import SignUp from './components/pages/connect/Connect';
 
 function App() {
   return (
