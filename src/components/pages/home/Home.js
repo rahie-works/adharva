@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../App.css';
-import Cards from '../../cards/Cards';
+import Services from '../services/Services';
+import Connect from '../connect/Connect'
 import HeroSection from '../../heroSection/HeroSection';
 import Footer from '../../footer/Footer';
 
@@ -8,7 +9,8 @@ function Home() {
   return (
     <>
       <HeroSection />
-      <Cards />
+        <Services/>
+        <Connect/>
       <Footer />
     </>
   );
