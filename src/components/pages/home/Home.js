@@ -3,7 +3,6 @@ import '../../../App.css';
 import Services from '../services/Services';
 import Connect from '../connect/Connect'
 import HeroSection from '../../heroSection/HeroSection';
-import Footer from '../../footer/Footer';
 
 function Home() {
   return (
@@ -11,7 +10,6 @@ function Home() {
       <HeroSection />
         <Services/>
         <Connect/>
-      <Footer />
     </>
   );
 }

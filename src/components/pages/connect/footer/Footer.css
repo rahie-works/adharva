@@ -113,13 +113,6 @@
     margin: 40px auto 0 auto;
   }
   
-  .social-icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 240px;
-  }
-  
   .social-logo {
     color: #fff;
     justify-self: start;
