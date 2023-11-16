@@ -1,0 +1,62 @@
+p {
+    font-size: 25px;
+    margin: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-size: 3rem;
+}
+
+  .journey-section {
+    text-align: center;
+    background-image: url('/public/assets/img-4.jpg');
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 60px;
+    padding: 30px 30px;
+    margin-bottom: 20px;
+  }
+
+  .why-us-section {
+    background-image: url('/public/assets/img-3.jpg');
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 30px 30px;
+    font-size: 70px;
+  }
+
+  .value-section {
+    text-align: center;
+    background-image: url('/public/assets/img-4.jpg');
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 70px;
+    padding: 30px 30px;
+    margin-top: 20px;
+  }
+
+  .values {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+  }
+  .vision > p {
+    margin-top: 20px;
+    font-size: 25px;
+  }
