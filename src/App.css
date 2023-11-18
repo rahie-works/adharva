@@ -15,7 +15,7 @@
   }
 
   .home {
-    background-image: url('/public/assets/img-3.jpg');
+    background-image: url('/public/assets/home/img-3.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@
   }
   
   .services {
-    background-image: url('/public/assets/img-4.jpg');
+    background-image: url('/public/assets/services/img-4.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

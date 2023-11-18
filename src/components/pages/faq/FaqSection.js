@@ -8,7 +8,11 @@ export const FaqSection = () => {
             <div className='faq-section'>
                 <h1>FAQ</h1>
                 <div className='faq-cards'>
-                    <QuestionCard/>
+                    <div className='faq__wrapper'>
+                        <div className='faq__items'>
+                            <QuestionCard/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
