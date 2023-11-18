@@ -14,7 +14,7 @@ p {
 
   .journey-section {
     text-align: center;
-    background-image: url('/public/assets/img-4.jpg');
+    background-image: url('/public/assets/services/img-4.jpg');
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
     background-position: center;
     background-size: cover;
@@ -26,7 +26,7 @@ p {
   }
 
   .why-us-section {
-    background-image: url('/public/assets/img-3.jpg');
+    background-image: url('/public/assets/home/img-3.jpg');
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
     background-position: center;
     background-size: cover;
@@ -38,7 +38,7 @@ p {
 
   .value-section {
     text-align: center;
-    background-image: url('/public/assets/img-4.jpg');
+    background-image: url('/public/assets/services/img-4.jpg');
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
     background-position: center;
     background-size: cover;
