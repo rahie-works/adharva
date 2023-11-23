@@ -7,8 +7,8 @@ function Cards(props) {
   const {sectionData, cardData} = props;
 
   return (
-    <div className='cards'>
-      <h1>{sectionData}</h1>
+    <div className={sectionData.section === "FAQ" ? "cards_background_for_faq" : "cards_background_for_services"}>
+      <h1>{sectionData.title}</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           {cardData.map((eachRow) => {
