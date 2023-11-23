@@ -18,8 +18,10 @@ function Cards(props) {
                   return (
                       <CardItem
                         src={eachItem.backgroundImage}
-                        text={eachItem.description || eachItem.question}
-                        label={eachItem.label || ""}
+                        description={eachItem.description}
+                        question={eachItem.question}
+                        answer={ eachItem.answer}
+                        label={eachItem.label}
                         path='/services'
                       />
                   )
