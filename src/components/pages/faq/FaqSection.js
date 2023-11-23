@@ -1,20 +1,10 @@
 import React from 'react';
 import './FaqSection.css'
-import { QuestionCard } from './QuestionCard/QuestionCard';
+import { FAQ_BANK , FAQ_TITLE} from './QuestionBank'
+import Cards from '../../cards/Cards'
 
 export const FaqSection = () => {
     return (
-        <>
-            <div className='faq-section'>
-                <h1>FAQ</h1>
-                <div className='faq-cards'>
-                    <div className='faq__wrapper'>
-                        <div className='faq__items'>
-                            <QuestionCard/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
+        <Cards sectionData={FAQ_TITLE} cardData={FAQ_BANK}/>
     );
 }
