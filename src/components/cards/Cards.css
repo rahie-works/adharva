@@ -1,6 +1,15 @@
-.cards {
+.cards_background_for_services {
     padding: 4rem;
-    background: #fff;
+    background: white;
+    font-size: 40px;
+  }
+
+  .cards_background_for_faq {
+    padding: 4rem;
+    background-image: url('/public/assets/faq_section/colorful_question.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-size: 40px;
   }
   

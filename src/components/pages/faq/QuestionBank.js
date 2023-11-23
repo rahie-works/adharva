@@ -34,4 +34,4 @@ export const FAQ_BANK = [
         },
     ]
 ]
-export const FAQ_TITLE = "Frequently Asked..!"
+export const FAQ_TITLE = "Frequently Asked ?"

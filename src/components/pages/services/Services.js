@@ -5,7 +5,11 @@ import {SERVICE_CARDS_DATA, SERVICES_TITLE} from './ServicesConstant'
 
 export default function Services() {
 
+  const SectionData = {
+    section: "SERVICES",
+    title: SERVICES_TITLE,
+  }
   return (
-    <Cards cardData={SERVICE_CARDS_DATA} sectionData={SERVICES_TITLE}/>
+    <Cards cardData={SERVICE_CARDS_DATA} sectionData={SectionData}/>
   )
 }
