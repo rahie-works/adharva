@@ -75,7 +75,18 @@
   color: #2150fa;
   transform: scale(1.5);
   transition:500ms;
+  font-size: 40px;
 }
+
+  .linkedIn:hover{
+    color: #39b9fa;
+    transform: scale(1.5);
+  }
+
+  .whatsapp:hover{
+    color: #03ff2d;
+    transform: scale(1.5);
+  }
 
 .instagram:hover{
   color: #ff61ad;
