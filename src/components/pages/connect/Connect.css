@@ -71,6 +71,13 @@
   font-size: 40px;
 }
 
+.facebook:hover{
+  color: #2150fa;
+  transform: scale(1.5);
+  transition:500ms;
+  font-size: 40px;
+}
+
   .linkedIn:hover{
     color: #39b9fa;
     transform: scale(1.5);

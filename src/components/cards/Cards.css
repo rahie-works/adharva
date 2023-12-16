@@ -139,12 +139,4 @@
       background: white;
       font-size: 20px;
     }
-    .cards_background_for_faq {
-      padding: 2rem;
-      background-image: url('/public/assets/faq_section/colorful_question.jpg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      font-size: 2rem;
-    }
   }
