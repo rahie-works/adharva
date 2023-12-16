@@ -16,8 +16,8 @@ function FAQCards(props) {
                   return (
                     <li className='faq_card__item' key={index}>
                     <div>
-                        <h2>Q: {eachItem.question}</h2>
-                        <h3 className='show_answer'>A: {eachItem.answer}</h3>
+                        <h2 className='faq_question'>Q: {eachItem.question}</h2>
+                        <h3 className='faq_answer'>A: {eachItem.answer}</h3>
                     </div>
                     </li>
                   )

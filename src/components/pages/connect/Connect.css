@@ -71,15 +71,11 @@
   font-size: 40px;
 }
 
-  .linkedIn:hover{
-    color: #39b9fa;
-    transform: scale(1.5);
-  }
-
-  .whatsapp:hover{
-    color: #03ff2d;
-    transform: scale(1.5);
-  }
+.facebook:hover{
+  color: #2150fa;
+  transform: scale(1.5);
+  transition:500ms;
+}
 
 .instagram:hover{
   color: #ff61ad;
