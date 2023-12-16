@@ -61,12 +61,11 @@
     transform: scale(1.5);
   }
 
-<<<<<<< Updated upstream
   .twitter:hover{
     color: #0061bc;
     transform: scale(1.5);
   }
-=======
+
 .connect > h3 {
   color: #fff;
   text-align: center;
@@ -74,19 +73,17 @@
   transition:500ms;
   font-size: 40px;
 }
->>>>>>> Stashed changes
 
   .linkedIn:hover{
     color: #39b9fa;
     transform: scale(1.5);
   }
 
-<<<<<<< Updated upstream
   .whatsapp:hover{
     color: #03ff2d;
     transform: scale(1.5);
   }
-=======
+
 .instagram:hover{
   color: #ff61ad;
   transform: scale(1.5);
@@ -139,4 +136,3 @@
     font-size: 20px;
   }
 }
->>>>>>> Stashed changes
