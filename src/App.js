@@ -7,6 +7,7 @@ import {Route, Routes} from 'react-router';
 import Services from './components/pages/services/Services';
 import Connect from './components/pages/connect/Connect';
 import AboutUs from './components/pages/about/AboutUs'
+import { FaqSection } from './components/pages/faq/FaqSection';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home/>} />
           <Route path="/services" element={<Services/>} />
+          <Route path="/faq" element={<FaqSection/>} />
           <Route path="/connect" element={<Connect/>} />
           <Route path="/about" element={<AboutUs/>} />
         </Routes>

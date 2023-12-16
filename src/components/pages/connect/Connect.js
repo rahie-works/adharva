@@ -51,10 +51,10 @@ export default function Connect() {
           <i className='fab fa-linkedin' />
         </Link>
       </div>
-      <h1 className='subText'>Or why wait?</h1>
-      <h1 className='subText'>Send us a message now </h1>
+      <h3>Or why wait?</h3>
+      <h3>Send us a message now </h3>
       <div className='whatsapp-icon'>
-      <Link
+        <Link
           className='social-icon-link whatsapp'
           to='https://www.whatsapp.com'
           target='_blank'

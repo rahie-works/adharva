@@ -15,7 +15,7 @@ function CardItem(props) {
             />
           </figure>
           <div className='cards__item__info'>
-            <h5 className='cards__item__text'>{props.question || props.description}</h5>
+            <h5 className='cards__item__text'>{props.description}</h5>
           </div>
         </Link>
       </li>
