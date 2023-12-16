@@ -61,17 +61,82 @@
     transform: scale(1.5);
   }
 
+<<<<<<< Updated upstream
   .twitter:hover{
     color: #0061bc;
     transform: scale(1.5);
   }
+=======
+.connect > h3 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
+  transition:500ms;
+  font-size: 40px;
+}
+>>>>>>> Stashed changes
 
   .linkedIn:hover{
     color: #39b9fa;
     transform: scale(1.5);
   }
 
+<<<<<<< Updated upstream
   .whatsapp:hover{
     color: #03ff2d;
     transform: scale(1.5);
   }
+=======
+.instagram:hover{
+  color: #ff61ad;
+  transform: scale(1.5);
+  transition:500ms;
+}
+
+.youtube:hover{
+  color: #ff0000;
+  transform: scale(1.5);
+  transition:500ms;
+}
+
+.twitter:hover{
+  color: #0061bc;
+  transform: scale(1.5);
+  transition:500ms;
+}
+
+.linkedIn:hover{
+  color: #39b9fa;
+  transform: scale(1.5);
+  transition:500ms;
+}
+
+.whatsapp:hover{
+  color: #03ff2d;
+  transform: scale(1.4);
+  transition:500ms;
+}
+
+@media only screen and (max-width: 800px) {
+  .connect > h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    transition:500ms;
+    font-size: 40px;
+  }
+  .connect > h3 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    transition:500ms;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .whatsapp-icon , h2 {
+    font-size: 20px;
+  }
+}
+>>>>>>> Stashed changes

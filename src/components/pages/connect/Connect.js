@@ -50,10 +50,18 @@ export default function Connect() {
           <i class='fab fa-linkedin' />
         </Link>
       </div>
+<<<<<<< Updated upstream
       <hi className='subText'>Or why wait? let's chat.! Send us a message in Whatsapp.!</hi>
       <div className='whatsapp-icon'>
       <Link
           class='social-icon-link whatsapp'
+=======
+      <h3>Or why wait?</h3>
+      <h3>Send us a message now </h3>
+      <div className='whatsapp-icon'>
+        <Link
+          className='social-icon-link whatsapp'
+>>>>>>> Stashed changes
           to='https://www.whatsapp.com'
           target='_blank'
           aria-label='Whatsapp'
