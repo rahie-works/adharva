@@ -8,13 +8,8 @@ function Cards(props) {
   const {sectionData, cardData} = props;
 
   return (
-<<<<<<< Updated upstream
-    <div className='cards'>
-      <h1>{sectionData}</h1>
-=======
     <div className="cards_background_for_services">
       <h1>{sectionData.title}</h1>
->>>>>>> Stashed changes
       <div className='cards__container'>
         <div className='cards__wrapper'>
           {cardData.map((eachRow) => {
