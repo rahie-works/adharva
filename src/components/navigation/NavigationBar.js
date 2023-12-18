@@ -61,11 +61,11 @@ export const NavigationBar = () => {
 
             <li className='nav-item'>
               <Link
-                to='/about'
+                to='/more'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                About
+                More
               </Link>
             </li>
 

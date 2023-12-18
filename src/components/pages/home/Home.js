@@ -2,16 +2,16 @@ import React from 'react';
 import '../../../App.css';
 import Services from '../services/Services';
 import Connect from '../connect/Connect'
-import HeroSection from '../../heroSection/HeroSection';
+import HomePageSection from '../../heroSection/HomePageSection';
 import { FaqSection } from '../faq/FaqSection'
 
 function Home() {
   return (
     <>
-      <HeroSection />
-        <Services/>
-        <FaqSection/>
-        <Connect/>
+      <HomePageSection />
+      <Services/>
+      <FaqSection/>
+      <Connect/>
     </>
   );
 }
