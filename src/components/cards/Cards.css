@@ -1,16 +1,9 @@
 .cards_background_for_services {
     padding: 4rem;
-    background: #fff;
     font-size: 40px;
-  }
+    color: #fff;
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
 
-  .cards_background_for_faq {
-    padding: 4rem;
-    background-image: url('/public/assets/faq_section/colorful_question.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-size: 40px;
   }
   
   h1 {
@@ -40,6 +33,7 @@
     flex: 1;
     margin: 0 1rem;
     border-radius: 10px;
+    opacity: 0;
   }
 
   .cards__item__link {
@@ -128,7 +122,6 @@
 
     .cards_background_for_services {
       padding: 4rem;
-      background: white;
       font-size: 30px;
     }
   }
@@ -136,7 +129,11 @@
   @media only screen and (max-width: 800px) {
     .cards_background_for_services {
       padding: 4rem;
-      background: white;
       font-size: 20px;
     }
+  }
+
+  .fade-in {
+    opacity: 1;
+    transition: all 1.0s ease-in-out;
   }

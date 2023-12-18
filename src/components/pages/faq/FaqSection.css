@@ -1,5 +1,5 @@
 .faq-section {
-    display:grid;
+    display: grid;
     flex-direction: column;
     height: 100vh;
     align-items:center;
@@ -7,7 +7,7 @@
   }
 
 .faq-section {
-    background-image: url('/public/assets/faq_section/colorful_question.jpg');
+    background-image: url('/public/assets/home/students_2.png');
     background-position: center;
     background-size:cover;
     background-repeat: no-repeat;

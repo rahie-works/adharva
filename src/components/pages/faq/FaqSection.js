@@ -1,5 +1,4 @@
 import React from 'react';
-import './FaqSection.css'
 import { FAQ_BANK , FAQ_TITLE} from './QuestionBank'
 import FAQCards from '../../cards/FAQCards'
 
