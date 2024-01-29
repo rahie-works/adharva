@@ -2,12 +2,13 @@
 
 .container {
   width: auto;
-  height: 100vh;
+  height: 100%;
 }
+
 .content {
     display: flex;
     flex-direction: column;
-    height: 70%;
+    height: 100vh;
     font-size: 1.5rem;
     line-height: 45px;
     margin: 40px 40px;
@@ -15,7 +16,27 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-.change_background__about {
-  background-color: #0093E9;
+.aboutus_background {
   background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+.ourmission_background {
+  background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+}
+
+.ourvision_background {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+@media only screen and (max-width: 800px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-size: 1rem;
+    line-height: 25px;
+    margin: 20px 20px;
+    align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
 }

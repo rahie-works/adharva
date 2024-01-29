@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link , Linking} from 'react-router-dom';
 import Footer from './footer/Footer'
 import './Connect.css';
 import { CONNECT_TITLE } from './constants/ConnectConstant';
 
 export default function Connect() {
+
+  const encodedWhatsappText = "Hello%2C%0D%0AI+am+interested+to+know+more+about+the+services+you+provide.";
   return ( 
     <>
     <div className="connect">
@@ -12,7 +14,7 @@ export default function Connect() {
       <div className='social-icons'>
         <Link
           className='social-icon-link facebook'
-          to='https://www.facebook.com'
+          to='https://www.facebook.com/profile.php?id=100091785007499'
           target='_blank'
           aria-label='Facebook'
         >
@@ -20,7 +22,7 @@ export default function Connect() {
         </Link>
         <Link
           className='social-icon-link instagram'
-          to='https://www.instagram.com'
+          to='https://www.instagram.com/aic_nilambur/'
           target='_blank'
           aria-label='Instagram'
         >
@@ -56,8 +58,8 @@ export default function Connect() {
       <div className='whatsapp-icon'>
         <Link
           className='social-icon-link whatsapp'
-          to='https://www.whatsapp.com'
           target='_blank'
+          to={`https://wa.me/+16475402464?text=${encodedWhatsappText}`}
           aria-label='Whatsapp'
         > 
           <h2>+91 9764 776 554 <i className='fab fa-whatsapp' /></h2>
