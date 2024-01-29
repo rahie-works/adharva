@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import {useRef, useEffect} from 'react';
 import './TabBar.css';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
@@ -26,13 +26,13 @@ export default function TabBar(props) {
     return (
         <div className="tabBar__container" ref={ref}>
             <FadeInDiv onClick={tabClicked}>
-                <h2 className='text_color__active'>About Us</h2>
+                <h2 className={props.navigatedTo === "About Us" ? "text_color__active" : "text_color__inactive"}>About Us</h2>
             </FadeInDiv>
             <FadeInDiv onClick={tabClicked}>
-                <h2 className='text_color__inactive'>Our Mission</h2>
+                <h2 className={props.navigatedTo === "Our Mission" ? "text_color__active" : "text_color__inactive"}>Our Mission</h2>
             </FadeInDiv>
             <FadeInDiv onClick={tabClicked}>
-                <h2 className='text_color__inactive'>Our Vision</h2>
+                <h2 className={props.navigatedTo === "Our Vision" ? "text_color__active" : "text_color__inactive"}>Our Vision</h2>
             </FadeInDiv>
         </div>
     )

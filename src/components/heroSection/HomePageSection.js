@@ -31,7 +31,7 @@ function HomePageSection() {
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
-          CONNECT US
+          CONNECT WITH US
         </Button>
         <Button
           buttonName={REGISTER_BUTTON_NAME}

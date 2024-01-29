@@ -4,6 +4,7 @@ import {ABOUT_US_TEXT_1, ABOUT_US_TEXT_2, ABOUT_US_TEXT_3, WHY_US_1, WHY_US_2, W
 import TabBar from './tabs/TabBar';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
+import Testimonials from './testimonials/Testimonials';
 
 const simpleAnimation = keyframes`${fadeIn}`;
 
@@ -12,13 +13,41 @@ const FadeInDiv = styled.div`
 `
 
 
-export default function More() {
+export default function More(props) {
 
-  const [contentText, setContentText] = useState(ABOUT_US_TEXT_1+ABOUT_US_TEXT_2+ABOUT_US_TEXT_3)
+  const {path} = props;
+
+  const getContent = () => {
+    console.log("==Here", path)
+    switch (path) {
+      case "About Us":
+        return ABOUT_US_TEXT_1+ABOUT_US_TEXT_2+ABOUT_US_TEXT_3;
+      case "Our Mission":
+        return "To transform lives through affordable, quality and value-based education.";
+      case "Our Vision":
+        return "AIC in brand of trust";
+      default:
+        return ABOUT_US_TEXT_1+ABOUT_US_TEXT_2+ABOUT_US_TEXT_3;
+    }
+  }
+
+  const getBackgroundColorFromClassnames = () => {
+    switch (path) {
+      case "About Us":
+        return "aboutus_background";
+      case "Our Mission":
+        return "ourmission_background";
+      case "Our Vision":
+        return "ourvision_background";
+      default:
+        return "aboutus_background";
+    }
+  }
+
+  const [contentText, setContentText] = useState(getContent);
   const ref = useRef();
 
   const selectedtab = (tab) => {
-    console.log("--tab", tab)
     switch(tab) {
       case "About Us":
         setContentText(ABOUT_US_TEXT_1+ABOUT_US_TEXT_2+ABOUT_US_TEXT_3)
@@ -38,44 +67,14 @@ export default function More() {
   }
 
   return (
-    <div className='container' ref={ref} style={{backgroundImage: 'linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)'}}>
-      <TabBar tab={selectedtab}/>
+    <div>
+      <div className={"container " + getBackgroundColorFromClassnames()} ref={ref}>
+      <TabBar tab={selectedtab} navigatedTo={props.path}/>
       <FadeInDiv className='content'>
         {contentText}
       </FadeInDiv>
+      </div>
+      <Testimonials/>
     </div>
   )
 }
-
-{/* <>
-      <div className='about'>
-        <div className='journey-section'>
-          <h1>About Us</h1>
-          <p>{ABOUT_US_TEXT_1}</p>
-          <p>{ABOUT_US_TEXT_2}</p>
-          <p>{ABOUT_US_TEXT_3}</p>
-        </div>
-        <div className='why-us-section'>
-          <h1>Why Us.?</h1>
-          <p>{WHY_US_1}</p>
-          <p>{WHY_US_2}</p>
-          <p>{WHY_US_3}</p>
-        </div>
-        <div className='value-section'>
-          <h1>Vision</h1>
-          <p>AIC in brand of trust</p>
-          <h1>Mission</h1>
-          <p>To transform lives through affordable, quality and value-based education.</p>
-          <div>
-            <h1>Values</h1>
-            <div className='values'>
-              <p>Passion towards work.</p>
-              <p>Respect for people.</p>
-              <p>Integrity in every transaction.</p>
-              <p>Dedication for result.</p>
-              <p>Empowerment for development.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </> */}

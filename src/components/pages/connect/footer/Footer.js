@@ -28,38 +28,18 @@ function Footer() {
       <div className='footer-links'>
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
-            <h2>About Us</h2>
-            <Link to='/'>How it works</Link>
-            <Link to='/'>Testimonials</Link>
-            <Link to='/'>Careers</Link>
-            <Link to='/'>Investors</Link>
-            <Link to='/'>Terms of Service</Link>
-          </div>
-          <div className='footer-link-items'>
-            <h2>Contact Us</h2>
-            <Link to='/'>Contact</Link>
-            <Link to='/'>Support</Link>
-            <Link to='/'>Destinations</Link>
-            <Link to='/'>Sponsorships</Link>
-          </div>
-        </div>
-        <div className='footer-link-wrapper'>
-          <div className='footer-link-items'>
-            <h2>Social Media</h2>
-            <Link to='/'>Instagram</Link>
-            <Link to='/'>Facebook</Link>
-            <Link to='/'>Youtube</Link>
-            <Link to='/'>Twitter</Link>
+            <Link to='/more'>About Us</Link>
+            <Link to='/more/mission'>Our Mission</Link>
+            <Link to='/more/vision'>Our Vision</Link>
+            <Link to='/more'>Testimonials</Link>
           </div>
         </div>
       </div>
       <section className='social-media'>
         <div className='social-media-wrap'>
-          <div className='footer-logo'>
             <Link to='/' className='social-logo'>
               ADHARVA INSTITUTE FOR COMMERCE
             </Link>
-          </div>
           <small className='website-rights'>ADHARVA.ORG.IN © 2020</small>
         </div>
       </section>

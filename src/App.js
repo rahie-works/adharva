@@ -19,7 +19,9 @@ function App() {
           <Route path="/services" element={<Services/>} />
           <Route path="/faq" element={<FaqSection/>} />
           <Route path="/connect" element={<Connect/>} />
-          <Route path="/more" element={<More/>} />
+          <Route path="/more" element={<More path="About Us"/>} />
+          <Route path="/more/mission" element={<More path="Our Mission"/>}/>
+          <Route path="/more/vision" element={<More path="Our Vision"/>}/>
         </Routes>
       </Router>
     </>
