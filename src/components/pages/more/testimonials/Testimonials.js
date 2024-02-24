@@ -1,5 +1,6 @@
 import { TESTIMONIAL_TITLE, UserTestimonials } from './TestimonialContent';
 import './Testimonial.css';
+import right from "../../../../images/right.png"
 
 export default function Testimonials() {
 
@@ -10,7 +11,11 @@ export default function Testimonials() {
             { UserTestimonials.map((eachEntry) => {
                 return (
                 <div className="testimonials">
-                    <h3>{eachEntry.firstName}<p className="lastname">{" " + eachEntry.lastName}</p></h3>
+                    <img className="quote_image" alt="quote" src={right}/>
+                    <div className='content_testimonials'>
+                        <h3 className='testimonial_name'>{eachEntry.firstName + " " + eachEntry.lastName}</h3>
+                        <p className="testimonial_comments">{eachEntry.comment}</p>
+                    </div>
                 </div>
                 )
             })}

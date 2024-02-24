@@ -67,13 +67,11 @@ export default function More(props) {
   }
 
   return (
-    <div>
-      <div className={"container " + getBackgroundColorFromClassnames()} ref={ref}>
+    <div className={"container " + getBackgroundColorFromClassnames()} ref={ref}>
       <TabBar tab={selectedtab} navigatedTo={props.path}/>
       <FadeInDiv className='content'>
         {contentText}
       </FadeInDiv>
-      </div>
       <Testimonials/>
     </div>
   )

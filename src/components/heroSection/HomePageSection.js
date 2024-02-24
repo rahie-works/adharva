@@ -26,7 +26,7 @@ function HomePageSection() {
   const [subTitle, setSubTitle] = React.useState("");
   const [buttons, setButtons] = React.useState([]);
 
-  React.useEffect(() => {
+  React.useEffect( () => {
     const fecthData = async () => {
       try {
         const homePageData = await client.getEntry({id: "1TecGUIXMOZJfBCcGSjjyw"});
@@ -41,11 +41,10 @@ function HomePageSection() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log('==buttons',buttons);
   return (
     <div className='hero-container'>
-      <FadeInTitle>{title.toLocaleUpperCase()}</FadeInTitle>
-      <FadeInPara>{subTitle}</FadeInPara>
+      <FadeInTitle>{title || "ADHARVA INSTITUTE OF COMMERCE"}</FadeInTitle>
+      <FadeInPara>{subTitle || "Accepting aspirants for DEC 2023 intake now.!!"}</FadeInPara>
       <FadeInButtons className='hero-btns'>
         {buttons.map((eachButton, index) => {
           return (
