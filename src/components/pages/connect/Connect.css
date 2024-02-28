@@ -1,5 +1,5 @@
 .connect {
-  background-image: url('/public/assets/connect/connect_with_us.jpg');
+  background-image: url("/public/assets/connect/connect_with_us.jpg");
   background-position: center;
   background-size: fill;
   background-repeat: no-repeat;
@@ -13,10 +13,10 @@
 }
 
 .social-icons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .facebook {
   padding: 15px 15px;
@@ -48,59 +48,58 @@
   color: #fff;
   text-align: center;
   margin-bottom: 40px;
-  transition:500ms;
+  transition: 500ms;
 }
 
-.subText{
+.subText {
   color: #ffffff;
   font-size: 40px;
   text-align: center;
-  transition:500ms;
+  transition: 500ms;
 }
-
 
 .connect > h3 {
   color: #fff;
   text-align: center;
   margin-bottom: 40px;
-  transition:500ms;
+  transition: 500ms;
   font-size: 40px;
 }
 
-.facebook:hover{
+.facebook:hover {
   color: #2150fa;
   transform: scale(1.5);
-  transition:500ms;
+  transition: 500ms;
 }
 
-.instagram:hover{
+.instagram:hover {
   color: #ff61ad;
   transform: scale(1.5);
-  transition:500ms;
+  transition: 500ms;
 }
 
-.youtube:hover{
+.youtube:hover {
   color: #ff0000;
   transform: scale(1.5);
-  transition:500ms;
+  transition: 500ms;
 }
 
-.twitter:hover{
+.twitter:hover {
   color: #0061bc;
   transform: scale(1.5);
-  transition:500ms;
+  transition: 500ms;
 }
 
-.linkedIn:hover{
+.linkedIn:hover {
   color: #39b9fa;
   transform: scale(1.5);
-  transition:500ms;
+  transition: 500ms;
 }
 
-.whatsapp:hover{
+.whatsapp:hover {
   color: #03ff2d;
   transform: scale(1.4);
-  transition:500ms;
+  transition: 500ms;
 }
 
 @media only screen and (max-width: 800px) {
@@ -108,49 +107,50 @@
     color: #fff;
     text-align: center;
     margin-bottom: 40px;
-    transition:500ms;
+    transition: 500ms;
     font-size: 40px;
   }
   .connect > h3 {
     color: #fff;
     text-align: center;
     margin-bottom: 40px;
-    transition:500ms;
+    transition: 500ms;
     font-size: 20px;
   }
 
-  .facebook{
+  .facebook {
     color: #2150fa;
     transform: scale(1.2);
   }
-  .instagram{
+  .instagram {
     color: #ff61ad;
     transform: scale(1.2);
   }
-  
-  .youtube{
+
+  .youtube {
     color: #ff0000;
     transform: scale(1.2);
   }
-  
-  .twitter{
+
+  .twitter {
     color: #0061bc;
     transform: scale(1.2);
   }
-  
-  .linkedIn{
+
+  .linkedIn {
     color: #39b9fa;
     transform: scale(1.2);
   }
-  
-  .whatsapp{
+
+  .whatsapp {
     color: #03ff2d;
     transform: scale(1.2);
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .whatsapp-icon , h2 {
+  .whatsapp-icon,
+  h2 {
     font-size: 20px;
   }
 }

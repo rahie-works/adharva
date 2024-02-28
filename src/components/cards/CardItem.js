@@ -1,9 +1,8 @@
-import React, {useState, useEffect, useRef} from 'react';
-import { Link } from 'react-router-dom';
-import './Cards.css'
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import "./Cards.css";
 
 function CardItem(props) {
-
   const [isIntersecting, setIsIntersecting] = useState(false);
   const ref = useRef(null);
 
@@ -29,17 +28,13 @@ function CardItem(props) {
 
   return (
     <>
-      <div className='cards__item' ref={ref}>
-        <Link className='cards__item__link' to={props.path}>
-          <figure className='cards__item__pic-wrap' data-category={props.label}>
-            <img
-              className='cards__item__img'
-              alt='Travel'
-              src={props.src}
-            />
+      <div className="cards__item" ref={ref}>
+        <Link className="cards__item__link" to={props.path}>
+          <figure className="cards__item__pic-wrap" data-category={props.label}>
+            <img className="cards__item__img" alt="Travel" src={props.src} />
           </figure>
-          <div className='cards__item__info'>
-            <h5 className='cards__item__text'>{props.description}</h5>
+          <div className="cards__item__info">
+            <h5 className="cards__item__text">{props.description}</h5>
           </div>
         </Link>
       </div>

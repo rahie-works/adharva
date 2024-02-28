@@ -1,7 +1,6 @@
-export const ABOUT_US_TEXT_1 = "Adharva Institute of Commerce -AIC- takes pride in the fact that we are not just educators but are career advisors to our students and are actively involved in our student’s strategic decision making processes. We are committed to providing every possible advantage to our students so that they are able to meet their ambitions. We understand the importance and value of time and money; which is precisely why we make sure that we have the best tutors in the industry and provide access to our unique modules system. Along with this aspirants have a proper method of tracking their progress."
-export const ABOUT_US_TEXT_2 = "We believe in equipping our students with powerful soft skill like leadership, corporate behavior and effective presentations in our module, hence molding them to face the competition in the market place.";
-export const ABOUT_US_TEXT_3 = "We welcome you to AIC to explore more and reach your goals.";
-
-export const WHY_US_1 = "Every student in Adharva is given individual attention to facilitate them with every possible advantage that they might require reach their dreams. We have the confidence to deliver the uniqueness of modules and full packed syllabus which capable to carry you to your goal. ";
-export const WHY_US_2 = "Our faculties are professionally qualified in the field and those are practicing in real time. We offering personal attention for every aspirants those can approach multilevel discussions.";
-export const WHY_US_3 = "We welcome you to AIC to explore more and reach your goals.";
+export const ABOUT_US_TEXT_1 =
+  "Adharva Institute of Commerce -AIC- takes pride in the fact that we are not just educators but are career advisors to our students and are actively involved in our student’s strategic decision making processes. We are committed to providing every possible advantage to our students so that they are able to meet their ambitions. We understand the importance and value of time and money; which is precisely why we make sure that we have the best tutors in the industry and provide access to our unique modules system. Along with this aspirants have a proper method of tracking their progress.";
+export const ABOUT_US_TEXT_2 =
+  "We believe in equipping our students with powerful soft skill like leadership, corporate behavior and effective presentations in our module, hence molding them to face the competition in the market place.";
+export const ABOUT_US_TEXT_3 =
+  "We welcome you to AIC to explore more and reach your goals.";

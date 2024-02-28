@@ -1,31 +1,30 @@
-import './FAQCards.css';
+import "./FAQCards.css";
 function FAQCards(props) {
+  const { cardData, sectionData } = props;
 
-    const {cardData, sectionData} = props;
-
-    return (
+  return (
     <div className="cards_background_for_faq">
       <h1>{sectionData.title}</h1>
-      <div className='faq_cards__container'>
-        <div className='faq_cards__wrapper'>
+      <div className="faq_cards__container">
+        <div className="faq_cards__wrapper">
           {cardData.map((eachRow) => {
             return (
-              <ul className='.faq_cards__item'>
-                  { eachRow.map((eachItem, index) => {
+              <ul className=".faq_cards__item">
+                {eachRow.map((eachItem, index) => {
                   return (
-                    <li className='faq_card__item' key={index}>
-                          <h2 className='faq_question'>? {eachItem.question}</h2>
-                          <h3 id='faq_answer'> {eachItem.answer}</h3>
+                    <li className="faq_card__item" key={index}>
+                      <h2 className="faq_question">? {eachItem.question}</h2>
+                      <h3 id="faq_answer"> {eachItem.answer}</h3>
                     </li>
-                  )
-                  })}
+                  );
+                })}
               </ul>
-            )
+            );
           })}
         </div>
       </div>
     </div>
-    )
+  );
 }
 
 export default FAQCards;
