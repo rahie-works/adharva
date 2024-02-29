@@ -35,13 +35,10 @@ h1 {
   opacity: 0;
 }
 
-.cards__item__link {
+.cards__item__block {
   display: flex;
   flex-flow: column;
   width: 100%;
-  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
@@ -52,6 +49,14 @@ h1 {
   width: 100%;
   padding-top: 67%;
   overflow: hidden;
+}
+
+.card_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .fade-img {

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import "./Cards.css";
 
 function CardItem(props) {
@@ -29,14 +28,15 @@ function CardItem(props) {
   return (
     <>
       <div className="cards__item" ref={ref}>
-        <Link className="cards__item__link" to={props.path}>
+        <div className="cards__item__block">
           <figure className="cards__item__pic-wrap" data-category={props.label}>
             <img className="cards__item__img" alt="Travel" src={props.src} />
+            <div className="card_text">This is the text</div>
           </figure>
           <div className="cards__item__info">
             <h5 className="cards__item__text">{props.description}</h5>
           </div>
-        </Link>
+        </div>
       </div>
     </>
   );

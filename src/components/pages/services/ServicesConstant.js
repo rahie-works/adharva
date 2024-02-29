@@ -1,8 +1,9 @@
+export const SERVICES_SECTION_NAME = "SERVICES";
 export const SERVICES_TITLE = "Courses We Offer!";
 export const SERVICE_CARDS_DATA = [
   [
     {
-      backgroundImage: "assets/services/img-4.jpg",
+      backgroundImage: "assets/services/cpa_img.png",
       description: "With solid placement for job seekers as an accountant!",
       label: "CPA",
     },
