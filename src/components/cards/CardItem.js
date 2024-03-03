@@ -1,5 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Cards.css";
+import "../button/Button.css";
+import { Button } from "../button/Button";
+import styled, { keyframes } from "styled-components";
+import { fadeIn } from "react-animations";
+
+const simpleAnimation = keyframes`${fadeIn}`;
+
+const FadeInButtons = styled.div`
+  animation: 5s ${simpleAnimation};
+`;
 
 function CardItem(props) {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -29,13 +39,29 @@ function CardItem(props) {
     <>
       <div className="cards__item" ref={ref}>
         <div className="cards__item__block">
-          <figure className="cards__item__pic-wrap" data-category={props.label}>
+          <figure className="cards__item__pic-wrap">
             <img className="cards__item__img" alt="Travel" src={props.src} />
-            <div className="card_text">This is the text</div>
+            <div className="card_text">{props.name}</div>
+            <div className="card_sub_text_container">
+              {props.description.map((eachLine, index) => {
+                return (
+                  <h5 className="card_sub_text" key={index}>
+                    {eachLine}
+                  </h5>
+                );
+              })}
+              <FadeInButtons className="register-btns">
+                <Button
+                  buttonName="Register"
+                  className="btns"
+                  buttonStyle="btn--outline"
+                  buttonSize="btn--large"
+                >
+                  {"Learn More and Register"}
+                </Button>
+              </FadeInButtons>
+            </div>
           </figure>
-          <div className="cards__item__info">
-            <h5 className="cards__item__text">{props.description}</h5>
-          </div>
         </div>
       </div>
     </>

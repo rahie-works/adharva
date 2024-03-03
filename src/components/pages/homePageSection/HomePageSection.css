@@ -67,12 +67,37 @@
     background-position-x: center;
   }
   .hero-container > h1 {
-    font-size: 50px;
+    font-size: 40px;
     margin-top: -100px;
+    margin-bottom: 50px;
   }
 
   .hero-container > p {
     font-size: 20px;
+  }
+
+  .btn-mobile {
+    display: block;
+    text-decoration: none;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hero-container {
+    background-position-x: center;
+  }
+  .hero-container > h1 {
+    font-size: 30px;
+    margin-top: -60px;
+    margin-bottom: 100px;
+  }
+
+  .hero-container > p {
+    font-size: 15px;
   }
 
   .btn-mobile {

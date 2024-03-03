@@ -59,11 +59,21 @@
 
 @media only screen and (max-width: 1024px) {
   .faq_card__item {
-    width: 70vh;
+    width: 60vh;
+    font-size: 13px;
+  }
+
+  .faq_question {
+    font-size: 18px;
+  }
+  #faq_answer {
+    display: block;
+    font-size: 22px;
+    color: #ffffff;
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 767px) {
   .cards_background_for_faq {
     padding: 1rem;
     font-size: 20px;
@@ -73,6 +83,15 @@
   .faq_card__item {
     width: 40vh;
     font-size: 13px;
+  }
+
+  .faq_question {
+    font-size: 15px;
+  }
+  #faq_answer {
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
   }
 }
 
@@ -86,5 +105,19 @@
 
   .faq_cards__container {
     margin: -5px auto;
+  }
+
+  .faq_card__item {
+    width: 40vh;
+    font-size: 10px;
+  }
+
+  .faq_question {
+    font-size: 15px;
+  }
+  #faq_answer {
+    display: block;
+    font-size: 14px;
+    color: #ffffff;
   }
 }

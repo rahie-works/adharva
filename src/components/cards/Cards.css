@@ -1,5 +1,5 @@
 .cards_background_for_services {
-  padding: 4rem;
+  padding: 2rem;
   font-size: 40px;
   color: #fff;
   background-image: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
@@ -10,8 +10,6 @@ h1 {
 }
 
 .cards__container {
-  display: flex;
-  flex-flow: column;
   align-items: center;
   max-width: 1120px;
   width: 90%;
@@ -52,6 +50,7 @@ h1 {
 }
 
 .card_text {
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -59,23 +58,23 @@ h1 {
   text-align: center;
 }
 
+.card_sub_text_container {
+  width: 100%;
+  position: absolute;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  top: 60%;
+  font-size: 18px;
+  text-align: center;
+  padding: 0px 20px;
+}
+
+.card_sub_text {
+  margin-bottom: 5px;
+}
+
 .fade-img {
   animation-name: fade-img;
   animation-duration: 2s;
-}
-
-.cards__item__pic-wrap::after {
-  content: attr(data-category);
-  position: absolute;
-  bottom: 0;
-  margin-left: 10px;
-  padding: 6px 10px;
-  max-width: calc((100%) - 60px);
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  background-color: #1f98f4;
-  box-sizing: border-box;
 }
 
 .cards__item__img {
@@ -102,9 +101,13 @@ h1 {
 }
 
 .cards__item__text {
-  color: #252e48;
+  color: #ffffff;
   font-size: 18px;
   line-height: 24px;
+}
+
+.register-btns {
+  margin-top: 20px;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -128,12 +131,38 @@ h1 {
     padding: 4rem;
     font-size: 30px;
   }
+
+  .card_sub_text {
+    font-size: 13px;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 800px) {
   .cards_background_for_services {
-    padding: 4rem;
+    padding: 1rem;
     font-size: 20px;
+  }
+  .card_sub_text {
+    display: none;
+  }
+
+  .register-btns {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .cards_background_for_services {
+    padding: 0rem;
+    font-size: 15px;
+  }
+  .card_sub_text {
+    display: none;
+  }
+
+  .register-btns {
+    margin-top: 5px;
   }
 }
 

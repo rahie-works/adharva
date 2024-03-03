@@ -29,26 +29,25 @@ function Cards(props) {
     return () => observer.disconnect();
   }, [isIntersecting]);
 
+  console.log("==cardData", cardData);
+
   return (
     <div className="cards_background_for_services" ref={ref}>
       {isIntersecting && <FadeInTitle>{sectionData.title}</FadeInTitle>}
       <div className="cards__container">
         <div className="cards__wrapper">
-          {cardData.map((eachRow) => {
+          {cardData.map((eachRow, index) => {
             return (
               <ul className="cards__items">
-                {eachRow.map((eachItem, index) => {
-                  return (
-                    <CardItem
-                      key={index}
-                      intersecting={isIntersecting}
-                      src={eachItem.backgroundImage}
-                      description={eachItem.description}
-                      label={eachItem.label}
-                      path="/services"
-                    />
-                  );
-                })}
+                <CardItem
+                  key={index}
+                  intersecting={isIntersecting}
+                  name={eachRow.serviceName}
+                  src={eachRow.backgroundImage}
+                  description={eachRow.serviceDescription}
+                  label={eachRow.serviceAbbr}
+                  path="/services"
+                />
               </ul>
             );
           })}
