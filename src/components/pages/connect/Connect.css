@@ -66,49 +66,13 @@
   font-size: 40px;
 }
 
-.facebook:hover {
-  color: #2150fa;
-  transform: scale(1.5);
-  transition: 500ms;
-}
-
-.instagram:hover {
-  color: #ff61ad;
-  transform: scale(1.5);
-  transition: 500ms;
-}
-
-.youtube:hover {
-  color: #ff0000;
-  transform: scale(1.5);
-  transition: 500ms;
-}
-
-.twitter:hover {
-  color: #0061bc;
-  transform: scale(1.5);
-  transition: 500ms;
-}
-
-.linkedIn:hover {
-  color: #39b9fa;
-  transform: scale(1.5);
-  transition: 500ms;
-}
-
-.whatsapp:hover {
-  color: #03ff2d;
-  transform: scale(1.4);
-  transition: 500ms;
-}
-
 @media only screen and (max-width: 800px) {
   .connect > h1 {
     color: #fff;
     text-align: center;
     margin-bottom: 40px;
     transition: 500ms;
-    font-size: 40px;
+    font-size: 35px;
   }
   .connect > h3 {
     color: #fff;
@@ -119,32 +83,89 @@
   }
 
   .facebook {
-    color: #2150fa;
     transform: scale(1.2);
   }
   .instagram {
-    color: #ff61ad;
     transform: scale(1.2);
   }
 
   .youtube {
-    color: #ff0000;
     transform: scale(1.2);
   }
 
   .twitter {
-    color: #0061bc;
     transform: scale(1.2);
   }
 
   .linkedIn {
-    color: #39b9fa;
     transform: scale(1.2);
   }
 
   .whatsapp {
-    color: #03ff2d;
     transform: scale(1.2);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .facebook {
+    color: #2150fa;
+  }
+  .instagram {
+    color: #ff61ad;
+  }
+
+  .youtube {
+    color: #ff0000;
+  }
+
+  .twitter {
+    color: #0061bc;
+  }
+
+  .linkedIn {
+    color: #39b9fa;
+  }
+
+  .whatsapp {
+    color: #03ff2d;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .facebook:hover {
+    color: #2150fa;
+    transform: scale(1.5);
+    transition: 500ms;
+  }
+
+  .instagram:hover {
+    color: #ff61ad;
+    transform: scale(1.5);
+    transition: 500ms;
+  }
+
+  .youtube:hover {
+    color: #ff0000;
+    transform: scale(1.5);
+    transition: 500ms;
+  }
+
+  .twitter:hover {
+    color: #0061bc;
+    transform: scale(1.5);
+    transition: 500ms;
+  }
+
+  .linkedIn:hover {
+    color: #39b9fa;
+    transform: scale(1.5);
+    transition: 500ms;
+  }
+
+  .whatsapp:hover {
+    color: #03ff2d;
+    transform: scale(1.4);
+    transition: 500ms;
   }
 }
 

@@ -1,15 +1,17 @@
 import React from "react";
-import { Link, Linking } from "react-router-dom";
-import Footer from "./footer/Footer";
+import { Link } from "react-router-dom";
 import "./Connect.css";
 import { CONNECT_TITLE } from "./constants/ConnectConstant";
 
-export default function Connect() {
+export default function Connect(props) {
   const encodedWhatsappText =
     "Hello%2C%0D%0AI+am+interested+to+know+more+about+the+services+you+provide.";
   return (
     <>
-      <div className="connect">
+      <div
+        className="connect"
+        style={{ height: props.page ? "100vh" : "auto" }}
+      >
         <h1>{CONNECT_TITLE}</h1>
         <div className="social-icons">
           <Link
@@ -68,7 +70,6 @@ export default function Connect() {
           </Link>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

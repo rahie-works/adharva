@@ -29,8 +29,6 @@ function Cards(props) {
     return () => observer.disconnect();
   }, [isIntersecting]);
 
-  console.log("==cardData", cardData);
-
   return (
     <div className="cards_background_for_services" ref={ref}>
       {isIntersecting && <FadeInTitle>{sectionData.title}</FadeInTitle>}

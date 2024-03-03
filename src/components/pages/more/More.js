@@ -4,7 +4,6 @@ import { ABOUT_US_TEXT_1, ABOUT_US_TEXT_2, ABOUT_US_TEXT_3 } from "./constants";
 import TabBar from "./tabs/TabBar";
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
-import Testimonials from "./testimonials/Testimonials";
 
 const simpleAnimation = keyframes`${fadeIn}`;
 
@@ -16,7 +15,6 @@ export default function More(props) {
   const { path } = props;
 
   const getContent = () => {
-    console.log("==Here", path);
     switch (path) {
       case "About Us":
         return ABOUT_US_TEXT_1 + ABOUT_US_TEXT_2 + ABOUT_US_TEXT_3;
@@ -76,7 +74,6 @@ export default function More(props) {
     >
       <TabBar tab={selectedtab} navigatedTo={props.path} />
       <FadeInDiv className="content">{contentText}</FadeInDiv>
-      <Testimonials />
     </div>
   );
 }

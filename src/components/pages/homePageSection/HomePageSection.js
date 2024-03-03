@@ -70,6 +70,7 @@ function HomePageSection() {
               className="btns"
               buttonStyle="btn--outline"
               buttonSize="btn--large"
+              routeTo={eachButton.linkTo}
             >
               {eachButton.title}
             </Button>

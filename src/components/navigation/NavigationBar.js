@@ -8,10 +8,13 @@ import {
   NAVIGATION_BAR_BUTTON,
 } from "./NavigationConstants";
 import { createClient } from "contentful";
+import Register from "../pages/register/Register";
+import { useHistory, useNavigate } from "react-router-dom";
 
 export const NavigationBar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const navigate = useNavigate();
 
   const [navigationData, setNavigationBarData] = useState({});
   const client = createClient({
@@ -74,7 +77,7 @@ export const NavigationBar = () => {
             })}
           </ul>
           {button && (
-            <Button buttonStyle="btn--outline">
+            <Button buttonStyle="btn--outline" routeTo="/register">
               {navigationData.fields?.navigationBarSections?.button
                 ?.buttonName || NAVIGATION_BAR_BUTTON}
             </Button>

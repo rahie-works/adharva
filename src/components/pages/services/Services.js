@@ -23,7 +23,6 @@ export default function Services() {
         );
         const servicesImagesArray =
           servicesSectionData?.fields?.servicesTileImages;
-        console.log("==servicesImagesArray", servicesImagesArray);
         const shapedData =
           servicesSectionData?.fields?.servicesList?.services?.map(
             (dataItem, index) => {
@@ -41,8 +40,6 @@ export default function Services() {
     fecthData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log("==servicesSectionData", servicesSectionData);
 
   const SectionData = {
     section: SERVICES_SECTION_NAME,

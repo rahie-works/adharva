@@ -56,6 +56,7 @@ function CardItem(props) {
                   className="btns"
                   buttonStyle="btn--outline"
                   buttonSize="btn--large"
+                  routeTo={"/register"}
                 >
                   {"Learn More and Register"}
                 </Button>
