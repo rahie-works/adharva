@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
 import "./NavigationBar.css";
@@ -8,13 +8,12 @@ import {
   NAVIGATION_BAR_BUTTON,
 } from "./NavigationConstants";
 import { createClient } from "contentful";
-import Register from "../pages/register/Register";
-import { useHistory, useNavigate } from "react-router-dom";
 
 export const NavigationBar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const navigate = useNavigate();
+  const currentTabRef = useRef();
+  const previousTabRef = useRef();
 
   const [navigationData, setNavigationBarData] = useState({});
   const client = createClient({
@@ -23,7 +22,14 @@ export const NavigationBar = () => {
   });
 
   const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  const closeMobileMenu = (ref) => {
+    if (!!previousTabRef.target) {
+      previousTabRef.target.classList.remove("nav-links-clicked");
+    }
+    ref.target.classList.add("nav-links-clicked");
+    previousTabRef.target = ref.target;
+    setClick(false);
+  };
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -64,7 +70,7 @@ export const NavigationBar = () => {
               NAVIGATION_LINKS
             ).map((eachSection, index) => {
               return (
-                <li className="nav-item" key={index}>
+                <li className="nav-item" key={index} ref={currentTabRef}>
                   <Link
                     to={eachSection.linkTo}
                     className="nav-links"

@@ -38,3 +38,10 @@ export const SERVICE_CARDS_DATA = [
     ],
   },
 ];
+
+export const SERVICES_QUALIFICATIONS = [
+  "Under Graduate",
+  "Graduate",
+  "Post Graduate",
+  "Masters",
+];

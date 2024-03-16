@@ -1,0 +1,83 @@
+.flexbox-grid-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1vw;
+  justify-content: center;
+  align-items: center;
+}
+.flexbox-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+body {
+  --padding: 5vw;
+  --max-width: 180ch;
+  background-image: url("/public/assets/register/reg_bg_img.png");
+  background-position: center;
+  box-shadow: inset 0 0 0 1000px rgba(26, 26, 26, 0.6);
+  background-repeat: no-repeat;
+  background-size: fill;
+}
+
+.register_container {
+  color: whitesmoke;
+  font-size: 3vw;
+}
+.course_selection_label {
+  margin-top: 3vh;
+  text-align: center;
+  font-size: 1.7vh;
+}
+
+.service_list {
+  margin: 2vh 0px;
+  font-size: 2vh;
+  color: rgb(255, 255, 255);
+}
+
+.service_list_item {
+  width: 40vw;
+  padding: 1.6vw 1.5vh;
+  text-align: center;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.service_list_item:hover {
+  background-color: rgb(9, 163, 19);
+}
+
+.registration_form {
+  display: flex;
+  width: 100vmin;
+  justify-content: center;
+}
+
+.select_qualifications {
+  width: 100%;
+  justify-content: space-around;
+  color: white;
+}
+
+.select_qualifications_item {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 1vh 2vh;
+  font-size: 1.5vh;
+}
+
+.select_qualifications_item:hover {
+  background-color: rgb(9, 163, 19);
+}
+
+.phone-number-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 30px;
+}
