@@ -39,14 +39,6 @@ export default function Connect(props) {
             <i className="fab fa-youtube" />
           </Link>
           <Link
-            className="social-icon-link twitter"
-            to="https://www.twitter.com"
-            target="_blank"
-            aria-label="Twitter"
-          >
-            <i className="fab fa-twitter" />
-          </Link>
-          <Link
             className="social-icon-link linkedIn"
             to="https://www.linkedin.com"
             target="_blank"
@@ -61,11 +53,11 @@ export default function Connect(props) {
           <Link
             className="social-icon-link whatsapp"
             target="_blank"
-            to={`https://wa.me/+16475402464?text=${encodedWhatsappText}`}
+            to={`https://wa.me/+918891502071?text=${encodedWhatsappText}`}
             aria-label="Whatsapp"
           >
             <h2>
-              +91 9764 776 554 <i className="fab fa-whatsapp" />
+              +91 8891 502 071 <i className="fab fa-whatsapp" />
             </h2>
           </Link>
         </div>

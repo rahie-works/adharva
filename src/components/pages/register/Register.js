@@ -8,6 +8,7 @@ import {
 import styled from "styled-components";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import emailjs from "@emailjs/browser";
 
 const StyledForm = styled.form`
   width: 70%;
@@ -23,6 +24,12 @@ const StyledLabel = styled.label`
   font-size: 1.5vmin;
   color: white;
 `;
+const StyledCheckBox = styled.label`
+  display: block;
+  margin: 1vmin 0px;
+  font-size: 1.3vmin;
+  color: white;
+`;
 const StyledInput = styled.input`
   width: 100%;
   padding: 10px;
@@ -32,7 +39,7 @@ const StyledInput = styled.input`
 `;
 const StyledButton = styled.button`
   display: flex;
-  background-color: #7f7f7f;
+  background-color: ${({ colorchange }) => (!colorchange ? "blue" : "gray")};
   width: auto;
   padding: 10px;
   margin: 30px;
@@ -43,7 +50,9 @@ const StyledButton = styled.button`
   justify-content: center;
 `;
 
-// const resend = new Resend("re_A3zxSR2u_MhB7hmb6pnT4KUCMBs6rR43M");
+const CONSENT_TEXT = `I provide my consent to contact
+me through email/phone from Adharva
+Institute of Commerce.`;
 
 export default function Register() {
   const [serviceList, setServiceList] = useState([]);
@@ -55,11 +64,78 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [courseSelected, setCourseSelected] = useState("");
+  const [qualificationSelected, setQualificationSelected] = useState("");
+  const [clickedCourseId, setClickedCourseId] = useState("");
+  const [clickedQualificationId, setClickedQualificationId] = useState("");
+  const [checked, setChecked] = useState(false);
   const [clientDataReceiver, setClientDataReceiver] = useState({});
-  const smtpjs = window.Email;
 
   const submitClicked = async (e) => {
     e.preventDefault();
+    if (!phoneNumber) {
+      alert(
+        "All fields are required. Please provide a phone number for contact purposes."
+      );
+      return;
+    }
+    if (!courseSelected) {
+      alert("All fields are required. Please select a course from the list.");
+      return;
+    }
+    if (!qualificationSelected) {
+      alert(
+        "All fields are required. Please select your highest qualification from the list."
+      );
+      return;
+    }
+    if (!checked) {
+      alert(
+        "Your consent for using the registration data is important. Please accept by checking the checkbox"
+      );
+      return;
+    }
+    const { serviceId, templateId, publicKey } = clientDataReceiver;
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      to_name: "Adharva Admin",
+      from_phone: phoneNumber,
+      from_qualification: qualificationSelected,
+      from_course: courseSelected,
+      message: `I am interested in registering for ${courseSelected}. Please find the details and connect with me. Thank you`,
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, publicKey).then(
+      (response) => {
+        console.log("SUCCESS...", response);
+        alert(`Thanks for enquiring ${name}. We will contact you soon`);
+        setName("");
+        setEmail("");
+        setPhoneNumber("");
+        setChecked(false);
+        setClickedCourseId("");
+        setClickedQualificationId("");
+      },
+      (error) => {
+        console.log("FAILED...", error.text);
+      }
+    );
+  };
+
+  const onSelectedCourse = (serviceName, id) => {
+    setCourseSelected(serviceName);
+    setClickedCourseId(id);
+  };
+
+  const onSelectedQualification = (qualification, id) => {
+    setQualificationSelected(qualification);
+    setClickedQualificationId(id);
+  };
+
+  const handleCheckboxChange = () => {
+    setChecked(!checked);
   };
 
   useEffect(() => {
@@ -84,12 +160,20 @@ export default function Register() {
       <div className="register_container">
         <h1 className="registration_title">Register</h1>
         <h5 className="course_selection_label">
-          Select your preferred course:{" "}
+          Select your preferred course:
         </h5>
         <div className="service_list flexbox-grid-row">
           {serviceList?.map((eachService, index) => {
             return (
-              <div className="service_list_item">
+              <div
+                className={
+                  clickedCourseId !== index
+                    ? "service_list_item"
+                    : "service_list_item selected_item"
+                }
+                key={index}
+                onClick={() => onSelectedCourse(eachService.serviceName, index)}
+              >
                 <h3>{eachService.serviceName}</h3>
                 <h5>{eachService.serviceAbbr}</h5>
               </div>
@@ -100,18 +184,21 @@ export default function Register() {
       <div className="registration_form">
         <StyledForm onSubmit={submitClicked}>
           <StyledInput
+            required
             type="text"
             value={name}
             placeholder="Full Name"
             onChange={(e) => setName(e.target.value)}
           />
           <StyledInput
+            required
             type="email"
             value={email}
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <PhoneInput
+            required
             inputClassName="phone-number-field"
             defaultCountry="in"
             value={phoneNumber}
@@ -121,13 +208,42 @@ export default function Register() {
           <div className="select_qualifications flexbox-grid-row">
             {SERVICES_QUALIFICATIONS.map((eachQualification, index) => {
               return (
-                <div key={index} className="select_qualifications_item">
+                <div
+                  key={index}
+                  className={
+                    clickedQualificationId === index
+                      ? "select_qualifications_item selected_item"
+                      : "select_qualifications_item"
+                  }
+                  onClick={() =>
+                    onSelectedQualification(eachQualification, index)
+                  }
+                >
                   {eachQualification}
                 </div>
               );
             })}
           </div>
-          <StyledButton type="submit" disabled={false}>
+          <StyledCheckBox>
+            <input
+              type="checkbox"
+              style={{ marginRight: "1vh", paddingTop: "1vh" }}
+              checked={checked}
+              onChange={handleCheckboxChange}
+            />
+            {CONSENT_TEXT}
+          </StyledCheckBox>
+          <StyledButton
+            type="submit"
+            colorchange={
+              !name ||
+              !email ||
+              !phoneNumber ||
+              !qualificationSelected ||
+              !courseSelected ||
+              !checked
+            }
+          >
             Register
           </StyledButton>
         </StyledForm>

@@ -58,7 +58,7 @@ function CardItem(props) {
                   buttonSize="btn--large"
                   routeTo={"/register"}
                 >
-                  {"Learn More and Register"}
+                  {"Register"}
                 </Button>
               </FadeInButtons>
             </div>

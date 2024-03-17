@@ -136,7 +136,15 @@
     margin: 0px 10px;
   }
 
-  .social-media-wrap {
+  /* .social-media-wrap {
     flex-direction: column;
+  } */
+  .social-logo {
+    margin-left: 5px;
+    font-size: 0.8rem;
+  }
+  .website-rights {
+    margin-right: 5px;
+    font-size: 0.5rem;
   }
 }

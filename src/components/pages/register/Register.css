@@ -47,6 +47,9 @@ body {
   border-radius: 10px;
 }
 
+.selected_item {
+  background-color: rgb(9, 163, 19);
+}
 .service_list_item:hover {
   background-color: rgb(9, 163, 19);
 }
