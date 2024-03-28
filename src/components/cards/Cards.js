@@ -1,10 +1,11 @@
 import React from "react";
-import "./Cards.css";
-import CardItem from "./CardItem";
 import { useState, useRef, useEffect } from "react";
-
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
+
+import CardItem from "./CardItem";
+
+import "./Cards.css";
 
 const simpleAnimation = keyframes`${fadeIn}`;
 

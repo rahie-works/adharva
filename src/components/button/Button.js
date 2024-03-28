@@ -1,7 +1,7 @@
 import React from "react";
-import "./Button.css";
 import { Link } from "react-router-dom";
-import { CONNECT_BUTTON_NAME, ROUTE_TO_CONNECT } from "./constants";
+
+import "./Button.css";
 
 const STYLES = ["btn--primary", "btn--outline", "btn--test"];
 

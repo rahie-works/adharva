@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import "./Register.css";
 import { createClient } from "contentful";
+import styled from "styled-components";
+import { PhoneInput } from "react-international-phone";
+import emailjs from "@emailjs/browser";
+
 import {
   SERVICE_CARDS_DATA,
   SERVICES_QUALIFICATIONS,
 } from "../services/ServicesConstant";
-import styled from "styled-components";
-import { PhoneInput } from "react-international-phone";
+
 import "react-international-phone/style.css";
-import emailjs from "@emailjs/browser";
+import "./Register.css";
 
 const StyledForm = styled.form`
   width: 70%;

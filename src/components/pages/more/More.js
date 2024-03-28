@@ -1,9 +1,11 @@
 import React, { useState, useRef } from "react";
-import "./More.css";
-import { ABOUT_US_TEXT_1, ABOUT_US_TEXT_2, ABOUT_US_TEXT_3 } from "./constants";
-import TabBar from "./tabs/TabBar";
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
+
+import { ABOUT_US_TEXT_1, ABOUT_US_TEXT_2, ABOUT_US_TEXT_3 } from "./constants";
+import TabBar from "./tabs/TabBar";
+
+import "./More.css";
 
 const simpleAnimation = keyframes`${fadeIn}`;
 

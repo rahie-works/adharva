@@ -1,4 +1,5 @@
 import { FAQ_BANK } from "./QuestionBank";
+
 import "./QuestionCard.css";
 
 export const QuestionCard = () => {

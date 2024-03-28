@@ -1,15 +1,18 @@
 import React from "react";
-import "../../../App.css";
-import { Button } from "../../button/Button";
-import "./HomePageSection.css";
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
 import { createClient } from "contentful";
+
+import { Button } from "../../button/Button";
+
 import {
   HOME_PAGE_TITLE,
   HOME_PAGE_SUBTITLE,
   HOME_PAGE_BUTTONS,
 } from "./HomePageConstants";
+
+import "../../../App.css";
+import "./HomePageSection.css";
 
 const simpleAnimation = keyframes`${fadeIn}`;
 
@@ -46,37 +49,47 @@ function HomePageSection() {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${homePageData.fields?.homePageBackgroundImage?.fields?.file.url})`,
-        background: "center center/cover no-repeat",
-      }}
-      className="hero-container"
-    >
-      <FadeInTitle>
-        {homePageData.fields?.homePageTitle || HOME_PAGE_TITLE}
-      </FadeInTitle>
-      <FadeInPara>
-        {homePageData.fields?.homePageSubTitle || HOME_PAGE_SUBTITLE}
-      </FadeInPara>
-      <FadeInButtons className="hero-btns">
-        {(
-          homePageData.fields?.homePageButtons?.buttons || HOME_PAGE_BUTTONS
-        ).map((eachButton, index) => {
-          return (
-            <Button
-              key={index}
-              buttonName={eachButton.title}
-              className="btns"
-              buttonStyle="btn--outline"
-              buttonSize="btn--large"
-              routeTo={eachButton.linkTo}
-            >
-              {eachButton.title}
-            </Button>
-          );
-        })}
-      </FadeInButtons>
+    <div>
+      {homePageData?.fields?.homePageBanner?.fields?.file.url && (
+        <figure className="banner-class">
+          <img
+            src={homePageData?.fields?.homePageBanner?.fields?.file.url}
+            style={{ width: "100%", height: "20vh" }}
+          />
+        </figure>
+      )}
+      <div
+        style={{
+          backgroundImage: `url(${homePageData.fields?.homePageBackgroundImage?.fields?.file.url})`,
+          background: "center center/cover no-repeat",
+        }}
+        className="hero-container"
+      >
+        <FadeInTitle>
+          {homePageData.fields?.homePageTitle || HOME_PAGE_TITLE}
+        </FadeInTitle>
+        <FadeInPara>
+          {homePageData.fields?.homePageSubTitle || HOME_PAGE_SUBTITLE}
+        </FadeInPara>
+        <FadeInButtons className="hero-btns">
+          {(
+            homePageData.fields?.homePageButtons?.buttons || HOME_PAGE_BUTTONS
+          ).map((eachButton, index) => {
+            return (
+              <Button
+                key={index}
+                buttonName={eachButton.title}
+                className="btns"
+                buttonStyle="btn--outline"
+                buttonSize="btn--large"
+                routeTo={eachButton.linkTo}
+              >
+                {eachButton.title}
+              </Button>
+            );
+          })}
+        </FadeInButtons>
+      </div>
     </div>
   );
 }

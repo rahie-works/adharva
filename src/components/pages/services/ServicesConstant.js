@@ -1,5 +1,3 @@
-export const SERVICES_SECTION_NAME = "SERVICES";
-export const SERVICES_TITLE = "Courses We Offer!";
 export const SERVICE_CARDS_DATA = [
   {
     backgroundImage: "assets/services/cpa_img.png",
@@ -45,3 +43,6 @@ export const SERVICES_QUALIFICATIONS = [
   "Post Graduate",
   "Masters",
 ];
+
+export const SERVICES_SECTION_NAME = "SERVICES";
+export const SERVICES_TITLE = "Courses We Offer!";

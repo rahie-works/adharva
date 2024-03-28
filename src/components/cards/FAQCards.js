@@ -1,4 +1,5 @@
 import "./FAQCards.css";
+
 function FAQCards(props) {
   const { cardData, sectionData } = props;
 

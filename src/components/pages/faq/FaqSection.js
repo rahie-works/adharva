@@ -1,6 +1,8 @@
 import React from "react";
-import { FAQ_BANK, FAQ_TITLE } from "./QuestionBank";
+
 import FAQCards from "../../cards/FAQCards";
+
+import { FAQ_BANK, FAQ_TITLE } from "./QuestionBank";
 
 export const FaqSection = () => {
   const SectionData = {

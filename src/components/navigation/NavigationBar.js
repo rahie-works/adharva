@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
-import "./NavigationBar.css";
+import { createClient } from "contentful";
+
 import {
   NAVIGATION_BAR_TITLE,
   NAVIGATION_LINKS,
   NAVIGATION_BAR_BUTTON,
 } from "./NavigationConstants";
-import { createClient } from "contentful";
+
+import "./NavigationBar.css";
 
 export const NavigationBar = () => {
   const [click, setClick] = useState(false);

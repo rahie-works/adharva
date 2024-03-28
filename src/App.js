@@ -1,14 +1,16 @@
 import React from "react";
-import { NavigationBar } from "./components/navigation/NavigationBar";
-import "./App.css";
-import Home from "./components/home/Home";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Routes } from "react-router";
-import Services from "./components/pages/services/Services";
+
 import Connect from "./components/pages/connect/Connect";
-import More from "./components/pages/more/More";
 import { FaqSection } from "./components/pages/faq/FaqSection";
+import Home from "./components/home/Home";
+import More from "./components/pages/more/More";
+import { NavigationBar } from "./components/navigation/NavigationBar";
+import Services from "./components/pages/services/Services";
 import Register from "./components/pages/register/Register";
+
+import "./App.css";
 
 function App() {
   return (

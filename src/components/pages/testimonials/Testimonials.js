@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { TESTIMONIAL_TITLE, UserTestimonials } from "./TestimonialContent";
-import "./Testimonial.css";
-import right from "../../../images/right.png";
 import { createClient } from "contentful";
+
+import { TESTIMONIAL_TITLE, UserTestimonials } from "./TestimonialContent";
+import right from "../../../images/right.png";
+import googleLogo from "../../../images/googlelogo.png";
+
+import "./Testimonial.css";
 
 export default function Testimonials() {
   const [testimonialsSectionData, settestimonialsSectionData] = useState([]);
@@ -52,6 +55,12 @@ export default function Testimonials() {
             </div>
           );
         })}
+        <div className="more-review-container">
+          <h4>Looking for more reviews..? Catch us on</h4>
+          <a href="https://maps.app.goo.gl/E1iQqUxwQdQmjE196" target="blank">
+            <img className="google-image" src={googleLogo} />
+          </a>
+        </div>
       </div>
     </div>
   );

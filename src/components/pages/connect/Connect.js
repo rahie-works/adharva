@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import "./Connect.css";
+
 import { CONNECT_TITLE } from "./constants/ConnectConstant";
 
 export default function Connect(props) {

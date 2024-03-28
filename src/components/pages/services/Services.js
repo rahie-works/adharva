@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "../../../App.css";
+import { createClient } from "contentful";
+
 import Cards from "../../cards/Cards";
 import {
   SERVICES_SECTION_NAME,
   SERVICE_CARDS_DATA,
   SERVICES_TITLE,
 } from "./ServicesConstant";
-import { createClient } from "contentful";
+
+import "../../../App.css";
 
 export default function Services() {
   const [servicesSectionData, setservicesSectionData] = useState([]);

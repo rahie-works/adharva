@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Cards.css";
-import "../button/Button.css";
-import { Button } from "../button/Button";
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
+
+import { Button } from "../button/Button";
+
+import "./Cards.css";
+import "../button/Button.css";
 
 const simpleAnimation = keyframes`${fadeIn}`;
 
