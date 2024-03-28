@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.c676ca5b.css",
-    "main.js": "/static/js/main.d167c6db.js",
+    "main.css": "/static/css/main.5f8c7baf.css",
+    "main.js": "/static/js/main.b19c41a6.js",
     "static/media/students_2.png": "/static/media/students_2.107fe96eafd8b18799ab.png",
     "static/media/reg_bg_img.png": "/static/media/reg_bg_img.35d93037d72b57f218be.png",
     "static/media/faq_img.png": "/static/media/faq_img.2baf2627c57fd2a9c49e.png",
-    "static/media/cpa_img.png": "/static/media/cpa_img.96bdf5cc3e34daaeb76d.png",
     "static/media/services_img.png": "/static/media/services_img.516fb8a5071018cfa582.png",
     "static/media/connect_with_us.jpg": "/static/media/connect_with_us.f15361cd4be0a1094fac.jpg",
-    "static/media/img-3.jpg": "/static/media/img-3.fabdf94dc5be2d3dc707.jpg",
+    "static/media/googlelogo.png": "/static/media/googlelogo.330fac308b783a6bc246.png",
     "static/media/right.png": "/static/media/right.5bdeacde7a51aae3a2c7.png",
     "index.html": "/index.html",
-    "main.c676ca5b.css.map": "/static/css/main.c676ca5b.css.map",
-    "main.d167c6db.js.map": "/static/js/main.d167c6db.js.map"
+    "main.5f8c7baf.css.map": "/static/css/main.5f8c7baf.css.map",
+    "main.b19c41a6.js.map": "/static/js/main.b19c41a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.c676ca5b.css",
-    "static/js/main.d167c6db.js"
+    "static/css/main.5f8c7baf.css",
+    "static/js/main.b19c41a6.js"
   ]
 }
