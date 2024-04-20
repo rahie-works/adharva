@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
+import { createClient } from "contentful";
 
 import { ABOUT_US_TEXT_1, ABOUT_US_TEXT_2, ABOUT_US_TEXT_3 } from "./constants";
 import TabBar from "./tabs/TabBar";
@@ -15,6 +16,24 @@ const FadeInDiv = styled.div`
 
 export default function More(props) {
   const { path } = props;
+  const [moreData, setMoreData] = useState([]);
+
+  const client = createClient({
+    space: "5s10ucm8anhl",
+    accessToken: "AzH3pFFc0MofFVf8rtX5jHk5LCjiiwk7EtosViYi1WE",
+  });
+
+  useEffect(() => {
+    const fecthData = async () => {
+      try {
+        const moreData = await client.getEntry("2sGOvbZcvYpza3CTtB3h0d");
+        setMoreData(moreData?.fields?.moreSectionContents?.moreSectionContents);
+      } catch (error) {
+        console.log("==Data not received", error);
+      }
+    };
+    fecthData();
+  }, []);
 
   const getContent = () => {
     switch (path) {
@@ -48,19 +67,17 @@ export default function More(props) {
   const selectedtab = (tab) => {
     switch (tab) {
       case "About Us":
-        setContentText(ABOUT_US_TEXT_1 + ABOUT_US_TEXT_2 + ABOUT_US_TEXT_3);
+        setContentText(moreData[0].description);
         ref.current.style.backgroundImage =
           "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)";
         break;
       case "Our Mission":
-        setContentText(
-          "To transform lives through affordable, quality and value-based education."
-        );
+        setContentText(moreData[1].description);
         ref.current.style.backgroundImage =
           "linear-gradient(to top, #37ecba 0%, #72afd3 100%)";
         break;
       case "Our Vision":
-        setContentText("AIC in brand of trust");
+        setContentText(moreData[2].description);
         ref.current.style.backgroundImage =
           "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%";
         break;

@@ -1,6 +1,7 @@
+// styles
 import "./FAQCards.css";
 
-function FAQCards(props) {
+export default function FAQCards(props) {
   const { cardData, sectionData } = props;
 
   return (
@@ -27,5 +28,3 @@ function FAQCards(props) {
     </div>
   );
 }
-
-export default FAQCards;

@@ -1,13 +1,14 @@
+// constants
 import { FAQ_BANK } from "./QuestionBank";
 
+// styles
 import "./QuestionCard.css";
 
-export const QuestionCard = () => {
-  const questionBank = FAQ_BANK;
+export default function QuestionCard() {
   return (
     <>
       <div className="question-section">
-        {questionBank.map((faq, index) => {
+        {FAQ_BANK.map((faq, index) => {
           return (
             <div className="question-card" key={index}>
               ${faq.question}
@@ -17,4 +18,4 @@ export const QuestionCard = () => {
       </div>
     </>
   );
-};
+}

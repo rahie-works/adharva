@@ -57,7 +57,10 @@ export default function Testimonials() {
         })}
         <div className="more-review-container">
           <h4>Looking for more reviews..? Catch us on</h4>
-          <a href="https://maps.app.goo.gl/E1iQqUxwQdQmjE196" target="blank">
+          <a
+            href="https://www.google.com/maps/place/Adharva+Institute+of+Commerce+-+A+I+C/@11.1974246,76.0726099,12z/data=!4m8!3m7!1s0x3ba63b599c395a4b:0xdbb080e178143d64!8m2!3d11.2781347!4d76.2287482!9m1!1b1!16s%2Fg%2F11v3q4fm90?entry=ttu"
+            target="blank"
+          >
             <img className="google-image" src={googleLogo} />
           </a>
         </div>

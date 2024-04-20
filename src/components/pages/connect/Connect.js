@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// styles
 import "./Connect.css";
 
-import { CONNECT_TITLE } from "./constants/ConnectConstant";
+// constants
+import { CONNECT_TITLE, ENCODED_WHATSAPP_TEXT } from "./ConnectConstant";
 
 export default function Connect(props) {
-  const encodedWhatsappText =
-    "Hello%2C%0D%0AI+am+interested+to+know+more+about+the+services+you+provide.";
   return (
     <>
       <div
@@ -55,7 +55,7 @@ export default function Connect(props) {
           <Link
             className="social-icon-link whatsapp"
             target="_blank"
-            to={`https://wa.me/+918891502071?text=${encodedWhatsappText}`}
+            to={`https://wa.me/+918891502071?text=${ENCODED_WHATSAPP_TEXT}`}
             aria-label="Whatsapp"
           >
             <h2>

@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
 
-import { Button } from "../button/Button";
+// components
+import Button from "../button/Button";
 
+// styles
 import "./Cards.css";
 import "../button/Button.css";
 
@@ -13,7 +15,7 @@ const FadeInButtons = styled.div`
   animation: 5s ${simpleAnimation};
 `;
 
-function CardItem(props) {
+export default function CardItem(props) {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const ref = useRef(null);
 
@@ -70,5 +72,3 @@ function CardItem(props) {
     </>
   );
 }
-
-export default CardItem;

@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
 import { createClient } from "contentful";
 
-import {
-  NAVIGATION_BAR_TITLE,
-  NAVIGATION_LINKS,
-  NAVIGATION_BAR_BUTTON,
-} from "./NavigationConstants";
+// components
+import Button from "../button/Button";
 
+// images
+import adharvalogoblue from "../../images/adharvalogoblue.jpeg";
+
+// constants
+import { NAVIGATION_LINKS, NAVIGATION_BAR_BUTTON } from "./NavigationConstants";
+
+// styles
 import "./NavigationBar.css";
 
-export const NavigationBar = () => {
+export default function NavigationBar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const currentTabRef = useRef();
@@ -61,7 +64,7 @@ export const NavigationBar = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            {navigationData.fields?.navigationTitle || NAVIGATION_BAR_TITLE}
+            <img src={adharvalogoblue} className="adharva-logo" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -94,4 +97,4 @@ export const NavigationBar = () => {
       </nav>
     </>
   );
-};
+}

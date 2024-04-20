@@ -3,14 +3,17 @@ import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
 import { createClient } from "contentful";
 
-import { Button } from "../../button/Button";
+// components
+import Button from "../../button/Button";
 
+// constants
 import {
   HOME_PAGE_TITLE,
   HOME_PAGE_SUBTITLE,
   HOME_PAGE_BUTTONS,
 } from "./HomePageConstants";
 
+// styles
 import "../../../App.css";
 import "./HomePageSection.css";
 
@@ -27,7 +30,7 @@ const FadeInButtons = styled.div`
   animation: 5s ${simpleAnimation};
 `;
 
-function HomePageSection() {
+export default function HomePageSection() {
   const client = createClient({
     space: "5s10ucm8anhl",
     accessToken: "AzH3pFFc0MofFVf8rtX5jHk5LCjiiwk7EtosViYi1WE",
@@ -93,5 +96,3 @@ function HomePageSection() {
     </div>
   );
 }
-
-export default HomePageSection;
