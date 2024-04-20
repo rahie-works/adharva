@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.5f8c7baf.css",
-    "main.js": "/static/js/main.b19c41a6.js",
+    "main.css": "/static/css/main.8eca7934.css",
+    "main.js": "/static/js/main.60e71bfb.js",
     "static/media/students_2.png": "/static/media/students_2.107fe96eafd8b18799ab.png",
     "static/media/reg_bg_img.png": "/static/media/reg_bg_img.35d93037d72b57f218be.png",
     "static/media/faq_img.png": "/static/media/faq_img.2baf2627c57fd2a9c49e.png",
     "static/media/services_img.png": "/static/media/services_img.516fb8a5071018cfa582.png",
     "static/media/connect_with_us.jpg": "/static/media/connect_with_us.f15361cd4be0a1094fac.jpg",
+    "static/media/adharvalogoblue.jpeg": "/static/media/adharvalogoblue.f5a2c21f0fb1d4c4a5ed.jpeg",
     "static/media/googlelogo.png": "/static/media/googlelogo.330fac308b783a6bc246.png",
     "static/media/right.png": "/static/media/right.5bdeacde7a51aae3a2c7.png",
     "index.html": "/index.html",
-    "main.5f8c7baf.css.map": "/static/css/main.5f8c7baf.css.map",
-    "main.b19c41a6.js.map": "/static/js/main.b19c41a6.js.map"
+    "main.8eca7934.css.map": "/static/css/main.8eca7934.css.map",
+    "main.60e71bfb.js.map": "/static/js/main.60e71bfb.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f8c7baf.css",
-    "static/js/main.b19c41a6.js"
+    "static/css/main.8eca7934.css",
+    "static/js/main.60e71bfb.js"
   ]
 }
