@@ -7,7 +7,7 @@ import Footer from "../pages/footer/Footer";
 import HomePageSection from "../pages/homePageSection/HomePageSection";
 import Services from "../pages/services/Services";
 import Testimonials from "../pages/testimonials/Testimonials";
-import Partners from "../pages/partners/Partners";
+// import Partners from "../pages/partners/Partners";
 
 // styles
 import "../../App.css";
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <HomePageSection />
       <Services />
-      <Partners />
+      {/* <Partners /> */}
       <FaqSection />
       <Connect />
       <Testimonials />

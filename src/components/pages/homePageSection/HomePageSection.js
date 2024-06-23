@@ -11,6 +11,7 @@ import {
   HOME_PAGE_TITLE,
   HOME_PAGE_SUBTITLE,
   HOME_PAGE_BUTTONS,
+  HOME_PAGE_SEASON_TEXT,
 } from "./HomePageConstants";
 
 // styles
@@ -20,6 +21,9 @@ import "./HomePageSection.css";
 const simpleAnimation = keyframes`${fadeIn}`;
 
 const FadeInTitle = styled.h1`
+  animation: 1s ${simpleAnimation};
+`;
+const FadeInSubTitle = styled.h4`
   animation: 1s ${simpleAnimation};
 `;
 const FadeInPara = styled.p`
@@ -71,8 +75,11 @@ export default function HomePageSection() {
         <FadeInTitle>
           {homePageData.fields?.homePageTitle || HOME_PAGE_TITLE}
         </FadeInTitle>
-        <FadeInPara>
+        <FadeInSubTitle>
           {homePageData.fields?.homePageSubTitle || HOME_PAGE_SUBTITLE}
+        </FadeInSubTitle>
+        <FadeInPara>
+          {homePageData.fields?.homePageSeasonText || HOME_PAGE_SEASON_TEXT}
         </FadeInPara>
         <FadeInButtons className="hero-btns">
           {(

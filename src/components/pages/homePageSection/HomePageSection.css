@@ -14,6 +14,12 @@
   color: #fff;
   font-size: 100px;
   margin-top: -150px;
+  margin-bottom: 20px;
+}
+
+.hero-container > h4 {
+  color: #fff;
+  font-size: 40px;
   margin-bottom: 200px;
 }
 

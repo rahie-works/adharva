@@ -43,17 +43,21 @@ export default function CardItem(props) {
     <>
       <div className="cards__item" ref={ref}>
         <div className="cards__item__block">
-          <figure className="cards__item__pic-wrap">
-            <img className="cards__item__img" alt="Travel" src={props.src} />
+          <div className="cards__item__pic-wrap">
             <div className="card_text">{props.name}</div>
+            <div className="card_text_abbr">[ {props.abbr} ]</div>
             <div className="card_sub_text_container">
-              {props.description.map((eachLine, index) => {
-                return (
-                  <h5 className="card_sub_text" key={index}>
-                    {eachLine}
-                  </h5>
-                );
-              })}
+              <h5 className="card_sub_text">
+                Eligibility : {props.eligibility}
+              </h5>
+              {props.duration && (
+                <h5 className="card_sub_text">Duration : {props.duration}</h5>
+              )}
+              {props.certificationBody && (
+                <h5 className="card_sub_text">
+                  Certification : {props.certificationBody}
+                </h5>
+              )}
               <FadeInButtons className="register-btns">
                 <Button
                   buttonName="Register"
@@ -62,11 +66,12 @@ export default function CardItem(props) {
                   buttonSize="btn--large"
                   routeTo={"/register"}
                 >
-                  {"Register"}
+                  {"Learn More & Register"}
                 </Button>
               </FadeInButtons>
             </div>
-          </figure>
+            <div className="card_abbr_line"></div>
+          </div>
         </div>
       </div>
     </>

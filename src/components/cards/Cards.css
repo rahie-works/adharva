@@ -1,7 +1,7 @@
 .cards_background_for_services {
   background-image: url("/public/assets/services/services_img.png");
   background-position: center;
-  box-shadow: inset 0 0 0 1000px rgba(26, 26, 26, 0.4);
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 2rem;
@@ -41,34 +41,51 @@ h1 {
   display: flex;
   flex-flow: column;
   width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
 }
 
 .cards__item__pic-wrap {
   position: relative;
   width: 100%;
-  padding-top: 67%;
-  overflow: hidden;
+  padding-top: 57%;
+  border: 5px solid #fff;
+  border-radius: 10px;
+
+  background: rgba(110, 110, 110, 0.2); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card_text {
   width: 100%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 15%;
   text-align: center;
+  font-size: 60px;
+}
+
+.card_abbr_line {
+  flex: 1;
+  height: 16px;
+  background-color: #ffffff;
+}
+
+.card_text_abbr {
+  width: 100%;
+  position: absolute;
+  top: 25%;
+  text-align: center;
+  font-size: 40px;
 }
 
 .card_sub_text_container {
   width: 100%;
   position: absolute;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  top: 60%;
-  font-size: 18px;
+  top: 40%;
+  font-size: 28px;
   text-align: center;
+  line-height: 3cap;
   padding: 0px 20px;
 }
 
@@ -94,6 +111,7 @@ h1 {
   max-height: 100%;
   object-fit: cover;
   transition: all 0.2s linear;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.9);
 }
 
 .cards__item__img:hover {

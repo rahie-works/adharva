@@ -45,7 +45,10 @@ function Cards(props) {
                   intersecting={isIntersecting}
                   name={eachRow.serviceName}
                   src={eachRow.backgroundImage}
-                  description={eachRow.serviceDescription}
+                  eligibility={eachRow.eligibility}
+                  duration={eachRow.duration}
+                  abbr={eachRow.serviceAbbr}
+                  certificationBody={eachRow.certificationBody}
                   label={eachRow.serviceAbbr}
                   path="/services"
                 />

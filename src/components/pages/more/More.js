@@ -23,6 +23,27 @@ export default function More(props) {
     accessToken: "AzH3pFFc0MofFVf8rtX5jHk5LCjiiwk7EtosViYi1WE",
   });
 
+  const setBackgroundColorFromPath = () => {
+    switch (path) {
+      case "About Us":
+        ref.current.style.backgroundImage =
+          "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)";
+        break;
+      case "Our Mission":
+        ref.current.style.backgroundImage =
+          "linear-gradient(to top, #37ecba 0%, #72afd3 100%)";
+        break;
+      case "Our Vision":
+        ref.current.style.backgroundImage =
+          "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%";
+        break;
+      default:
+        ref.current.style.backgroundImage =
+          "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)";
+        break;
+    }
+  };
+
   useEffect(() => {
     const fecthData = async () => {
       try {
@@ -33,6 +54,7 @@ export default function More(props) {
       }
     };
     fecthData();
+    setBackgroundColorFromPath();
   }, []);
 
   const getContent = () => {
@@ -45,19 +67,6 @@ export default function More(props) {
         return "AIC in brand of trust";
       default:
         return ABOUT_US_TEXT_1 + ABOUT_US_TEXT_2 + ABOUT_US_TEXT_3;
-    }
-  };
-
-  const getBackgroundColorFromClassnames = () => {
-    switch (path) {
-      case "About Us":
-        return "aboutus_background";
-      case "Our Mission":
-        return "ourmission_background";
-      case "Our Vision":
-        return "ourvision_background";
-      default:
-        return "aboutus_background";
     }
   };
 
@@ -87,10 +96,7 @@ export default function More(props) {
   };
 
   return (
-    <div
-      className={"container " + getBackgroundColorFromClassnames()}
-      ref={ref}
-    >
+    <div className="container" ref={ref}>
       <TabBar tab={selectedtab} navigatedTo={props.path} />
       <FadeInDiv className="content">{contentText}</FadeInDiv>
     </div>
