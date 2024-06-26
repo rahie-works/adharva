@@ -31,13 +31,13 @@ export default function Footer() {
         ></iframe>
       </section>
       <div className="footer-links">
-        <div className="footer-link-wrapper">
+        {/* <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <Link to="/more">{ABOUT_US}</Link>
+            <Link to="/aboutus">{ABOUT_US}</Link>
             <Link to="/more/mission">{OUR_MISSION}</Link>
             <Link to="/more/vision">{OUR_VISION}</Link>
           </div>
-        </div>
+        </div> */}
       </div>
       <section className="social-media">
         <div className="social-media-wrap">

@@ -21,10 +21,11 @@ import "./HomePageSection.css";
 const simpleAnimation = keyframes`${fadeIn}`;
 
 const FadeInTitle = styled.h1`
-  animation: 1s ${simpleAnimation};
+  animation: 3s ${simpleAnimation};
 `;
+
 const FadeInSubTitle = styled.h4`
-  animation: 1s ${simpleAnimation};
+  animation: 3s ${simpleAnimation};
 `;
 const FadeInPara = styled.p`
   animation: 3s ${simpleAnimation};

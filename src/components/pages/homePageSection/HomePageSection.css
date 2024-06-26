@@ -28,20 +28,6 @@
   height: 20vh;
 }
 
-@media only screen and (max-width: 480px) {
-  .hero-container {
-    background-position-x: center;
-  }
-  .hero-container > h1 {
-    color: #fff;
-    font-size: 10px;
-    margin-top: -70px;
-  }
-  .hero-container > p {
-    font-size: 15px;
-  }
-}
-
 .hero-container > p {
   margin-top: 8px;
   color: #fff;
@@ -61,6 +47,25 @@
 
 .fa-play-circle {
   margin-left: 4px;
+}
+
+@media only screen and (max-width: 480px) {
+  .hero-container {
+    background-position-x: center;
+  }
+  .hero-container > h1 {
+    color: #fff;
+    font-size: 12px;
+    margin-top: -70px;
+  }
+  .hero-container > h4 {
+    color: #fff;
+    font-size: 15px;
+    margin-top: -50px;
+  }
+  .hero-container > p {
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 960px) {

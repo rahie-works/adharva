@@ -1,0 +1,15 @@
+.about_us_container {
+  align-items: center;
+  background: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5rem;
+  color: #1a3d6b;
+}
+
+@media screen and (max-width: 400px) {
+  .about_us_container {
+    padding: 3rem;
+  }
+}

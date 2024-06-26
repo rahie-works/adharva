@@ -49,7 +49,6 @@ h1 {
   padding-top: 57%;
   border: 5px solid #fff;
   border-radius: 10px;
-
   background: rgba(110, 110, 110, 0.2); /* Semi-transparent white */
   backdrop-filter: blur(10px); /* Blur effect */
   -webkit-backdrop-filter: blur(10px); /* Safari support */
@@ -83,7 +82,7 @@ h1 {
   position: absolute;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   top: 40%;
-  font-size: 28px;
+  font-size: 25px;
   text-align: center;
   line-height: 3cap;
   padding: 0px 20px;
@@ -132,37 +131,61 @@ h1 {
   margin-top: 20px;
 }
 
-@media only screen and (min-width: 1200px) {
-  .content__blog__container {
-    width: 84%;
-  }
-}
-
 @media only screen and (min-width: 1024px) {
   .cards__items {
     display: flex;
   }
+  .content__blog__container {
+    width: 84%;
+  }
+  .cards__item__pic-wrap {
+    padding-top: 47%;
+  }
+  .card_text {
+    top: 10%;
+    font-size: 50px;
+  }
+  .card_sub_text_container {
+    line-height: 2cap;
+    font-size: 20px;
+  }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .cards__item {
     margin-bottom: 2rem;
   }
-
-  .cards_background_for_services {
-    padding: 4rem;
-    font-size: 30px;
+  .card_text {
+    top: 10%;
+    font-size: 35px;
+  }
+  .cards__item__pic-wrap {
+    padding-top: 47%;
+  }
+  .card_sub_text {
+    font-size: 10px;
+    text-align: center;
   }
 
-  .card_sub_text {
-    font-size: 13px;
-    text-align: center;
+  .card_sub_text_container {
+    padding-top: 5%;
+    line-height: 1cap;
+    font-size: 15px;
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 400px) and (max-width: 767px) {
   .cards_background_for_services {
     padding: 1rem;
+    font-size: 20px;
+  }
+
+  .card_text {
+    top: 10%;
+    font-size: 20px;
+  }
+  .card_text_abbr {
+    top: 30%;
     font-size: 20px;
   }
   .card_sub_text {
@@ -174,7 +197,7 @@ h1 {
   }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 399px) {
   .cards_background_for_services {
     padding: 0rem;
     font-size: 15px;
@@ -182,7 +205,13 @@ h1 {
   .card_sub_text {
     display: none;
   }
-
+  .card_text {
+    top: 10%;
+    font-size: 20px;
+  }
+  .card_text_abbr {
+    display: none;
+  }
   .register-btns {
     margin-top: 5px;
   }

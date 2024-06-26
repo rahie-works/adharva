@@ -1,11 +1,11 @@
 .cards_background_for_faq {
   height: auto;
-  padding: 2rem;
+  padding: 6rem;
   background-image: url("/public/assets/home/students_2.png");
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cit;
   color: #ffffff;
   font-size: 40px;
 }
@@ -57,7 +57,12 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .cards_background_for_faq {
+    padding: 3rem;
+    font-size: 30px;
+    transition: all 0.5 ease-in-out;
+  }
   .faq_card__item {
     width: 60vh;
     font-size: 13px;
@@ -73,7 +78,7 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 400px) and (max-width: 767px) {
   .cards_background_for_faq {
     padding: 1rem;
     font-size: 20px;
@@ -95,7 +100,7 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 399px) {
   .cards_background_for_faq {
     height: auto;
     font-size: 15px;
@@ -108,7 +113,7 @@
   }
 
   .faq_card__item {
-    width: 40vh;
+    width: 100%;
     font-size: 10px;
   }
 
