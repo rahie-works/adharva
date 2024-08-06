@@ -8,6 +8,7 @@ import {
   SERVICE_CARDS_DATA,
   SERVICES_QUALIFICATIONS,
 } from "../services/ServicesConstant";
+import CourseDescription from "./CourseDescription";
 
 import "react-international-phone/style.css";
 import "./Register.css";
@@ -56,7 +57,7 @@ const CONSENT_TEXT = `I provide my consent to contact
 me through email/phone from Adharva
 Institute of Commerce.`;
 
-export default function Register() {
+export default function Register(props) {
   const [serviceList, setServiceList] = useState([]);
   const client = createClient({
     space: "5s10ucm8anhl",
@@ -105,8 +106,8 @@ export default function Register() {
       to_name: "Adharva Admin",
       from_phone: phoneNumber,
       from_qualification: qualificationSelected,
-      from_course: courseSelected,
-      message: `I am interested in registering for ${courseSelected}. Please find the details and connect with me. Thank you`,
+      from_course: courseSelected.serviceName,
+      message: `I am interested in registering for ${courseSelected.serviceName}. Please find the details and connect with me. Thank you`,
     };
 
     emailjs.send(serviceId, templateId, templateParams, publicKey).then(
@@ -148,13 +149,21 @@ export default function Register() {
         );
         setServiceList(servicesSectionData?.fields?.servicesList?.services);
         setClientDataReceiver(servicesSectionData.fields.clientDataReceiver);
+        if (props.course) {
+          servicesSectionData?.fields?.servicesList?.services.find(
+            (eachService, index) => {
+              if (eachService.serviceAbbr === props.course) {
+                onSelectedCourse(eachService, index);
+              }
+            }
+          );
+        }
       } catch (error) {
         console.log("==Data not received", error);
         setServiceList(SERVICE_CARDS_DATA);
       }
     };
     fecthData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -174,7 +183,7 @@ export default function Register() {
                     : "service_list_item selected_item"
                 }
                 key={index}
-                onClick={() => onSelectedCourse(eachService.serviceName, index)}
+                onClick={() => onSelectedCourse(eachService, index)}
               >
                 <h3>{eachService.serviceName}</h3>
                 <h5>{eachService.serviceAbbr}</h5>
@@ -183,6 +192,7 @@ export default function Register() {
           })}
         </div>
       </div>
+      <CourseDescription course={courseSelected} />
       <div className="registration_form">
         <StyledForm onSubmit={submitClicked}>
           <StyledInput

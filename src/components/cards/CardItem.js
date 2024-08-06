@@ -64,7 +64,7 @@ export default function CardItem(props) {
                   className="btns"
                   buttonStyle="btn--outline"
                   buttonSize="btn--large"
-                  routeTo={"/register"}
+                  routeTo={"/register/" + props.abbr}
                 >
                   {"Learn More & Register"}
                 </Button>

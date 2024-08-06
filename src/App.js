@@ -32,6 +32,10 @@ export default function App() {
             element={<Connect page={true} />}
           />
           <Route path="/register" element={<Register />} />
+          <Route path="/register/CPA" element={<Register course={"CPA"} />} />
+          <Route path="/register/CGP" element={<Register course={"CGP"} />} />
+          <Route path="/register/CAT" element={<Register course={"CAT"} />} />
+          <Route path="/register/GST" element={<Register course={"GST"} />} />
         </Routes>
       </Router>
     </>

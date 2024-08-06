@@ -2,10 +2,12 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 1vw;
+  padding-bottom: 10px;
+  gap: 3vw;
   justify-content: center;
   align-items: center;
 }
+
 .flexbox-grid-row {
   display: flex;
   flex-wrap: wrap;
@@ -24,13 +26,37 @@ body {
 }
 
 .register_container {
-  color: whitesmoke;
-  font-size: 3vw;
+  color: white;
+  font-size: 2vw;
 }
+.intro_body_container {
+  display: flex;
+  flex-direction: row;
+}
+
 .course_selection_label {
   margin-top: 3vh;
   text-align: center;
   font-size: 1.7vh;
+}
+.course_description_body {
+  padding-inline: 5vw;
+  margin-top: 2vh;
+  font-size: 2vw;
+  font-family: "Montserrat", sans-serif;
+}
+.course_description_heading {
+  padding-inline: 5vw;
+  margin-top: 4vh;
+  text-align: left;
+  font-size: 3vh;
+  font-family: "Montserra bold", sans-serif;
+}
+
+.clock_cal_style {
+  width: 10%;
+  margin-top: 10vh;
+  margin-left: 20%;
 }
 
 .service_list {
@@ -83,4 +109,19 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-top: 30px;
+}
+
+@media screen and (max-width: 480px) {
+  .intro_body_container {
+    flex-direction: column;
+  }
+  .course_description_heading {
+    text-align: center;
+    margin-top: 2vh;
+    font-size: 4vw;
+    font-family: "Montserra bold", sans-serif;
+  }
+  .course_description_body {
+    font-size: 3vw;
+  }
 }
