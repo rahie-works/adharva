@@ -1,8 +1,5 @@
 .navbar {
   background: #1a3d6b;
-  height: 80px;
-  display: flex;
-  justify-content: center;
   align-items: center;
   font-size: 1.2rem;
   position: sticky;
@@ -48,7 +45,7 @@
   list-style: none;
   text-align: center;
   width: 60vw;
-  justify-content: end;
+  justify-content: center;
   margin-right: 2rem;
 }
 

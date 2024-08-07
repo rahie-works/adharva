@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { createClient } from "contentful";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { PhoneInput } from "react-international-phone";
 import emailjs from "@emailjs/browser";
+import CourseSelectionScreen from "./CourseSelectionScreen";
+import { fadeIn } from "react-animations";
 
 import {
   SERVICE_CARDS_DATA,
@@ -53,6 +55,19 @@ const StyledButton = styled.button`
   justify-content: center;
 `;
 
+const simpleAnimation = keyframes`${fadeIn}`;
+
+const StyledRegistrationForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  gap: 3vw;
+  justify-content: center;
+  align-items: center;
+  animation: 2.5s ${simpleAnimation};
+`;
+
 const CONSENT_TEXT = `I provide my consent to contact
 me through email/phone from Adharva
 Institute of Commerce.`;
@@ -73,6 +88,7 @@ export default function Register(props) {
   const [clickedQualificationId, setClickedQualificationId] = useState("");
   const [checked, setChecked] = useState(false);
   const [clientDataReceiver, setClientDataReceiver] = useState({});
+  const [showCourseSelection, setShowCourseSelection] = useState(false);
 
   const submitClicked = async (e) => {
     e.preventDefault();
@@ -154,44 +170,31 @@ export default function Register(props) {
             (eachService, index) => {
               if (eachService.serviceAbbr === props.course) {
                 onSelectedCourse(eachService, index);
+                setShowCourseSelection(false);
               }
             }
           );
+        } else {
+          setShowCourseSelection(true);
         }
       } catch (error) {
         console.log("==Data not received", error);
         setServiceList(SERVICE_CARDS_DATA);
+        setShowCourseSelection(true);
       }
     };
     fecthData();
   }, []);
 
   return (
-    <div className="flexbox-grid-column">
-      <div className="register_container">
-        <h1 className="registration_title">Register</h1>
-        <h5 className="course_selection_label">
-          Select your preferred course:
-        </h5>
-        <div className="service_list flexbox-grid-row">
-          {serviceList?.map((eachService, index) => {
-            return (
-              <div
-                className={
-                  clickedCourseId !== index
-                    ? "service_list_item"
-                    : "service_list_item selected_item"
-                }
-                key={index}
-                onClick={() => onSelectedCourse(eachService, index)}
-              >
-                <h3>{eachService.serviceName}</h3>
-                <h5>{eachService.serviceAbbr}</h5>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+    <StyledRegistrationForm>
+      {showCourseSelection && (
+        <CourseSelectionScreen
+          clickedCourseId={clickedCourseId}
+          serviceList={serviceList}
+          onSelectedCourse={onSelectedCourse}
+        />
+      )}
       <CourseDescription course={courseSelected} />
       <div className="registration_form">
         <StyledForm onSubmit={submitClicked}>
@@ -260,6 +263,6 @@ export default function Register(props) {
           </StyledButton>
         </StyledForm>
       </div>
-    </div>
+    </StyledRegistrationForm>
   );
 }

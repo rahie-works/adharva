@@ -1,6 +1,17 @@
 import React from "react";
 import "./Register.css";
 import "./CourseDescription.css";
+import styled, { keyframes } from "styled-components";
+import { fadeIn } from "react-animations";
+
+const simpleAnimation = keyframes`${fadeIn}`;
+
+const StyledCourseSelectionScreen = styled.div`
+  color: white;
+  margin-top: 5vh;
+  font-size: 2.5vw;
+  animation: 2.5s ${simpleAnimation};
+`;
 
 function DefaultScreen() {
   return (
@@ -13,7 +24,7 @@ function DefaultScreen() {
 
 function CPADescriptionScreen(props) {
   return (
-    <div className="register_container">
+    <StyledCourseSelectionScreen>
       <h1>{props.course.serviceName}</h1>
       <div className="intro_body_container">
         <h5 className="course_description_body">
@@ -51,14 +62,14 @@ function CPADescriptionScreen(props) {
           </h5>
         </div>
       </div>
-    </div>
+    </StyledCourseSelectionScreen>
   );
 }
 
 function CGPDescriptionScreen(props) {
   const objectives = props.course.description.extras;
   return (
-    <div className="register_container">
+    <StyledCourseSelectionScreen>
       <h1 className="registration_title">{props.course.serviceName}</h1>
       <div className="intro_body_container">
         <h5 className="course_description_body">
@@ -72,7 +83,7 @@ function CGPDescriptionScreen(props) {
         <h5 className="course_description_heading">
           {"Objectives of the Practical Training"}
         </h5>
-        <ol>
+        <ol className="cgp_extra_body_list">
           {objectives &&
             objectives?.map((eachExtra, index) => {
               return (
@@ -84,26 +95,22 @@ function CGPDescriptionScreen(props) {
         </ol>
       </div>
       <div className="cgp_extra_body_container">
-        <div className="cgp_extra_body_item cgp_extra_body_description">
-          <h5 className="cgp_extra_body_description">{"Duration :"}</h5>
-          <h5 className="cgp_extra_body_description">
-            {props.course?.duration}
-          </h5>
+        <div className="cgp_extra_body_item">
+          <h5 className="cgp_extra_body_data">{"Duration :"}</h5>
+          <h5 className="cgp_extra_body_data">{props.course?.duration}</h5>
         </div>
         <div className="cgp_extra_body_item">
-          <h5 className="cgp_extra_body_description">{"Eligibility : "}</h5>
-          <h5 className="cgp_extra_body_description">
-            {props.course?.eligibility}
-          </h5>
+          <h5 className="cgp_extra_body_data">{"Eligibility : "}</h5>
+          <h5 className="cgp_extra_body_data">{props.course?.eligibility}</h5>
         </div>
       </div>
-    </div>
+    </StyledCourseSelectionScreen>
   );
 }
 
 function CATDescriptionScreen(props) {
   return (
-    <div className="register_container">
+    <StyledCourseSelectionScreen>
       <h1 className="registration_title">{props.course.serviceName}</h1>
       <div className="intro_body_container">
         <h5 className="course_description_body">
@@ -147,13 +154,13 @@ function CATDescriptionScreen(props) {
           </h5>
         </div>
       </div>
-    </div>
+    </StyledCourseSelectionScreen>
   );
 }
 
 function GSTDescriptionScreen(props) {
   return (
-    <div className="register_container">
+    <StyledCourseSelectionScreen>
       <h1 className="registration_title">{props.course.serviceName}</h1>
       <div className="intro_body_container">
         <h5 className="course_description_body">
@@ -178,13 +185,13 @@ function GSTDescriptionScreen(props) {
           </h5>
         </div>
         <div className="gst_extra_body_item">
-          <h5 className="gst_extra_body_description">{"Eligibility : "}</h5>
+          <h5 className="gst_extra_body_description">{"Eligibility"}</h5>
           <h5 className="gst_extra_body_description">
-            {props.course?.eligibility}
+            {` : ${props.course?.eligibility}`}
           </h5>
         </div>
       </div>
-    </div>
+    </StyledCourseSelectionScreen>
   );
 }
 
