@@ -26,13 +26,13 @@ const StyledForm = styled.form`
 const StyledLabel = styled.label`
   display: block;
   margin: 3vmin 0px;
-  font-size: 1.5vmin;
+  font-size: 1.6vmin;
   color: white;
 `;
 const StyledCheckBox = styled.label`
   display: block;
   margin: 1vmin 0px;
-  font-size: 1.3vmin;
+  font-size: 1.6vmin;
   color: white;
 `;
 const StyledInput = styled.input`
