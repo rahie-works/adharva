@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.c7d0826e.css",
-    "main.js": "/static/js/main.14a599f5.js",
-    "static/media/students_2.png": "/static/media/students_2.107fe96eafd8b18799ab.png",
-    "static/media/faq_img.png": "/static/media/faq_img.2baf2627c57fd2a9c49e.png",
-    "static/media/register_bgi.png": "/static/media/register_bgi.c078cade3a8436026ae8.png",
-    "static/media/services_img.png": "/static/media/services_img.516fb8a5071018cfa582.png",
-    "static/media/connect_with_us.jpg": "/static/media/connect_with_us.f15361cd4be0a1094fac.jpg",
-    "static/media/adharvalogoblue.jpeg": "/static/media/adharvalogoblue.f5a2c21f0fb1d4c4a5ed.jpeg",
-    "static/media/googlelogo.png": "/static/media/googlelogo.330fac308b783a6bc246.png",
-    "static/media/right.png": "/static/media/right.5bdeacde7a51aae3a2c7.png",
-    "index.html": "/index.html",
-    "main.c7d0826e.css.map": "/static/css/main.c7d0826e.css.map",
-    "main.14a599f5.js.map": "/static/js/main.14a599f5.js.map"
+    "main.css": "/adharva-app/static/css/main.3055b5e8.css",
+    "main.js": "/adharva-app/static/js/main.57be8241.js",
+    "static/media/students_2.png": "/adharva-app/static/media/students_2.107fe96eafd8b18799ab.png",
+    "static/media/faq_img.png": "/adharva-app/static/media/faq_img.2baf2627c57fd2a9c49e.png",
+    "static/media/register_bgi.png": "/adharva-app/static/media/register_bgi.c078cade3a8436026ae8.png",
+    "static/media/services_img.png": "/adharva-app/static/media/services_img.516fb8a5071018cfa582.png",
+    "static/media/connect_with_us.jpg": "/adharva-app/static/media/connect_with_us.f15361cd4be0a1094fac.jpg",
+    "static/media/adharvalogoblue.jpeg": "/adharva-app/static/media/adharvalogoblue.f5a2c21f0fb1d4c4a5ed.jpeg",
+    "static/media/googlelogo.png": "/adharva-app/static/media/googlelogo.330fac308b783a6bc246.png",
+    "static/media/right.png": "/adharva-app/static/media/right.5bdeacde7a51aae3a2c7.png",
+    "index.html": "/adharva-app/index.html",
+    "main.3055b5e8.css.map": "/adharva-app/static/css/main.3055b5e8.css.map",
+    "main.57be8241.js.map": "/adharva-app/static/js/main.57be8241.js.map"
   },
   "entrypoints": [
-    "static/css/main.c7d0826e.css",
-    "static/js/main.14a599f5.js"
+    "static/css/main.3055b5e8.css",
+    "static/js/main.57be8241.js"
   ]
 }
