@@ -6,9 +6,6 @@ import {
   ADHARVA_ORG_TEXT,
   ADHARVA_GOOGLE_MAP,
   ADHARVA_FOOTER_TEXT,
-  ABOUT_US,
-  OUR_MISSION,
-  OUR_VISION,
   ADHARVA_TITLE,
 } from "./FooterConstants";
 
@@ -30,15 +27,7 @@ export default function Footer() {
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </section>
-      <div className="footer-links">
-        {/* <div className="footer-link-wrapper">
-          <div className="footer-link-items">
-            <Link to="/aboutus">{ABOUT_US}</Link>
-            <Link to="/more/mission">{OUR_MISSION}</Link>
-            <Link to="/more/vision">{OUR_VISION}</Link>
-          </div>
-        </div> */}
-      </div>
+      <div className="footer-links"></div>
       <section className="social-media">
         <div className="social-media-wrap">
           <Link to="/" className="social-logo">

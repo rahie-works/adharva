@@ -7,9 +7,6 @@ import Footer from "../pages/footer/Footer";
 import HomePageSection from "../pages/homePageSection/HomePageSection";
 import Services from "../pages/services/Services";
 import Testimonials from "../pages/testimonials/Testimonials";
-// import Partners from "../pages/partners/Partners";
-import { CoreValues } from "../pages/coreValues/CoreValues";
-// import More from "../pages/more/More";
 
 // styles
 import "../../App.css";

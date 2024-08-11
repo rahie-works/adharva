@@ -172,10 +172,12 @@ export default function Register(props) {
                 onSelectedCourse(eachService, index);
                 setShowCourseSelection(false);
               }
+              return;
             }
           );
         } else {
           setShowCourseSelection(true);
+          return;
         }
       } catch (error) {
         console.log("==Data not received", error);
@@ -184,7 +186,7 @@ export default function Register(props) {
       }
     };
     fecthData();
-  }, []);
+  }, [client, props.course]);
 
   return (
     <StyledRegistrationForm>

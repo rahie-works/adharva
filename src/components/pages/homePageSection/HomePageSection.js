@@ -63,6 +63,7 @@ export default function HomePageSection() {
           <img
             src={homePageData?.fields?.homePageBanner?.fields?.file.url}
             style={{ width: "100%", height: "20vh" }}
+            alt="home_page_banner"
           />
         </figure>
       )}

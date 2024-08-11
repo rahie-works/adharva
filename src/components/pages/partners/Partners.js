@@ -20,7 +20,7 @@ function Partners() {
       }
     };
     fecthData();
-  }, []);
+  }, [client]);
 
   return (
     <div className="container">
@@ -32,6 +32,7 @@ function Partners() {
               src={eachPartner.fields?.file?.url}
               key={index}
               className="logo"
+              alt="partner_logo"
             />
           );
         })}

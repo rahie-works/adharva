@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { createClient } from "contentful";
 import { CoreValues } from "../coreValues/CoreValues";
 import styled, { keyframes } from "styled-components";
-import { fadeIn, slideInLeft, slideInUp } from "react-animations";
+import { fadeIn, slideInUp } from "react-animations";
 
 import "./AboutUs.css";
 
@@ -90,9 +90,10 @@ export const AboutUs = () => {
       }
     };
     fecthData();
-  }, []);
+  }, [client]);
 
   useEffect(() => {
+    const refElement = ref.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
@@ -101,9 +102,9 @@ export const AboutUs = () => {
         threshold: 0.2,
       }
     );
-    observer.observe(ref.current);
+    observer.observe(refElement);
     return () => {
-      observer.disconnect(ref.current);
+      observer.disconnect(refElement);
     };
   }, [isIntersecting]);
 
