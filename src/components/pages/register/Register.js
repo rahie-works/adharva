@@ -166,18 +166,19 @@ export default function Register(props) {
         setServiceList(servicesSectionData?.fields?.servicesList?.services);
         setClientDataReceiver(servicesSectionData.fields.clientDataReceiver);
         if (props.course) {
-          servicesSectionData?.fields?.servicesList?.services.find(
-            (eachService, index) => {
-              if (eachService.serviceAbbr === props.course) {
-                onSelectedCourse(eachService, index);
-                setShowCourseSelection(false);
-              }
-              return;
-            }
+          const selectedCourse =
+            servicesSectionData?.fields?.servicesList?.services.find(
+              (eachService, index) => eachService.serviceAbbr === props.course
+            );
+          onSelectedCourse(
+            selectedCourse,
+            servicesSectionData?.fields?.servicesList?.services.indexOf(
+              selectedCourse
+            )
           );
+          setShowCourseSelection(false);
         } else {
           setShowCourseSelection(true);
-          return;
         }
       } catch (error) {
         console.log("==Data not received", error);
@@ -186,7 +187,7 @@ export default function Register(props) {
       }
     };
     fecthData();
-  }, [client, props.course]);
+  }, []);
 
   return (
     <StyledRegistrationForm>

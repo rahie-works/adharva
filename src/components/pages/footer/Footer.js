@@ -25,6 +25,7 @@ export default function Footer() {
           allowfullscreen="true"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
+          title="Adharva Location"
         ></iframe>
       </section>
       <div className="footer-links"></div>

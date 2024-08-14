@@ -21,15 +21,16 @@ function Cards(props) {
   const ref = useRef(null);
 
   useEffect(() => {
+    const refElement = ref.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
       },
       { rootMargin: "-100px" }
     );
-    observer.observe(ref.current);
+    observer.observe(refElement);
 
-    return () => observer.disconnect();
+    return () => observer.disconnect(refElement);
   }, [isIntersecting]);
 
   return (

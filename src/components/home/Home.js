@@ -7,9 +7,6 @@ import Footer from "../pages/footer/Footer";
 import HomePageSection from "../pages/homePageSection/HomePageSection";
 import Services from "../pages/services/Services";
 import Testimonials from "../pages/testimonials/Testimonials";
-
-// styles
-import "../../App.css";
 import { AboutUs } from "../pages/about/AboutUs";
 
 export default function Home() {
