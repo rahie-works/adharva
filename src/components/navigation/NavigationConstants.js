@@ -3,7 +3,7 @@ export const NAVIGATION_BAR_BUTTON = "REGISTER";
 export const NAVIGATION_LINKS = [
   {
     title: "home",
-    linkTo: "/",
+    linkTo: "/adharva",
   },
   {
     title: "services",
