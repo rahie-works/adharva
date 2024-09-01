@@ -21,7 +21,7 @@ export default function App() {
       <Router>
         <NavigationBar />
         <Routes>
-          <Route path="/" exact element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/partners" element={<Partners />} />
