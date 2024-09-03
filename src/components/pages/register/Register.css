@@ -34,7 +34,7 @@ body {
   padding-inline: 5vw;
   margin-top: 2vh;
   font-size: 2vw;
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
 }
 .course_description_heading {
   padding-inline: 5vw;
@@ -114,5 +114,10 @@ body {
   }
   .course_description_body {
     font-size: 3vw;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .intro_body_container {
+    flex-direction: column;
   }
 }

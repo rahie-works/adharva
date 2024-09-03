@@ -29,7 +29,6 @@ export default function Testimonials() {
       }
     };
     fecthData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -38,9 +37,9 @@ export default function Testimonials() {
         {testimonialsSectionData.fields?.sectionTitle || TESTIMONIAL_TITLE}
       </h1>
       <div className="testimonialContainer">
-        {testimonialsSectionData.map((eachEntry) => {
+        {testimonialsSectionData.map((eachEntry, index) => {
           return (
-            <div className="testimonials">
+            <div className="testimonials" key={index}>
               <img className="quote_image" alt="quote" src={right} />
               <div className="content_testimonials">
                 <h3 className="testimonial_name">
@@ -56,12 +55,12 @@ export default function Testimonials() {
           );
         })}
         <div className="more-review-container">
-          <h4>Looking for more reviews..? Catch us on</h4>
           <a
             href="https://www.google.com/maps/place/Adharva+Institute+of+Commerce+-+A+I+C/@11.1974246,76.0726099,12z/data=!4m8!3m7!1s0x3ba63b599c395a4b:0xdbb080e178143d64!8m2!3d11.2781347!4d76.2287482!9m1!1b1!16s%2Fg%2F11v3q4fm90?entry=ttu"
             target="blank"
+            style={{ color: "white" }}
           >
-            <img className="google-image" src={googleLogo} alt="google-image" />
+            <h4>Look up for more reviews here</h4>
           </a>
         </div>
       </div>

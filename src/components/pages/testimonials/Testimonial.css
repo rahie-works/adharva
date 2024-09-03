@@ -175,7 +175,7 @@
   }
 
   .content_testimonials {
-    margin: 10px 10px;
+    margin: 10px 0px;
   }
 
   .testimonials_date {
@@ -183,14 +183,14 @@
     font-size: 13px;
   }
   .more-review-container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     font-size: 4vw;
   }
 
   .google-image {
-    width: 20vw;
-    height: 10vw;
-    margin: 3vw 0vw;
+    width: 10vw;
+    height: 5vw;
+    margin: 0vw 0vw;
   }
 }

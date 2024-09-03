@@ -104,7 +104,7 @@ export const CoreValues = () => {
       }
     };
     fecthData();
-  }, [client]);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

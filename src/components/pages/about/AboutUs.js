@@ -15,6 +15,13 @@ const FadeInConatiner = styled.span`
   flex-direction: column;
 `;
 
+const FadeInValuesConatiner = styled.span`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+`;
+
 const FadeInTitle = styled.h1`
   display: flex;
   width: 100%;
@@ -69,6 +76,13 @@ const BoldText = styled.h3`
   }
 `;
 
+const ValueText = styled.h4`
+  padding: 5px;
+  font-size: 1em;
+  align-self: center;
+  font-family: "Montserrat", sans-serif;
+`;
+
 export const AboutUs = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
 
@@ -90,7 +104,7 @@ export const AboutUs = () => {
       }
     };
     fecthData();
-  }, [client]);
+  }, []);
 
   useEffect(() => {
     const refElement = ref.current;
@@ -99,7 +113,7 @@ export const AboutUs = () => {
         setIsIntersecting(entry.isIntersecting);
       },
       {
-        threshold: 0.2,
+        threshold: 0.9,
       }
     );
     observer.observe(refElement);
@@ -124,30 +138,36 @@ export const AboutUs = () => {
               ?.description
           }
         </FadeInContent>
-        <FadeInContent alignment="left">
-          <BoldText>
-            {
-              aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
-                ?.title
-            }
-          </BoldText>
-          {
-            aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
-              ?.description
-          }
-        </FadeInContent>
-        <FadeInContent alignment="right">
-          <BoldText>
-            {
-              aboutData?.fields?.moreSectionContents?.moreSectionContents[3]
-                ?.title
-            }
-          </BoldText>
-          {
-            aboutData?.fields?.moreSectionContents?.moreSectionContents[3]
-              ?.description
-          }
-        </FadeInContent>
+        <FadeInValuesConatiner>
+          <FadeInContent>
+            <BoldText>
+              {
+                aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
+                  ?.title
+              }
+            </BoldText>
+            <ValueText>
+              {
+                aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
+                  ?.description
+              }
+            </ValueText>
+          </FadeInContent>
+          <FadeInContent>
+            <BoldText>
+              {
+                aboutData?.fields?.moreSectionContents?.moreSectionContents[3]
+                  ?.title
+              }
+            </BoldText>
+            <ValueText>
+              {
+                aboutData?.fields?.moreSectionContents?.moreSectionContents[3]
+                  ?.description
+              }
+            </ValueText>
+          </FadeInContent>
+        </FadeInValuesConatiner>
         <CoreValues />
       </FadeInConatiner>
     </div>

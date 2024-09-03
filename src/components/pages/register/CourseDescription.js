@@ -9,7 +9,7 @@ const simpleAnimation = keyframes`${fadeIn}`;
 const StyledCourseSelectionScreen = styled.div`
   color: white;
   margin-top: 5vh;
-  font-size: 2.5vw;
+  font-size: 3vw;
   animation: 2.5s ${simpleAnimation};
 `;
 
@@ -37,15 +37,15 @@ function CPADescriptionScreen(props) {
       <div className="intro_body_container">
         <div>
           <h2 className="course_description_heading">{"Job Opptortunities"}</h2>
-          <h5 className="course_description_body">
+          <h4 className="course_description_body">
             {props.course.description?.extras?.["Job Opptortunities"]}
-          </h5>
+          </h4>
         </div>
         <div>
           <h2 className="course_description_heading">{"Optional Modules"}</h2>
-          <h5 className="course_description_body">
+          <h4 className="course_description_body">
             {props.course.description?.extras?.["Optional Modules"]}
-          </h5>
+          </h4>
         </div>
       </div>
       <div className="cpa_extra_body_container">

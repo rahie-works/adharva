@@ -42,26 +42,35 @@ export default function HomePageSection() {
   });
 
   const [homePageData, setHomePageData] = React.useState({});
+  const [homePageBanner, setHomePageBanner] = React.useState("");
+
+  const [homePageBackgroundImage, setHomePageBackgroundImage] =
+    React.useState("");
 
   React.useEffect(() => {
     const fecthData = async () => {
       try {
         const homePageData = await client.getEntry("3JkQKk0Z4C3ZV70MkB9dZh");
         setHomePageData(homePageData);
+        setHomePageBanner(
+          homePageData?.fields?.homePageBanner?.fields?.file.url
+        );
+        setHomePageBackgroundImage(
+          homePageData.fields?.homePageBackgroundImage?.fields?.file.url
+        );
       } catch (error) {
         console.log("==Data not received", error);
       }
     };
     fecthData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div>
-      {homePageData?.fields?.homePageBanner?.fields?.file.url && (
+      {homePageBanner && (
         <figure className="banner-class">
           <img
-            src={homePageData?.fields?.homePageBanner?.fields?.file.url}
+            src={homePageBanner}
             style={{ width: "100%", height: "20vh" }}
             alt="home_page_banner"
           />
@@ -69,8 +78,8 @@ export default function HomePageSection() {
       )}
       <div
         style={{
-          backgroundImage: `url(${homePageData.fields?.homePageBackgroundImage?.fields?.file.url})`,
-          background: "center center/cover no-repeat",
+          backgroundImage: `url(${homePageBackgroundImage})`,
+          background: "center/cover no-repeat",
         }}
         className="hero-container"
       >

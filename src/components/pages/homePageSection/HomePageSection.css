@@ -5,8 +5,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-  object-fit: contain;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  object-fit: fill;
 }
 
 .hero-container > h1 {
@@ -50,7 +50,7 @@
 
 @media only screen and (max-width: 480px) {
   .hero-container {
-    background-position-x: center;
+    background-position: center;
   }
   .hero-container > h1 {
     color: #fff;

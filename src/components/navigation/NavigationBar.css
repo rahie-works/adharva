@@ -88,10 +88,6 @@
     position: relative;
   }
 
-  .navbar-logo {
-    display: none;
-  }
-
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -126,10 +122,10 @@
   }
 
   .navbar-logo {
-    position: absolute;
+    /* position: absolute;
     top: 0;
-    left: 0;
-    transform: translate(25%, 50%);
+    left: 0; */
+    transform: translate(-50%, 0%);
   }
 
   .menu-icon {

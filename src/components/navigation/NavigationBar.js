@@ -55,7 +55,6 @@ export default function NavigationBar() {
       }
     };
     fecthData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   window.addEventListener("resize", showButton);

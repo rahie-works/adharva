@@ -20,7 +20,7 @@ function Partners() {
       }
     };
     fecthData();
-  }, [client]);
+  }, []);
 
   return (
     <div className="container">

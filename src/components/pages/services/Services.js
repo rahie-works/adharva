@@ -40,7 +40,6 @@ export default function Services() {
       }
     };
     fecthData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const SectionData = {
