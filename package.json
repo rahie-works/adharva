@@ -2,7 +2,7 @@
   "name": "adharva-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rahie-works.github.io/adharva/",
+  "homepage": "https://rahie-works.github.io/adharva",
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
     "@testing-library/jest-dom": "^5.17.0",
