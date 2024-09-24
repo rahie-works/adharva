@@ -1,21 +1,16 @@
 {
   "files": {
-    "main.css": "/adharva/static/css/main.44b7bfa3.css",
-    "main.js": "/adharva/static/js/main.73ce1572.js",
-    "static/media/students_2.png": "/adharva/static/media/students_2.107fe96eafd8b18799ab.png",
-    "static/media/faq_img.png": "/adharva/static/media/faq_img.2baf2627c57fd2a9c49e.png",
-    "static/media/register_bgi.png": "/adharva/static/media/register_bgi.c078cade3a8436026ae8.png",
-    "static/media/services_img.png": "/adharva/static/media/services_img.516fb8a5071018cfa582.png",
-    "static/media/connect_with_us.jpg": "/adharva/static/media/connect_with_us.f15361cd4be0a1094fac.jpg",
+    "main.css": "/adharva/static/css/main.ed90ed73.css",
+    "main.js": "/adharva/static/js/main.36dc1e3f.js",
     "static/media/adharvalogoblue.jpeg": "/adharva/static/media/adharvalogoblue.f5a2c21f0fb1d4c4a5ed.jpeg",
     "static/media/googlelogo.png": "/adharva/static/media/googlelogo.330fac308b783a6bc246.png",
     "static/media/right.png": "/adharva/static/media/right.5bdeacde7a51aae3a2c7.png",
     "index.html": "/adharva/index.html",
-    "main.44b7bfa3.css.map": "/adharva/static/css/main.44b7bfa3.css.map",
-    "main.73ce1572.js.map": "/adharva/static/js/main.73ce1572.js.map"
+    "main.ed90ed73.css.map": "/adharva/static/css/main.ed90ed73.css.map",
+    "main.36dc1e3f.js.map": "/adharva/static/js/main.36dc1e3f.js.map"
   },
   "entrypoints": [
-    "static/css/main.44b7bfa3.css",
-    "static/js/main.73ce1572.js"
+    "static/css/main.ed90ed73.css",
+    "static/js/main.36dc1e3f.js"
   ]
 }
