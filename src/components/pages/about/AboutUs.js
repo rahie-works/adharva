@@ -15,11 +15,11 @@ const FadeInConatiner = styled.span`
   flex-direction: column;
 `;
 
-const FadeInValuesConatiner = styled.span`
+const FadeInValuesConatiner = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
-  text-align: left;
+  flex-direction: column;
+  text-align: center;
 `;
 
 const FadeInTitle = styled.h1`
@@ -66,9 +66,18 @@ const FadeInContent = styled.span`
   }
 `;
 
+const FadeInValues = styled.div`
+  font-size: 1.9em;
+  line-height: 1.5em;
+  animation: 2.5s ${slideInAnimation};
+  margin-block: 2em;
+  padding-left: ${(props) => (props.alignment === "right" ? "50%" : "0")};
+  font-family: "Montserrat", sans-serif;
+`;
+
 const BoldText = styled.h3`
   font-weight: bold;
-  font-size: 1.9em;
+  font-size: 3vw;
   line-height: 1.5em;
 
   @media only screen and (max-width: 480px) {
@@ -78,9 +87,8 @@ const BoldText = styled.h3`
 
 const ValueText = styled.h4`
   padding: 5px;
-  font-size: 1em;
+  font-size: 1vw;
   align-self: center;
-  font-family: "Montserrat", sans-serif;
 `;
 
 export const AboutUs = () => {
@@ -139,7 +147,7 @@ export const AboutUs = () => {
           }
         </FadeInContent>
         <FadeInValuesConatiner>
-          <FadeInContent>
+          <FadeInValues>
             <BoldText>
               {
                 aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
@@ -152,8 +160,8 @@ export const AboutUs = () => {
                   ?.description
               }
             </ValueText>
-          </FadeInContent>
-          <FadeInContent>
+          </FadeInValues>
+          <FadeInValues>
             <BoldText>
               {
                 aboutData?.fields?.moreSectionContents?.moreSectionContents[3]
@@ -166,7 +174,7 @@ export const AboutUs = () => {
                   ?.description
               }
             </ValueText>
-          </FadeInContent>
+          </FadeInValues>
         </FadeInValuesConatiner>
         <CoreValues />
       </FadeInConatiner>

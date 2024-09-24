@@ -29,7 +29,7 @@ const increaseLetterSpacing = keyframes`
 const FadeInTitle = styled.h3`
   display: flex;
   width: 100%;
-  font-size: 2.5em;
+  font-size: 3vw;
   justify-content: center;
   animation: 1s ${fadeInAnimation};
 
@@ -66,7 +66,7 @@ const FadeInValue = styled.p`
   display: flex;
   justify-content: left;
   margin-left: 1.5vmin;
-  font-size: 0.9em;
+  font-size: 1vw;
   width: 100%;
   animation: ${fadeInAnimation} 1s ease-in-out both;
   animation-delay: 1.5s;

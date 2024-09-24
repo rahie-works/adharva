@@ -8,9 +8,10 @@
 body {
   --padding: 5vw;
   --max-width: 180ch;
-  background-image: url("/public/assets/register/register_bgi.png");
+  /* background-image: url("/public/assets/register/register_bgi.png"); */
+  background-color: #1a3d6b;
   background-position: center;
-  box-shadow: inset 0 0 0 1000px rgba(26, 26, 26, 0.6);
+  /* box-shadow: inset 0 0 0 1000px rgba(26, 26, 26, 0.6); */
   background-repeat: no-repeat;
   background-size: cover;
 }

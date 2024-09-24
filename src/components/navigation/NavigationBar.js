@@ -62,7 +62,7 @@ export default function NavigationBar() {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <Link to="/adharva" className="navbar-logo" onClick={closeMobileMenu}>
             <img
               src={adharvalogoblue}
               className="adharva-logo"

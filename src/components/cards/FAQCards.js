@@ -1,3 +1,5 @@
+// component
+import Partners from "../pages/partners/Partners";
 // styles
 import "./FAQCards.css";
 
@@ -6,6 +8,7 @@ export default function FAQCards(props) {
 
   return (
     <div className="cards_background_for_faq">
+      <Partners />
       <h1>{sectionData.title}</h1>
       <div className="faq_cards__container">
         <div className="faq_cards__wrapper">

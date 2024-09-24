@@ -35,6 +35,13 @@ const StyledCheckBox = styled.label`
   font-size: 1.6vmin;
   color: white;
 `;
+
+const StyledDisabledCheckBox = styled.label`
+  display: block;
+  margin: 1vmin 0px;
+  font-size: 1.6vmin;
+  color: grey;
+`;
 const StyledInput = styled.input`
   width: 100%;
   padding: 10px;
@@ -199,6 +206,27 @@ export default function Register(props) {
         />
       )}
       <CourseDescription course={courseSelected} />
+      <div className="flexbox-grid-row">
+        <StyledCheckBox>
+          <input
+            type="checkbox"
+            style={{ marginRight: "1vh", paddingTop: "1vh" }}
+            checked={true}
+            // onChange={handleCheckboxChange}
+          />
+          Offline
+        </StyledCheckBox>
+        <StyledDisabledCheckBox>
+          <input
+            type="checkbox"
+            style={{ marginRight: "1vh", paddingTop: "1vh" }}
+            checked={false}
+            disabled={true}
+            // onChange={handleCheckboxChange}
+          />
+          Online (Coming Soon)
+        </StyledDisabledCheckBox>
+      </div>
       <div className="registration_form">
         <StyledForm onSubmit={submitClicked}>
           <StyledInput

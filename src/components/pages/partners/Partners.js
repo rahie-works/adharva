@@ -1,12 +1,40 @@
 import React from "react";
 import { createClient } from "contentful";
 import "./Partners.css";
+import styled, { keyframes } from "styled-components";
+import { fadeIn } from "react-animations";
+
+const simpleAnimation = keyframes`${fadeIn}`;
+
+const FadeInLogos = styled.div`
+  animation: 3s ${simpleAnimation};
+`;
+
+const FadeInPartnersTile = styled.div`
+  animation: 3s ${simpleAnimation};
+  font-size: 8vw;
+  color: white;
+  padding-top: 3vh;
+  text-align: center;
+`;
+
+const FadeInPartnersLogoRow = styled.div`
+  animation: 3s ${simpleAnimation};
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vw;
+  flex-wrap: wrap;
+`;
 
 function Partners() {
   const client = createClient({
     space: "5s10ucm8anhl",
     accessToken: "AzH3pFFc0MofFVf8rtX5jHk5LCjiiwk7EtosViYi1WE",
   });
+  const [isIntersecting, setIsIntersecting] = React.useState(false);
+  const refElement = React.useRef(null);
 
   const [partnersList, setPartnersList] = React.useState([]);
 
@@ -22,22 +50,47 @@ function Partners() {
     fecthData();
   }, []);
 
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        console.log("==entry", entry);
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { rootMargin: "0px" }
+    );
+    observer.observe(refElement.current);
+
+    return () => observer.disconnect({ rootMargin: "-100px" });
+  }, [isIntersecting]);
+
+  React.useEffect(() => {
+    if (isIntersecting) {
+      refElement.current.classList.add("fade-in");
+    } else {
+      refElement.current.classList.remove("fade-in");
+    }
+  }, [isIntersecting]);
+
   return (
-    <div className="container">
-      <h1 className="partners-title">Our Placement Partners</h1>
-      <div className="logo-row">
-        {partnersList?.map((eachPartner, index) => {
-          return (
-            <img
-              src={eachPartner.fields?.file?.url}
-              key={index}
-              className="logo"
-              alt="partner_logo"
-            />
-          );
-        })}
-      </div>
-    </div>
+    <FadeInLogos className="container" ref={refElement}>
+      {isIntersecting && (
+        <>
+          <FadeInPartnersTile>Our Placement Partners</FadeInPartnersTile>
+          <FadeInPartnersLogoRow>
+            {partnersList?.map((eachPartner, index) => {
+              return (
+                <img
+                  src={eachPartner.fields?.file?.url}
+                  key={index}
+                  className="logo"
+                  alt="partner_logo"
+                />
+              );
+            })}
+          </FadeInPartnersLogoRow>
+        </>
+      )}
+    </FadeInLogos>
   );
 }
 
