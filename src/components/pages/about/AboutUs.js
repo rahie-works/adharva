@@ -40,14 +40,11 @@ const FadeInTitle = styled.h1`
   font-size: 5em;
   animation: 1s ${fadeInAnimation};
 
-  @media only screen and (max-width: 480px) {
-    font-size: 3em;
+  @media only screen and (max-width: 768px) {
+    font-size: 1.5em;
   }
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-    font-size: 6em;
-  }
-  @media screen and (min-width: 481px) and (max-width: 768px) {
-    font-size: 4.5em;
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    font-size: 2.5em;
   }
 `;
 
@@ -57,32 +54,29 @@ const FadeInContentContainer = styled.div`
   width: 100%;
   margin: 2em;
   line-height: 1em;
+
+  @media only screen and (max-width: 768px) {
+    margin: 0em;
+  }
 `;
 
 const FadeInContent = styled.span`
-  width: "100%";
+  width: 100%;
   font-size: 1.9em;
   line-height: 1.5em;
   animation: 2.5s ${slideInAnimation};
   margin-block: 2em;
-  text-align: ${(props) => props.textalign};
-  font-family: "Montserrat", sans-serif;
+  text-align: ${(props) => (props.alignment ? props.alignment :  "center")};
   color: white;
 
   @media only screen and (max-width: 480px) {
     font-size: 1em;
-    width: 100%;
-    padding-left: 0%;
   }
   @media screen and (min-width: 769px) and (max-width: 1024px) {
-    font-size: 1.5em;
-    width: ${(props) => (props.alignment === "right" ? "100%" : "80%")};
-    padding-left: ${(props) => (props.alignment === "right" ? "40%" : "0")};
+    font-size: 1.6em;
   }
   @media screen and (min-width: 481px) and (max-width: 768px) {
-    font-size: 1.5em;
-    width: ${(props) => (props.alignment === "right" ? "100%" : "90%")};
-    padding-left: ${(props) => (props.alignment === "right" ? "30%" : "0")};
+    font-size: 1.4em;
   }
 `;
 
@@ -103,13 +97,13 @@ export const AboutUs = () => {
   const AboutUsContainer = () => {
     return (
       <FadeInContentContainer>
-        <FadeInContent textalign="left">
+        <FadeInContent alignment={"left"}>
           {
             aboutData?.fields?.moreSectionContents?.moreSectionContents[0]
               ?.description[0]
           }
         </FadeInContent>
-        <FadeInContent textalign="left">
+        <FadeInContent alignment={"left"}>
           {
             aboutData?.fields?.moreSectionContents?.moreSectionContents[0]
               ?.description[1]
@@ -122,7 +116,7 @@ export const AboutUs = () => {
   const OurMissionContainer = () => {
     return (
       <FadeInContentContainer>
-        <FadeInContent textalign="center">
+        <FadeInContent>
           {
             aboutData?.fields?.moreSectionContents?.moreSectionContents[1]
               ?.description
@@ -135,7 +129,7 @@ export const AboutUs = () => {
   const OurVisionContainer = () => {
     return (
       <FadeInContentContainer>
-        <FadeInContent textalign="center">
+        <FadeInContent>
           {
             aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
               ?.description

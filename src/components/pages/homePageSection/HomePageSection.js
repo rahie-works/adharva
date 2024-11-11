@@ -1,78 +1,11 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
-import { fadeIn } from "react-animations";
 import { createClient } from "contentful";
 
 // styles
 import "../../../App.css";
-import "./HomePageSection.css";
 
-const simpleAnimation = keyframes`${fadeIn}`;
-
-const SlideContainer = styled.div`
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    opacity: 0;
-    &.active {
-      opacity: 1;
-      animation: ${simpleAnimation} 1s ease-in-out;
-    }
-  }
-
-  .nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-    z-index: 2;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  .prev {
-    left: 10px;
-  }
-
-  .next {
-    right: 10px;
-  }
-
-  .indicator-container {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-  }
-
-  .indicator {
-    width: 12px;
-    height: 12px;
-    background-color: white;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0.5;
-  }
-
-  .indicator.active {
-    opacity: 1;
-    background-color: #3498db;
-  }
-`;
+// styled
+import * as S from "./HomePageStyledComponents"
 
 export default function HomePageSection() {
   const client = createClient({
@@ -99,51 +32,45 @@ export default function HomePageSection() {
     };
     fecthData();
     const intervalId = setInterval(() => {
-      console.log("==currentIndex", currentIndex.current)
       setCurrentIndex((prevIndex) =>
           prevIndex === homePageSlidesImage.length - 1 ? 0 : prevIndex + 1
       );
     }, 10000);
 
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
   }, [homePageSlidesImage.length]);
 
-  // Navigate to the previous slide
+
   const goToPreviousSlide = () => {
     setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? homePageSlidesImage.length - 1 : prevIndex - 1
     );
-    // currentIndex.current = currentIndex.current === 0 ? homePageSlidesImage.length - 1 : currentIndex.current - 1
-  };
+};
 
-  // Navigate to the next slide
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) => 
       prevIndex === homePageSlidesImage.length - 1 ? 0 : prevIndex + 1
     );
-    // currentIndex.current = currentIndex.current === homePageSlidesImage.length - 1 ? 0 : currentIndex.current + 1
-  };
+};
 
 
   return (
     <div>
        {homePageBanner && (
-        <figure className="banner-class">
-          <img
+        <S.StyledBannerFigure>
+          <S.StyledBannerImage
             src={homePageBanner}
-            style={{ width: "100%", height: "20vh" }}
             alt="home_page_banner"
           />
-        </figure>
+        </S.StyledBannerFigure>
       )}
-      <SlideContainer>
-        <button className="nav-button prev" onClick={goToPreviousSlide}>
-          &#10094;
-        </button>
-        
-        <button className="nav-button next" onClick={goToNextSlide}>
-          &#10095;
-        </button>
+      <S.SlideContainer>
+        <S.StyledHomePageButton left={"10px"} onClick={goToPreviousSlide}>
+          <i class="fas fa-chevron-left"></i>
+        </S.StyledHomePageButton>
+        <S.StyledHomePageButton right={"10px"} onClick={goToNextSlide}>
+          <i class="fas fa-chevron-right"></i>
+        </S.StyledHomePageButton>
 
         {homePageSlidesImage.map((src, index) => (
           <img
@@ -163,7 +90,7 @@ export default function HomePageSection() {
             ></div>
           ))}
         </div>
-      </SlideContainer>
+      </S.SlideContainer>
     </div>
   );
 }

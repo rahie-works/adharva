@@ -11,8 +11,9 @@ import adharvalogoblue from "../../images/adharvalogoblue.jpeg";
 // constants
 import { NAVIGATION_LINKS, NAVIGATION_BAR_BUTTON } from "./NavigationConstants";
 
-// styles
+// styled
 import "./NavigationBar.css";
+import * as S from "./NavBarStyledComponents"
 
 export default function NavigationBar() {
   const [click, setClick] = useState(false);
@@ -28,6 +29,7 @@ export default function NavigationBar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = (ref) => {
+    console.log("==previousTabRef.target", previousTabRef.target)
     if (previousTabRef.target) {
       previousTabRef.target.classList.remove("nav-links-clicked");
     }
@@ -55,30 +57,31 @@ export default function NavigationBar() {
       }
     };
     fecthData();
+    window.addEventListener("resize", showButton);
+
+    return () =>  window.removeEventListener("resize", showButton);
   }, []);
 
-  window.addEventListener("resize", showButton);
+
   return (
-    <>
-      <nav className="navbar">
-        <div className="navbar-container">
+      <S.NavBar>
+        <S.NavBarContainer>
           <Link to="/adharva" className="navbar-logo" onClick={closeMobileMenu}>
-            <img
+            <S.NavBarLogo
               src={adharvalogoblue}
-              className="adharva-logo"
               alt="adharva_logo_blue"
             />
           </Link>
-          <div className="menu-icon" onClick={handleClick}>
+          <S.MenuIcon onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
-          </div>
+          </S.MenuIcon>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             {(
               navigationData.fields?.navigationBarSections?.sections ||
               NAVIGATION_LINKS
             ).map((eachSection, index) => {
               return (
-                <li className="nav-item" key={index} ref={currentTabRef}>
+                <S.NavItem key={index} ref={currentTabRef}>
                   <Link
                     to={eachSection.linkTo}
                     className="nav-links"
@@ -86,7 +89,7 @@ export default function NavigationBar() {
                   >
                     {eachSection.title.toUpperCase()}
                   </Link>
-                </li>
+                </S.NavItem>
               );
             })}
           </ul>
@@ -96,8 +99,7 @@ export default function NavigationBar() {
                 ?.buttonName || NAVIGATION_BAR_BUTTON}
             </Button>
           )}
-        </div>
-      </nav>
-    </>
+        </S.NavBarContainer>
+      </S.NavBar>
   );
 }

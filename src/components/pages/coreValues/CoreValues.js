@@ -39,6 +39,10 @@ const FadeInTitle = styled.h3`
   @media screen and (min-width: 481px) and (max-width: 768px) {
     font-size: 3em;
   }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    font-size: 4em;
+  }
 `;
 
 const FadeUpAcronym = styled.h1`
@@ -49,14 +53,11 @@ const FadeUpAcronym = styled.h1`
   font-size: 15em;
   font-weight: bold;
 
-  @media only screen and (max-width: 480px) {
-    font-size: 5em;
+  @media only screen and (max-width: 768px) {
+    font-size: 6.5em;
     width: 100%;
   }
   @media screen and (min-width: 769px) and (max-width: 1023px) {
-    font-size: 6em;
-  }
-  @media screen and (min-width: 481px) and (max-width: 768px) {
     font-size: 10em;
   }
 `;
@@ -70,17 +71,12 @@ const FadeInValue = styled.p`
   animation: ${fadeInAnimation} 1s ease-in-out both;
   animation-delay: 1.5s;
 
-  @media only screen and (max-width: 480px) {
-    font-size: 0.6em;
+  @media only screen and (max-width: 768px) {
+    font-size: 0.7em;
   }
 
   @media screen and (min-width: 769px) and (max-width: 1023px) {
-    font-size: 0.4em;
-  }
-
-  @media screen and (min-width: 481px) and (max-width: 768px) {
-    font-size: 1em;
-    margin-left: 1vmin;
+    font-size: 1.6em;
   }
 `;
 

@@ -1,31 +1,7 @@
 import React from "react";
 import { createClient } from "contentful";
 import "./Partners.css";
-import styled, { keyframes } from "styled-components";
-import { fadeIn } from "react-animations";
-
-const simpleAnimation = keyframes`${fadeIn}`;
-
-const FadeInLogos = styled.div`
-  animation: 3s ${simpleAnimation};
-`;
-
-const FadeInPartnersTile = styled.div`
-  animation: 3s ${simpleAnimation};
-  font-size: 5vw;
-  color: white;
-  padding-top: 3vh;
-  text-align: center;
-`;
-
-const FadeInPartnersLogoRow = styled.div`
-  animation: 3s ${simpleAnimation};
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 2vw;
-`;
+import * as S from "./PartnerStyledComponents"
 
 function Partners() {
   const client = createClient({
@@ -71,25 +47,24 @@ function Partners() {
   }, [isIntersecting]);
 
   return (
-    <FadeInLogos className="container" ref={refElement}>
+    <S.FadeInLogos ref={refElement}>
       {isIntersecting && (
         <>
-          <FadeInPartnersTile>Our Placement Partners</FadeInPartnersTile>
-          <FadeInPartnersLogoRow>
+          <S.FadeInPartnersTile>Our Placement Partners</S.FadeInPartnersTile>
+          <S.FadeInPartnersLogoRow>
             {partnersList?.map((eachPartner, index) => {
               return (
-                <img
+                <S.PartnersLogo
                   src={eachPartner.fields?.file?.url}
                   key={index}
-                  className="logo"
                   alt="partner_logo"
                 />
               );
             })}
-          </FadeInPartnersLogoRow>
+          </S.FadeInPartnersLogoRow>
         </>
       )}
-    </FadeInLogos>
+    </S.FadeInLogos>
   );
 }
 
