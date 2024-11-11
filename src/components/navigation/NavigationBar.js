@@ -28,7 +28,7 @@ export default function NavigationBar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = (ref) => {
-    if (!!previousTabRef.target) {
+    if (previousTabRef.target) {
       previousTabRef.target.classList.remove("nav-links-clicked");
     }
     ref.target.classList.add("nav-links-clicked");

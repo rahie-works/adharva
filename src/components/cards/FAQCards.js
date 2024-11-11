@@ -12,9 +12,9 @@ export default function FAQCards(props) {
       <h1>{sectionData.title}</h1>
       <div className="faq_cards__container">
         <div className="faq_cards__wrapper">
-          {cardData.map((eachRow) => {
+          {cardData.map((eachRow, index) => {
             return (
-              <ul className=".faq_cards__item">
+              <ul className=".faq_cards__item" key={index}>
                 {eachRow.map((eachItem, index) => {
                   return (
                     <li className="faq_card__item" key={index}>

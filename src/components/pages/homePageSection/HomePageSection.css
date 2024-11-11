@@ -1,12 +1,9 @@
 .hero-container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  position: relative;
   justify-content: center;
-  align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
-  object-fit: fill;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .hero-container > h1 {
@@ -51,19 +48,6 @@
 @media only screen and (max-width: 480px) {
   .hero-container {
     background-position: center;
-  }
-  .hero-container > h1 {
-    color: #fff;
-    font-size: 12px;
-    margin-top: -70px;
-  }
-  .hero-container > h4 {
-    color: #fff;
-    font-size: 15px;
-    margin-top: -50px;
-  }
-  .hero-container > p {
-    font-size: 15px;
   }
 }
 
@@ -123,4 +107,71 @@
   .btn {
     width: 100%;
   }
+}
+
+.slideshow-container {
+  position: absolute;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  width: 100%;
+  display: flex; /* Align slides horizontally */
+  transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.slide.active {
+  display: block; /* Show the active slide */
+}
+
+.prev,
+.next {
+  background-color: #141414;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0; /* Position next arrow to the right */
+  border-radius: 3px 0 0 3px; /* Rounded corners */
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background on hover */
+}
+
+.indicator-container {
+  text-align: center; /* Center the indicators */
+  margin-top: 50vw;
+}
+
+.indicator {
+  display: inline-block; /* Inline blocks for indicators */
+  width: 15px; /* Indicator size */
+  height: 15px; /* Indicator size */
+  margin: 0 5px; /* Space between indicators */
+  background-color: #5c5c5c; /* Gray color */
+  border-radius: 50%; /* Circular indicators */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.indicator.active {
+  background-color: #717171; /* Active indicator color */
 }

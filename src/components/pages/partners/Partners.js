@@ -12,7 +12,7 @@ const FadeInLogos = styled.div`
 
 const FadeInPartnersTile = styled.div`
   animation: 3s ${simpleAnimation};
-  font-size: 8vw;
+  font-size: 5vw;
   color: white;
   padding-top: 3vh;
   text-align: center;
@@ -22,10 +22,9 @@ const FadeInPartnersLogoRow = styled.div`
   animation: 3s ${simpleAnimation};
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 5vw;
-  flex-wrap: wrap;
+  padding: 2vw;
 `;
 
 function Partners() {

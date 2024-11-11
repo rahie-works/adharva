@@ -29,7 +29,7 @@ const increaseLetterSpacing = keyframes`
 const FadeInTitle = styled.h3`
   display: flex;
   width: 100%;
-  font-size: 3vw;
+  font-size: 8em;
   justify-content: center;
   animation: 1s ${fadeInAnimation};
 
@@ -46,9 +46,8 @@ const FadeUpAcronym = styled.h1`
   width: 100%;
   animation: ${fadeUpAnimation} 1s ease-in-out both,
     ${increaseLetterSpacing} 1s ease-in-out 1s both;
-  font-size: 12em;
+  font-size: 15em;
   font-weight: bold;
-  color: #1a3d6b;
 
   @media only screen and (max-width: 480px) {
     font-size: 5em;
@@ -66,7 +65,7 @@ const FadeInValue = styled.p`
   display: flex;
   justify-content: left;
   margin-left: 1.5vmin;
-  font-size: 1vw;
+  font-size: 1.5vw;
   width: 100%;
   animation: ${fadeInAnimation} 1s ease-in-out both;
   animation-delay: 1.5s;

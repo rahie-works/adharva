@@ -10,6 +10,7 @@ import NavigationBar from "./components/navigation/NavigationBar";
 import Partners from "./components/pages/partners/Partners";
 import Register from "./components/pages/register/Register";
 import Services from "./components/pages/services/Services";
+import Gallery from "./components/pages/gallery/Gallery";
 
 // styles
 import "./App.css";
@@ -31,6 +32,7 @@ export default function App() {
             path="/connect"
             element={<Connect page={true} />}
           />
+          <Route id="gallery" path="/gallery" element={<Gallery />} />
           <Route path="/register" element={<Register />} />
           <Route path="/register/CPA" element={<Register course={"CPA"} />} />
           <Route path="/register/CGP" element={<Register course={"CGP"} />} />

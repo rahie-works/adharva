@@ -9,24 +9,35 @@ import "./AboutUs.css";
 const fadeInAnimation = keyframes`${fadeIn}`;
 const slideInAnimation = keyframes`${slideInUp}`;
 
+const FadeInMoreInfoContainer = styled.div`
+  background-color: #00527f;
+  background-image: linear-gradient(180deg, #1a3d6b 0%, #000000 100%);
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5vw;
+`;
+
 const FadeInConatiner = styled.span`
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
-const FadeInValuesConatiner = styled.div`
+const FadeInTabInContainer = styled.section`
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
+  cursor: pointer;
 `;
 
 const FadeInTitle = styled.h1`
   display: flex;
   width: 100%;
   justify-content: center;
-  font-size: 8em;
+  font-size: 5em;
   animation: 1s ${fadeInAnimation};
 
   @media only screen and (max-width: 480px) {
@@ -40,14 +51,23 @@ const FadeInTitle = styled.h1`
   }
 `;
 
+const FadeInContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 2em;
+  line-height: 1em;
+`;
+
 const FadeInContent = styled.span`
-  width: ${(props) => (props.alignment === "right" ? "100%" : "50%")};
+  width: "100%";
   font-size: 1.9em;
   line-height: 1.5em;
   animation: 2.5s ${slideInAnimation};
   margin-block: 2em;
-  padding-left: ${(props) => (props.alignment === "right" ? "50%" : "0")};
+  text-align: ${(props) => props.textalign};
   font-family: "Montserrat", sans-serif;
+  color: white;
 
   @media only screen and (max-width: 480px) {
     font-size: 1em;
@@ -66,41 +86,68 @@ const FadeInContent = styled.span`
   }
 `;
 
-const FadeInValues = styled.div`
-  font-size: 1.9em;
-  line-height: 1.5em;
-  animation: 2.5s ${slideInAnimation};
-  margin-block: 2em;
-  padding-left: ${(props) => (props.alignment === "right" ? "50%" : "0")};
-  font-family: "Montserrat", sans-serif;
-`;
-
-const BoldText = styled.h3`
-  font-weight: bold;
-  font-size: 3vw;
-  line-height: 1.5em;
-
-  @media only screen and (max-width: 480px) {
-    font-size: 1.3em;
-  }
-`;
-
-const ValueText = styled.h4`
-  padding: 5px;
-  font-size: 1vw;
-  align-self: center;
-`;
-
 export const AboutUs = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   const [aboutData, setAboutData] = useState([]);
+  const [tabTitle, setTabTitle] = useState("");
   const ref = useRef(null);
+
+  const tabBarTitles = ["About Us", "Our Mission", "Our Vision"];
 
   const client = createClient({
     space: "5s10ucm8anhl",
     accessToken: "AzH3pFFc0MofFVf8rtX5jHk5LCjiiwk7EtosViYi1WE",
   });
+
+  const AboutUsContainer = () => {
+    return (
+      <FadeInContentContainer>
+        <FadeInContent textalign="left">
+          {
+            aboutData?.fields?.moreSectionContents?.moreSectionContents[0]
+              ?.description[0]
+          }
+        </FadeInContent>
+        <FadeInContent textalign="left">
+          {
+            aboutData?.fields?.moreSectionContents?.moreSectionContents[0]
+              ?.description[1]
+          }
+        </FadeInContent>
+      </FadeInContentContainer>
+    );
+  };
+
+  const OurMissionContainer = () => {
+    return (
+      <FadeInContentContainer>
+        <FadeInContent textalign="center">
+          {
+            aboutData?.fields?.moreSectionContents?.moreSectionContents[1]
+              ?.description
+          }
+        </FadeInContent>
+      </FadeInContentContainer>
+    );
+  };
+
+  const OurVisionContainer = () => {
+    return (
+      <FadeInContentContainer>
+        <FadeInContent textalign="center">
+          {
+            aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
+              ?.description
+          }
+        </FadeInContent>
+      </FadeInContentContainer>
+    );
+  };
+
+  const tabSwitch = (tabName) => {
+    setTabTitle(tabName.target.innerHTML);
+  };
 
   useEffect(() => {
     const fecthData = async () => {
@@ -131,53 +178,32 @@ export const AboutUs = () => {
   }, [isIntersecting]);
 
   return (
-    <div className="about_us_container" ref={ref}>
+    <FadeInMoreInfoContainer ref={ref} title={tabTitle}>
       <FadeInConatiner>
-        <FadeInTitle>About Us</FadeInTitle>
-        <FadeInContent>
-          {
-            aboutData?.fields?.moreSectionContents?.moreSectionContents[0]
-              ?.description
-          }
-        </FadeInContent>
-        <FadeInContent alignment="right">
-          {
-            aboutData?.fields?.moreSectionContents?.moreSectionContents[1]
-              ?.description
-          }
-        </FadeInContent>
-        <FadeInValuesConatiner>
-          <FadeInValues>
-            <BoldText>
-              {
-                aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
-                  ?.title
+        <FadeInTabInContainer>
+          {tabBarTitles.map((eachTab, index) => (
+            <FadeInTitle
+              onClick={tabSwitch}
+              key={index}
+              className={
+                tabTitle === eachTab ||
+                (tabTitle === "" && eachTab === tabBarTitles[0])
+                  ? "selected_tab"
+                  : "unselected_tabs"
               }
-            </BoldText>
-            <ValueText>
-              {
-                aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
-                  ?.description
-              }
-            </ValueText>
-          </FadeInValues>
-          <FadeInValues>
-            <BoldText>
-              {
-                aboutData?.fields?.moreSectionContents?.moreSectionContents[3]
-                  ?.title
-              }
-            </BoldText>
-            <ValueText>
-              {
-                aboutData?.fields?.moreSectionContents?.moreSectionContents[3]
-                  ?.description
-              }
-            </ValueText>
-          </FadeInValues>
-        </FadeInValuesConatiner>
+              title={eachTab}
+            >
+              {eachTab}
+            </FadeInTitle>
+          ))}
+        </FadeInTabInContainer>
+        {(tabTitle === tabBarTitles[0] || tabTitle === "") && (
+          <AboutUsContainer />
+        )}
+        {tabTitle === tabBarTitles[1] && <OurMissionContainer />}
+        {tabTitle === tabBarTitles[2] && <OurVisionContainer />}
         <CoreValues />
       </FadeInConatiner>
-    </div>
+    </FadeInMoreInfoContainer>
   );
 };

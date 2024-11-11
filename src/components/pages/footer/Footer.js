@@ -22,9 +22,9 @@ export default function Footer() {
           width="400"
           height="300"
           style={{ border: 0 }}
-          allowfullscreen="true"
+          allowFullScreen={true}
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
           title="Adharva Location"
         ></iframe>
       </section>
@@ -37,6 +37,13 @@ export default function Footer() {
           <small className="website-rights">{ADHARVA_ORG_TEXT}</small>
         </div>
       </section>
+      {/* <section>
+        <div>
+          <a href="https://www.flaticon.com/free-icons/call" title="call icons">
+            Call icons created by Smashicons - Flaticon
+          </a>
+        </div>
+      </section> */}
     </div>
   );
 }

@@ -5,7 +5,17 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 5vw;
-  color: #1a3d6b;
+  /* color: #1a3d6b; */
+}
+
+.selected_tab {
+  color: white;
+  text-decoration: "underline";
+}
+
+.unselected_tabs {
+  color: rgb(144, 144, 144);
+  text-decoration: none;
 }
 
 @media screen and (max-width: 400px) {

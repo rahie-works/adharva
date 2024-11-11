@@ -3,36 +3,75 @@ import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
 import { createClient } from "contentful";
 
-// components
-import Button from "../../button/Button";
-
-// constants
-import {
-  HOME_PAGE_TITLE,
-  HOME_PAGE_SUBTITLE,
-  HOME_PAGE_BUTTONS,
-  HOME_PAGE_SEASON_TEXT,
-} from "./HomePageConstants";
-
 // styles
 import "../../../App.css";
 import "./HomePageSection.css";
 
 const simpleAnimation = keyframes`${fadeIn}`;
 
-const FadeInTitle = styled.h1`
-  animation: 3s ${simpleAnimation};
-`;
+const SlideContainer = styled.div`
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-const FadeInSubTitle = styled.h4`
-  animation: 3s ${simpleAnimation};
-`;
-const FadeInPara = styled.p`
-  animation: 3s ${simpleAnimation};
-`;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    &.active {
+      opacity: 1;
+      animation: ${simpleAnimation} 1s ease-in-out;
+    }
+  }
 
-const FadeInButtons = styled.div`
-  animation: 5s ${simpleAnimation};
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  .indicator-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+
+  .indicator {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  .indicator.active {
+    opacity: 1;
+    background-color: #3498db;
+  }
 `;
 
 export default function HomePageSection() {
@@ -41,33 +80,54 @@ export default function HomePageSection() {
     accessToken: "AzH3pFFc0MofFVf8rtX5jHk5LCjiiwk7EtosViYi1WE",
   });
 
-  const [homePageData, setHomePageData] = React.useState({});
   const [homePageBanner, setHomePageBanner] = React.useState("");
+  const [currentIndex, setCurrentIndex] = React.useState(0);
 
-  const [homePageBackgroundImage, setHomePageBackgroundImage] =
-    React.useState("");
+  const [homePageSlidesImage, setHomePageSlidesImage] = React.useState([]);
 
   React.useEffect(() => {
     const fecthData = async () => {
       try {
         const homePageData = await client.getEntry("3JkQKk0Z4C3ZV70MkB9dZh");
-        setHomePageData(homePageData);
         setHomePageBanner(
           homePageData?.fields?.homePageBanner?.fields?.file.url
         );
-        setHomePageBackgroundImage(
-          homePageData.fields?.homePageBackgroundImage?.fields?.file.url
-        );
+        setHomePageSlidesImage(homePageData.fields?.slideShowImages.map(img => img.fields.file.url));
       } catch (error) {
         console.log("==Data not received", error);
       }
     };
     fecthData();
-  }, []);
+    const intervalId = setInterval(() => {
+      console.log("==currentIndex", currentIndex.current)
+      setCurrentIndex((prevIndex) =>
+          prevIndex === homePageSlidesImage.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 10000);
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, [homePageSlidesImage.length]);
+
+  // Navigate to the previous slide
+  const goToPreviousSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? homePageSlidesImage.length - 1 : prevIndex - 1
+    );
+    // currentIndex.current = currentIndex.current === 0 ? homePageSlidesImage.length - 1 : currentIndex.current - 1
+  };
+
+  // Navigate to the next slide
+  const goToNextSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === homePageSlidesImage.length - 1 ? 0 : prevIndex + 1
+    );
+    // currentIndex.current = currentIndex.current === homePageSlidesImage.length - 1 ? 0 : currentIndex.current + 1
+  };
+
 
   return (
     <div>
-      {homePageBanner && (
+       {homePageBanner && (
         <figure className="banner-class">
           <img
             src={homePageBanner}
@@ -76,41 +136,34 @@ export default function HomePageSection() {
           />
         </figure>
       )}
-      <div
-        style={{
-          backgroundImage: `url(${homePageBackgroundImage})`,
-          background: "center/cover no-repeat",
-        }}
-        className="hero-container"
-      >
-        <FadeInTitle>
-          {homePageData.fields?.homePageTitle || HOME_PAGE_TITLE}
-        </FadeInTitle>
-        <FadeInSubTitle>
-          {homePageData.fields?.homePageSubTitle || HOME_PAGE_SUBTITLE}
-        </FadeInSubTitle>
-        <FadeInPara>
-          {homePageData.fields?.homePageSeasonText || HOME_PAGE_SEASON_TEXT}
-        </FadeInPara>
-        <FadeInButtons className="hero-btns">
-          {(
-            homePageData.fields?.homePageButtons?.buttons || HOME_PAGE_BUTTONS
-          ).map((eachButton, index) => {
-            return (
-              <Button
-                key={index}
-                buttonName={eachButton.title}
-                className="btns"
-                buttonStyle="btn--outline"
-                buttonSize="btn--large"
-                routeTo={eachButton.linkTo}
-              >
-                {eachButton.title}
-              </Button>
-            );
-          })}
-        </FadeInButtons>
-      </div>
+      <SlideContainer>
+        <button className="nav-button prev" onClick={goToPreviousSlide}>
+          &#10094;
+        </button>
+        
+        <button className="nav-button next" onClick={goToNextSlide}>
+          &#10095;
+        </button>
+
+        {homePageSlidesImage.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`Slide ${index}`}
+            className={index === currentIndex ? "active" : ""}
+          />
+        ))}
+
+        <div className="indicator-container">
+          {homePageSlidesImage.map((_, index) => (
+            <div
+              key={index}
+              className={`indicator ${index === currentIndex? "active" : ""}`}
+              onClick={() => setCurrentIndex(index)}
+            ></div>
+          ))}
+        </div>
+      </SlideContainer>
     </div>
   );
 }
