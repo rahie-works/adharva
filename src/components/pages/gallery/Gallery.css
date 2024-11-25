@@ -1,0 +1,7 @@
+.selectedTab {
+    color: white;
+}
+
+.unselectedTab {
+    color: rgb(144, 144, 144);
+}
