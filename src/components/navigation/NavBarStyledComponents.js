@@ -13,7 +13,6 @@ export const NavBarContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: 80px;
-    max-width: 1700px;
 `
 
 export const NavBarLogo = styled.img`
@@ -21,6 +20,10 @@ export const NavBarLogo = styled.img`
     height: 75px;
     align-items: flex-start;
     overflow: hidden;
+
+    @media screen and (max-width: 499px) {
+        padding: 5px;
+    }
 `
 
 export const MenuIcon = styled.div`

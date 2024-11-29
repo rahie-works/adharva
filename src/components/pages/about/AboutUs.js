@@ -1,18 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import { createClient } from "contentful";
-import { CoreValues } from "../coreValues/CoreValues";
 
 import "./AboutUs.css";
 import * as S from "./AboutUsStyledComponents"
+import { PolicySection } from "../policy/PolicySection";
 
 export const AboutUs = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   const [aboutData, setAboutData] = useState([]);
-  const [tabTitle, setTabTitle] = useState("");
   const ref = useRef(null);
-
-  const tabBarTitles = ["About Us", "Our Mission", "Our Vision"];
 
   const client = createClient({
     space: "5s10ucm8anhl",
@@ -36,36 +33,6 @@ export const AboutUs = () => {
         </S.FadeInContent>
       </S.FadeInContentContainer>
     );
-  };
-
-  const OurMissionContainer = () => {
-    return (
-      <S.FadeInContentContainer>
-        <S.FadeInContent>
-          {
-            aboutData?.fields?.moreSectionContents?.moreSectionContents[1]
-              ?.description
-          }
-        </S.FadeInContent>
-      </S.FadeInContentContainer>
-    );
-  };
-
-  const OurVisionContainer = () => {
-    return (
-      <S.FadeInContentContainer>
-        <S.FadeInContent>
-          {
-            aboutData?.fields?.moreSectionContents?.moreSectionContents[2]
-              ?.description
-          }
-        </S.FadeInContent>
-      </S.FadeInContentContainer>
-    );
-  };
-
-  const tabSwitch = (tabName) => {
-    setTabTitle(tabName.target.innerHTML);
   };
 
   useEffect(() => {
@@ -97,31 +64,16 @@ export const AboutUs = () => {
   }, [isIntersecting]);
 
   return (
-    <S.FadeInMoreInfoContainer ref={ref} title={tabTitle}>
+    <S.FadeInMoreInfoContainer ref={ref}>
       <S.FadeInConatiner>
-        <S.FadeInTabInContainer>
-          {tabBarTitles.map((eachTab, index) => (
-            <S.FadeInTitle
-              onClick={tabSwitch}
-              key={index}
-              className={
-                tabTitle === eachTab ||
-                (tabTitle === "" && eachTab === tabBarTitles[0])
-                  ? "selected_tab"
-                  : "unselected_tabs"
-              }
-              title={eachTab}
-            >
-              {eachTab}
-            </S.FadeInTitle>
-          ))}
-        </S.FadeInTabInContainer>
-        {(tabTitle === tabBarTitles[0] || tabTitle === "") && (
-          <AboutUsContainer />
-        )}
-        {tabTitle === tabBarTitles[1] && <OurMissionContainer />}
-        {tabTitle === tabBarTitles[2] && <OurVisionContainer />}
-        <CoreValues />
+        <S.FadeInTitle
+          className={"selected_tab"}
+          title={"About Us"}
+        >
+          {"About Us"}
+        </S.FadeInTitle>
+        <AboutUsContainer />
+        <PolicySection aboutData={aboutData}/>
       </S.FadeInConatiner>
     </S.FadeInMoreInfoContainer>
   );

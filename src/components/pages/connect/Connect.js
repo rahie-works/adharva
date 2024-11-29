@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 
 // styles
 import "./Connect.css";
+import * as S from "./ConnectStyledComponents";
 
 // constants
 import { CONNECT_TITLE, ENCODED_WHATSAPP_TEXT } from "./ConnectConstant";
 
 export default function Connect(props) {
   return (
-    <div className="connect" style={{ height: props.page ? "100vh" : "auto" }}>
-      <h1>{CONNECT_TITLE}</h1>
-      <div className="social-icons">
+    <S.ConnectContainer page={props.page}>
+      <S.ConnectHeadline1>{CONNECT_TITLE}</S.ConnectHeadline1>
+      <S.SocialIcons>
         <Link
-          className="social-icon-link facebook"
+          className="social-icon-link-top facebook"
           to="https://www.facebook.com/profile.php?id=100091785007499"
           target="_blank"
           aria-label="Facebook"
@@ -21,7 +22,7 @@ export default function Connect(props) {
           <i className="fab fa-facebook-f" />
         </Link>
         <Link
-          className="social-icon-link instagram"
+          className="social-icon-link-top instagram"
           to="https://www.instagram.com/aic_nilambur/"
           target="_blank"
           aria-label="Instagram"
@@ -29,7 +30,7 @@ export default function Connect(props) {
           <i className="fab fa-instagram" />
         </Link>
         <Link
-          className="social-icon-link youtube"
+          className="social-icon-link-top youtube"
           to="https://www.youtube.com"
           target="_blank"
           aria-label="Youtube"
@@ -37,36 +38,36 @@ export default function Connect(props) {
           <i className="fab fa-youtube" />
         </Link>
         <Link
-          className="social-icon-link linkedIn"
+          className="social-icon-link-top linkedIn"
           to="https://www.linkedin.com"
           target="_blank"
           aria-label="LinkedIn"
         >
           <i className="fab fa-linkedin" />
         </Link>
-      </div>
-      <h3>Or why wait?</h3>
-      <div className="whatsapp-icon">
+      </S.SocialIcons>
+      <S.ConnectHeadline3>Or why wait?</S.ConnectHeadline3>
+      <S.ConnectImmediateIcons>
         <Link
-          className="social-icon-link whatsapp"
+          className="social-icon-link-bottom whatsapp"
           target="_blank"
           to={`https://wa.me/+918891502071?text=${ENCODED_WHATSAPP_TEXT}`}
           aria-label="Whatsapp"
         >
           <i className="fab fa-whatsapp" />
         </Link>
-        <h3>Chat</h3>
-        <div className="divider"></div>
+        <S.WhatsappIconH3>Chat</S.WhatsappIconH3>
+        <S.Divider></S.Divider>
         <Link
-          className="social-icon-link phone"
+          className="social-icon-link-bottom phone"
           target="_blank"
           to={`tel:+918891502071`}
           aria-label="call"
         >
           <i className="fas fa-phone"></i>
         </Link>
-        <h3>Call</h3>
-      </div>
-    </div>
+        <S.WhatsappIconH3>Call</S.WhatsappIconH3>
+      </S.ConnectImmediateIcons>
+    </S.ConnectContainer>
   );
 }

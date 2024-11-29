@@ -3,82 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
 import { createClient } from "contentful";
 
-import "./CoreValues.css";
-
-const fadeInAnimation = keyframes`${fadeIn}`;
-const fadeUpAnimation = keyframes`
-from {
-    transform: translateY(10%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
-
-const increaseLetterSpacing = keyframes`
-  from {
-    letter-spacing: normal;
-  }
-  to {
-    letter-spacing: 0.25em;
-  }
-`;
-
-const FadeInTitle = styled.h3`
-  display: flex;
-  width: 100%;
-  font-size: 8em;
-  justify-content: center;
-  animation: 1s ${fadeInAnimation};
-
-  @media only screen and (max-width: 480px) {
-    font-size: 2em;
-  }
-  @media screen and (min-width: 481px) and (max-width: 768px) {
-    font-size: 3em;
-  }
-
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-    font-size: 4em;
-  }
-`;
-
-const FadeUpAcronym = styled.h1`
-  display: flex;
-  width: 100%;
-  animation: ${fadeUpAnimation} 1s ease-in-out both,
-    ${increaseLetterSpacing} 1s ease-in-out 1s both;
-  font-size: 15em;
-  font-weight: bold;
-
-  @media only screen and (max-width: 768px) {
-    font-size: 6.5em;
-    width: 100%;
-  }
-  @media screen and (min-width: 769px) and (max-width: 1023px) {
-    font-size: 10em;
-  }
-`;
-
-const FadeInValue = styled.p`
-  display: flex;
-  justify-content: left;
-  margin-left: 1.5vmin;
-  font-size: 1.5vw;
-  width: 100%;
-  animation: ${fadeInAnimation} 1s ease-in-out both;
-  animation-delay: 1.5s;
-
-  @media only screen and (max-width: 768px) {
-    font-size: 0.7em;
-  }
-
-  @media screen and (min-width: 769px) and (max-width: 1023px) {
-    font-size: 1.6em;
-  }
-`;
+import * as S from "./CoreValuesStyledComponent"
 
 export const CoreValues = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -113,21 +38,21 @@ export const CoreValues = () => {
   }, [isIntersecting]);
 
   return (
-    <div ref={ref} className="core_values_background">
+    <S.CoreValuesBackground ref={ref}>
       {isIntersecting && (
-        <FadeInTitle>{coreValues?.fields?.coreValuesTitle}</FadeInTitle>
+        <S.FadeInTitle>{coreValues?.fields?.coreValuesTitle}</S.FadeInTitle>
       )}
-      <div className="core_value_container">
+      <S.CoreValueContainer>
         {isIntersecting &&
           coreValues?.fields?.coreValues?.definitions?.map(
             (coreValue, index) => (
-              <div className="core_value" key={index}>
-                <FadeUpAcronym>{coreValue.letter}</FadeUpAcronym>
-                <FadeInValue>{coreValue?.desc}</FadeInValue>
-              </div>
+              <S.CoreValue key={index}>
+                <S.FadeUpAcronym>{coreValue.letter}</S.FadeUpAcronym>
+                <S.FadeInValue>{coreValue?.desc}</S.FadeInValue>
+              </S.CoreValue>
             )
           )}
-      </div>
-    </div>
+      </S.CoreValueContainer>
+    </S.CoreValuesBackground>
   );
 };

@@ -17,11 +17,13 @@
   color: white;
 }
 
-.social-icon-link {
+.social-icon-link-top {
   padding: 25px 25px;
 }
-.social-icon-link {
-  font-size: 24px;
+
+
+.social-icon-link-bottom {
+  padding: 15px 15px;
 }
 
 .divider {
@@ -36,7 +38,6 @@
   transform: rotate(180deg);
   display: flex;
   flex-direction: row;
-  padding: 25px 35px;
   text-decoration: none;
   color: white;
   transform: rotate(180deg) scale(2);
@@ -46,7 +47,6 @@
 .whatsapp {
   display: flex;
   flex-direction: row;
-  padding: 25px 35px;
   text-decoration: none;
   transform: scale(2.5);
   color: white;
@@ -83,6 +83,9 @@
 }
 
 @media only screen and (min-width: 400px) and (max-width: 767px) {
+  .social-icon-link-bottom {
+    padding: 10px 10px;
+  }
   .connect > h1 {
     text-align: center;
     margin-bottom: 40px;
@@ -122,6 +125,13 @@
 
   .whatsapp-icon > h3 {
     font-size: 4vw;
+  }
+
+
+  .phone {
+    transform: rotate(180deg) scale(1.1);
+    transition: 500ms;
+    margin-right: 5px;
   }
 }
 
@@ -200,13 +210,19 @@
 }
 
 @media only screen and (max-width: 399px) {
+  .facebook,
+  .instagram,
+  .youtube,
+  .linkedIn {
+    color: white;
+    transform: scale(0.5);
+  }
   .whatsapp-icon,
   h2 {
-    font-size: 20px;
+    font-size: 10px;
   }
   .whatsapp {
-    padding: 0px 0px;
-    text-decoration: none;
+    transform: scale(1.1);
   }
 
   .connect > h1 {
@@ -221,5 +237,10 @@
   }
   .social_icon_padding {
     padding: 0px 0px;
+  }
+
+  .phone {
+    transform: rotate(180deg) scale(1.1);
+    transition: 500ms;
   }
 }

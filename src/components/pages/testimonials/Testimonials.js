@@ -3,9 +3,8 @@ import { createClient } from "contentful";
 
 import { TESTIMONIAL_TITLE, UserTestimonials } from "./TestimonialContent";
 import right from "../../../images/right.png";
-import googleLogo from "../../../images/googlelogo.png";
 
-import "./Testimonial.css";
+import * as S from "./TestimonialStyledComponents";
 
 export default function Testimonials() {
   const [testimonialsSectionData, settestimonialsSectionData] = useState([]);
@@ -32,38 +31,37 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <div className="contain">
-      <h1>
+    <S.Container>
+      <S.TestimonialTitle>
         {testimonialsSectionData.fields?.sectionTitle || TESTIMONIAL_TITLE}
-      </h1>
-      <div className="testimonialContainer">
+      </S.TestimonialTitle>
+      <S.TestimonialContainer>
         {testimonialsSectionData.map((eachEntry, index) => {
           return (
-            <div className="testimonials" key={index}>
-              <img className="quote_image" alt="quote" src={right} />
-              <div className="content_testimonials">
-                <h3 className="testimonial_name">
+            <S.Testimonials key={index}>
+              <S.QuoteImage alt="quote" src={right} />
+              <S.ContentTestimonials>
+                <S.TestimonialName>
                   {eachEntry.firstName + " " + eachEntry.lastName}
-                </h3>
-                <p className="testimonial_comments">{eachEntry.comment}</p>
-                <p className="testimonials_date">
+                </S.TestimonialName>
+                <S.TestimonialComments>{eachEntry.comment}</S.TestimonialComments>
+                <S.TestimonialDate>
                   {eachEntry.courseAttended ? "Attended" : ""}{" "}
                   {eachEntry.courseAttended} - {eachEntry.dated}
-                </p>
-              </div>
-            </div>
+                </S.TestimonialDate>
+              </S.ContentTestimonials>
+            </S.Testimonials>
           );
         })}
-      </div>
-      <div className="more-review-container">
-        <a
+      </S.TestimonialContainer>
+      <S.MoreReviewContainer>
+        <S.MoreReviewTextLink
           href="https://www.google.com/maps/place/Adharva+Institute+of+Commerce+-+A+I+C/@11.1974246,76.0726099,12z/data=!4m8!3m7!1s0x3ba63b599c395a4b:0xdbb080e178143d64!8m2!3d11.2781347!4d76.2287482!9m1!1b1!16s%2Fg%2F11v3q4fm90?entry=ttu"
           target="blank"
-          style={{ color: "white" }}
         >
-          <h4>Look up for more reviews here</h4>
-        </a>
-      </div>
-    </div>
+          <S.MoreReviewText>Look up for more reviews here</S.MoreReviewText>
+        </S.MoreReviewTextLink>
+      </S.MoreReviewContainer>
+    </S.Container>
   );
 }

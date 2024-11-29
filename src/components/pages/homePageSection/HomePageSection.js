@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { createClient } from "contentful";
 
 // styles
@@ -7,18 +7,18 @@ import "../../../App.css";
 // styled
 import * as S from "./HomePageStyledComponents"
 
-export default function HomePageSection() {
+export const HomePageSection = () => {
   const client = createClient({
     space: "5s10ucm8anhl",
     accessToken: "AzH3pFFc0MofFVf8rtX5jHk5LCjiiwk7EtosViYi1WE",
   });
 
-  const [homePageBanner, setHomePageBanner] = React.useState("");
-  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [homePageBanner, setHomePageBanner] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [homePageSlidesImage, setHomePageSlidesImage] = React.useState([]);
+  const [homePageSlidesImage, setHomePageSlidesImage] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fecthData = async () => {
       try {
         const homePageData = await client.getEntry("3JkQKk0Z4C3ZV70MkB9dZh");
