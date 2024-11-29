@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/adharva/static/css/main.17fc7ff2.css",
-    "main.js": "/adharva/static/js/main.e081f4b1.js",
+    "main.css": "/adharva/static/css/main.eabdf6c9.css",
+    "main.js": "/adharva/static/js/main.e89f5c1e.js",
     "static/media/adharvalogoblue.jpeg": "/adharva/static/media/adharvalogoblue.f5a2c21f0fb1d4c4a5ed.jpeg",
-    "static/media/googlelogo.png": "/adharva/static/media/googlelogo.330fac308b783a6bc246.png",
     "static/media/right.png": "/adharva/static/media/right.5bdeacde7a51aae3a2c7.png",
     "index.html": "/adharva/index.html",
-    "main.17fc7ff2.css.map": "/adharva/static/css/main.17fc7ff2.css.map",
-    "main.e081f4b1.js.map": "/adharva/static/js/main.e081f4b1.js.map"
+    "main.eabdf6c9.css.map": "/adharva/static/css/main.eabdf6c9.css.map",
+    "main.e89f5c1e.js.map": "/adharva/static/js/main.e89f5c1e.js.map"
   },
   "entrypoints": [
-    "static/css/main.17fc7ff2.css",
-    "static/js/main.e081f4b1.js"
+    "static/css/main.eabdf6c9.css",
+    "static/js/main.e89f5c1e.js"
   ]
 }
