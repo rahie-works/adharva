@@ -1,85 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { createClient } from "contentful";
-import styled, { keyframes } from "styled-components";
 import { PhoneInput } from "react-international-phone";
 import emailjs from "@emailjs/browser";
-import CourseSelectionScreen from "./CourseSelectionScreen";
-import { fadeIn } from "react-animations";
 
+// components
+import CourseSelectionScreen from "./CourseSelectionScreen";
+import { CourseDescription } from "./CourseDescription";
+
+// constants
 import {
   SERVICE_CARDS_DATA,
   SERVICES_QUALIFICATIONS,
 } from "../services/ServicesConstant";
-import { CourseDescription } from "./CourseDescription";
 
+// style
 import "react-international-phone/style.css";
 import "./Register.css";
 
-const StyledForm = styled.form`
-  width: 70%;
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-const StyledLabel = styled.label`
-  display: block;
-  margin: 3vmin 0px;
-  font-size: 1.6vmin;
-  color: white;
-`;
-const StyledCheckBox = styled.label`
-  display: block;
-  margin: 1vmin 0px;
-  font-size: 1.6vmin;
-  color: white;
-`;
-
-const StyledDisabledCheckBox = styled.label`
-  display: block;
-  margin: 1vmin 0px;
-  font-size: 1.6vmin;
-  color: grey;
-`;
-const StyledInput = styled.input`
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 30px;
-`;
-const StyledButton = styled.button`
-  display: flex;
-  background-color: ${({ colorchange }) => (!colorchange ? "blue" : "gray")};
-  width: auto;
-  padding: 10px;
-  margin: 30px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 2vmax;
-  color: white;
-  justify-content: center;
-`;
-
-const simpleAnimation = keyframes`${fadeIn}`;
-
-const StyledRegistrationForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding-bottom: 10px;
-  gap: 3vw;
-  justify-content: center;
-  align-items: center;
-  animation: 2.5s ${simpleAnimation};
-`;
+// styled
+import * as S from "./RegisterFormStyledComponents"
 
 const CONSENT_TEXT = `I provide my consent to contact
 me through email/phone from Adharva
 Institute of Commerce.`;
 
-export default function Register(props) {
+export const Register = (props) => {
   const [serviceList, setServiceList] = useState([]);
   const client = createClient({
     space: "5s10ucm8anhl",
@@ -199,7 +144,7 @@ export default function Register(props) {
   }, []);
 
   return (
-    <StyledRegistrationForm>
+    <S.StyledRegistrationForm>
       {showCourseSelection && (
         <CourseSelectionScreen
           clickedCourseId={clickedCourseId}
@@ -209,7 +154,7 @@ export default function Register(props) {
       )}
       <CourseDescription course={courseSelected} images={imageList}/>
       <div className="flexbox-grid-row">
-        <StyledCheckBox>
+        <S.StyledCheckBox>
           <input
             type="checkbox"
             style={{ marginRight: "1vh", paddingTop: "1vh" }}
@@ -217,8 +162,8 @@ export default function Register(props) {
             // onChange={handleCheckboxChange}
           />
           Offline
-        </StyledCheckBox>
-        <StyledDisabledCheckBox>
+        </S.StyledCheckBox>
+        <S.StyledDisabledCheckBox>
           <input
             type="checkbox"
             style={{ marginRight: "1vh", paddingTop: "1vh" }}
@@ -227,18 +172,18 @@ export default function Register(props) {
             // onChange={handleCheckboxChange}
           />
           Online (Coming Soon)
-        </StyledDisabledCheckBox>
+        </S.StyledDisabledCheckBox>
       </div>
       <div className="registration_form">
-        <StyledForm onSubmit={submitClicked}>
-          <StyledInput
+        <S.StyledForm onSubmit={submitClicked}>
+          <S.StyledInput
             required
             type="text"
             value={name}
             placeholder="Full Name"
             onChange={(e) => setName(e.target.value)}
           />
-          <StyledInput
+          <S.StyledInput
             required
             type="email"
             value={email}
@@ -252,7 +197,7 @@ export default function Register(props) {
             value={phoneNumber}
             onChange={(phone) => setPhoneNumber(phone)}
           />
-          <StyledLabel>Select your highest qualification: </StyledLabel>
+          <S.StyledLabel>Select your highest qualification: </S.StyledLabel>
           <div className="select_qualifications flexbox-grid-row">
             {SERVICES_QUALIFICATIONS.map((eachQualification, index) => {
               return (
@@ -272,7 +217,7 @@ export default function Register(props) {
               );
             })}
           </div>
-          <StyledCheckBox>
+          <S.StyledCheckBox>
             <input
               type="checkbox"
               style={{ marginRight: "1vh", paddingTop: "1vh" }}
@@ -280,8 +225,8 @@ export default function Register(props) {
               onChange={handleCheckboxChange}
             />
             {CONSENT_TEXT}
-          </StyledCheckBox>
-          <StyledButton
+          </S.StyledCheckBox>
+          <S.StyledButton
             type="submit"
             colorchange={
               !name ||
@@ -293,9 +238,9 @@ export default function Register(props) {
             }
           >
             Register
-          </StyledButton>
-        </StyledForm>
+          </S.StyledButton>
+        </S.StyledForm>
       </div>
-    </StyledRegistrationForm>
+    </S.StyledRegistrationForm>
   );
 }
