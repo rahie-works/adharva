@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { createClient } from "contentful";
 
+// components
 import Cards from "../../cards/Cards";
+
+// constants
 import {
   SERVICES_SECTION_NAME,
   SERVICE_CARDS_DATA,
   SERVICES_TITLE,
 } from "./ServicesConstant";
 
+//style
 import "../../../App.css";
 
-export default function Services() {
+export const Services = () => {
   const [servicesSectionData, setservicesSectionData] = useState([]);
+
   const client = createClient({
     space: "5s10ucm8anhl",
     accessToken: "AzH3pFFc0MofFVf8rtX5jHk5LCjiiwk7EtosViYi1WE",
   });
+
+  const SectionData = {
+    section: SERVICES_SECTION_NAME,
+    title: servicesSectionData?.fields?.servicesTitle || SERVICES_TITLE,
+  };
 
   useEffect(() => {
     const fecthData = async () => {
@@ -41,11 +51,6 @@ export default function Services() {
     };
     fecthData();
   }, []);
-
-  const SectionData = {
-    section: SERVICES_SECTION_NAME,
-    title: servicesSectionData?.fields?.servicesTitle || SERVICES_TITLE,
-  };
 
   return <Cards cardData={servicesSectionData} sectionData={SectionData} />;
 }

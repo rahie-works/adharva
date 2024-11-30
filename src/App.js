@@ -9,7 +9,7 @@ import Home from "./components/home/Home";
 import NavigationBar from "./components/navigation/NavigationBar";
 import Partners from "./components/pages/partners/Partners";
 import Register from "./components/pages/register/Register";
-import Services from "./components/pages/services/Services";
+import { Services } from "./components/pages/services/Services";
 import Gallery from "./components/pages/gallery/Gallery";
 
 // styles
