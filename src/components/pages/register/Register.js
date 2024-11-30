@@ -10,7 +10,7 @@ import {
   SERVICE_CARDS_DATA,
   SERVICES_QUALIFICATIONS,
 } from "../services/ServicesConstant";
-import CourseDescription from "./CourseDescription";
+import { CourseDescription } from "./CourseDescription";
 
 import "react-international-phone/style.css";
 import "./Register.css";
@@ -90,6 +90,7 @@ export default function Register(props) {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [courseSelected, setCourseSelected] = useState("");
+  const [imageList, setImageList] = useState([]);
   const [qualificationSelected, setQualificationSelected] = useState("");
   const [clickedCourseId, setClickedCourseId] = useState("");
   const [clickedQualificationId, setClickedQualificationId] = useState("");
@@ -170,12 +171,13 @@ export default function Register(props) {
         const servicesSectionData = await client.getEntry(
           "4OKb4mEv1upnVGbo5fxkEb"
         );
+        setImageList(servicesSectionData?.fields?.servicesTileImages);
         setServiceList(servicesSectionData?.fields?.servicesList?.services);
         setClientDataReceiver(servicesSectionData.fields.clientDataReceiver);
         if (props.course) {
           const selectedCourse =
             servicesSectionData?.fields?.servicesList?.services.find(
-              (eachService, index) => eachService.serviceAbbr === props.course
+              (eachService) => eachService.serviceAbbr === props.course
             );
           onSelectedCourse(
             selectedCourse,
@@ -205,7 +207,7 @@ export default function Register(props) {
           onSelectedCourse={onSelectedCourse}
         />
       )}
-      <CourseDescription course={courseSelected} />
+      <CourseDescription course={courseSelected} images={imageList}/>
       <div className="flexbox-grid-row">
         <StyledCheckBox>
           <input

@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
 export const NavBar = styled.nav`
+    position: relative;
     background-color: #1a3d6b;
     align-items: center;
     font-size: 1.2rem;
-    position: sticky;
-    top: 0;
+    height: 80px;
+    width: 100%;
+    position: fixed;
     z-index: 1;
 `
 export const NavBarContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
 `
 
 export const NavBarLogo = styled.img`

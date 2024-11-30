@@ -5,7 +5,7 @@ const simpleAnimation = keyframes`${fadeIn}`;
 
 const StyledCourseSelectionScreen = styled.div`
   color: white;
-  margin-top: 5vh;
+  margin-top: 10vh;
   font-size: 1.5vw;
   animation: 2.5s ${simpleAnimation};
 `;

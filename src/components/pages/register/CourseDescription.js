@@ -1,19 +1,10 @@
 import React from "react";
 import "./Register.css";
 import "./CourseDescription.css";
-import styled, { keyframes } from "styled-components";
-import { fadeIn } from "react-animations";
 
-const simpleAnimation = keyframes`${fadeIn}`;
+import * as S from "./CourseDescriptionStyledComponent"
 
-const StyledCourseSelectionScreen = styled.div`
-  color: white;
-  margin-top: 5vh;
-  font-size: 3vw;
-  animation: 2.5s ${simpleAnimation};
-`;
-
-function DefaultScreen() {
+const DefaultScreen = () => {
   return (
     <div className="register_container">
       <h1 className="registration_title">Learn More</h1>
@@ -22,192 +13,204 @@ function DefaultScreen() {
   );
 }
 
-function CPADescriptionScreen(props) {
+const CPADescriptionScreen = (props) => {
   return (
-    <StyledCourseSelectionScreen>
-      <h1>{props.course.serviceName}</h1>
-      <div className="intro_body_container">
-        <h5 className="course_description_body">
-          {props.course.description?.intro}
-        </h5>
-        <h5 className="course_description_body">
-          {props.course.description?.body}
-        </h5>
-      </div>
-      <div className="intro_body_container">
-        <div>
-          <h2 className="course_description_heading">{"Job Opptortunities"}</h2>
-          <h4 className="course_description_body">
+    <S.StyledCourseSelectionScreen>
+      <S.CPAStickyTitle>{props.course.serviceName}</S.CPAStickyTitle>
+      <S.StyledImage alt="test" src={props.image}/>
+      <S.BodyContainer>
+        <S.IntroBodyContainer>
+          <S.CourseDescriptionBody>
+            {props.course.description?.intro}
+          </S.CourseDescriptionBody>
+          <S.CourseDescriptionBody>
+            {props.course.description?.body}
+          </S.CourseDescriptionBody>
+        </S.IntroBodyContainer>
+        <S.IntroBodyContainer>
+          <S.CourseDescriptionHeading>{"Job Opptortunities"}</S.CourseDescriptionHeading>
+          <S.CourseDescriptionBody>
             {props.course.description?.extras?.["Job Opptortunities"]}
-          </h4>
-        </div>
-        <div>
-          <h2 className="course_description_heading">{"Optional Modules"}</h2>
-          <h4 className="course_description_body">
+          </S.CourseDescriptionBody>
+          <S.CourseDescriptionHeading>{"Optional Modules"}</S.CourseDescriptionHeading>
+          <S.CourseDescriptionBody>
             {props.course.description?.extras?.["Optional Modules"]}
-          </h4>
-        </div>
-      </div>
-      <div className="cpa_extra_body_container">
-        <div className="cpa_extra_body_item cpa_extra_body_description">
-          <h5 className="cpa_extra_body_description">{"Duration :"}</h5>
-          <h5 className="cpa_extra_body_description">
-            {props.course?.duration}
-          </h5>
-        </div>
-        <div className="cpa_extra_body_item">
-          <h5 className="cpa_extra_body_description">{"Eligibility : "}</h5>
-          <h5 className="cpa_extra_body_description">
-            {props.course?.eligibility}
-          </h5>
-        </div>
-      </div>
-    </StyledCourseSelectionScreen>
+          </S.CourseDescriptionBody>
+        </S.IntroBodyContainer>
+        <S.CPAExtraBodyContainer>
+          <S.CPAExtraBodyItem>
+            <S.CPAExtraBodyDescription>{"Duration :"}</S.CPAExtraBodyDescription>
+            <S.CPAExtraBodyDescription>
+              {props.course?.duration}
+            </S.CPAExtraBodyDescription>
+          </S.CPAExtraBodyItem>
+          <S.CPAExtraBodyItem>
+            <S.CPAExtraBodyDescription>{"Eligibility : "}</S.CPAExtraBodyDescription>
+            <S.CPAExtraBodyDescription>
+              {props.course?.eligibility}
+            </S.CPAExtraBodyDescription>
+          </S.CPAExtraBodyItem>
+        </S.CPAExtraBodyContainer>
+      </S.BodyContainer>
+    </S.StyledCourseSelectionScreen>
   );
 }
 
-function CGPDescriptionScreen(props) {
+const CGPDescriptionScreen = (props) => {
   const objectives = props.course.description.extras;
   return (
-    <StyledCourseSelectionScreen>
-      <h1 className="registration_title">{props.course.serviceName}</h1>
-      <div className="intro_body_container">
-        <h5 className="course_description_body">
-          {props.course.description?.intro}
-        </h5>
-        <h5 className="course_description_body">
-          {props.course.description?.body}
-        </h5>
-      </div>
-      <div className="cgp_extra_body_container">
-        <h5 className="course_description_heading">
-          {"Objectives of the Practical Training"}
-        </h5>
-        <ol className="cgp_extra_body_list">
-          {objectives &&
-            objectives?.map((eachExtra, index) => {
-              return (
-                <li key={index} className="cgp_extra_body_description">
-                  {eachExtra}
-                </li>
-              );
-            })}
-        </ol>
-      </div>
-      <div className="cgp_extra_body_container">
-        <div className="cgp_extra_body_item">
-          <h5 className="cgp_extra_body_data">{"Duration :"}</h5>
-          <h5 className="cgp_extra_body_data">{props.course?.duration}</h5>
-        </div>
-        <div className="cgp_extra_body_item">
-          <h5 className="cgp_extra_body_data">{"Eligibility : "}</h5>
-          <h5 className="cgp_extra_body_data">{props.course?.eligibility}</h5>
-        </div>
-      </div>
-    </StyledCourseSelectionScreen>
+    <S.StyledCourseSelectionScreen>
+      <h1>{props.course.serviceName}</h1>
+      <S.StyledImage alt="test" src={props.image}/>
+      <S.BodyContainer>
+        <S.IntroBodyContainer>
+          <S.CourseDescriptionBody>
+            {props.course.description?.intro}
+          </S.CourseDescriptionBody>
+          <S.CourseDescriptionBody>
+            {props.course.description?.body}
+          </S.CourseDescriptionBody>
+        </S.IntroBodyContainer>
+        <S.CGPExtraBodyContainer>
+          <S.CourseDescriptionHeading>
+            {"Objectives of the Practical Training"}
+          </S.CourseDescriptionHeading>
+          <S.CGPExtraBodyList>
+            {objectives &&
+              objectives?.map((eachExtra, index) => {
+                return (
+                  <S.CGPExtraBodyDescription key={index}>
+                    {eachExtra}
+                  </S.CGPExtraBodyDescription>
+                );
+              })}
+          </S.CGPExtraBodyList>
+        </S.CGPExtraBodyContainer>
+        <S.CGPExtraBodyContainer>
+          <S.CPAExtraBodyItem>
+            <S.CGPExtraBodyData>{"Duration :"}</S.CGPExtraBodyData>
+            <S.CGPExtraBodyData>{props.course?.duration}</S.CGPExtraBodyData>
+          </S.CPAExtraBodyItem>
+          <S.CPAExtraBodyItem>
+            <S.CGPExtraBodyData>{"Eligibility : "}</S.CGPExtraBodyData>
+            <S.CGPExtraBodyData>{props.course?.eligibility}</S.CGPExtraBodyData>
+          </S.CPAExtraBodyItem>
+        </S.CGPExtraBodyContainer>
+      </S.BodyContainer>
+    </S.StyledCourseSelectionScreen>
   );
 }
 
-function CATDescriptionScreen(props) {
+const CATDescriptionScreen= (props) => {
   return (
-    <StyledCourseSelectionScreen>
-      <h1 className="registration_title">{props.course.serviceName}</h1>
-      <div className="intro_body_container">
-        <h5 className="course_description_body">
-          {props.course.description?.intro}
-        </h5>
-      </div>
-      <div className="cat_extra_body_container">
-        <h5 className="course_description_heading">
-          {"This course consists of 3 Stages :"}
-        </h5>
-        <ol>
-          {props.course.courseStructure &&
-            props.course.courseStructure?.map((eachExtra, index) => {
-              return (
-                <li key={index} className="cat_extra_body_bullets">
-                  {eachExtra}
-                  <ul>
-                    {props.course.description?.extras[index].map(
-                      (eachTopic, index) => {
-                        return (
-                          <li
-                            key={index}
-                            className="cat_extra_body_description"
-                          >
-                            {eachTopic}
-                          </li>
-                        );
-                      }
-                    )}
-                  </ul>
-                </li>
-              );
-            })}
-        </ol>
-      </div>
-      <div className="cat_extra_body_container">
-        <div className="cat_extra_body_item">
-          <h5 className="cat_extra_body_description">{"Eligibility : "}</h5>
-          <h5 className="cat_extra_body_description">
-            {props.course?.eligibility}
-          </h5>
-        </div>
-      </div>
-    </StyledCourseSelectionScreen>
+    <S.StyledCourseSelectionScreen>
+      <h1>{props.course.serviceName}</h1>
+      <S.StyledImage alt="test" src={props.image}/>
+      <S.BodyContainer>
+        <S.IntroBodyContainer>
+          <S.CourseDescriptionBody>
+            {props.course.description?.intro}
+          </S.CourseDescriptionBody>
+        </S.IntroBodyContainer>
+        <S.CPAExtraBodyContainer>
+          <S.CourseDescriptionHeading>
+            {"This course consists of 3 Stages :"}
+          </S.CourseDescriptionHeading>
+          <ol>
+            {props.course.courseStructure &&
+              props.course.courseStructure?.map((eachExtra, index) => {
+                return (
+                  <S.CATExtraBodyBullets key={index}>
+                    {eachExtra}
+                    <ul>
+                      {props.course.description?.extras[index].map(
+                        (eachTopic, index) => {
+                          return (
+                            <S.CATExtraBodyDescription
+                              key={index}
+                              className="cat_extra_body_description"
+                            >
+                              {eachTopic}
+                            </S.CATExtraBodyDescription>
+                          );
+                        }
+                      )}
+                    </ul>
+                  </S.CATExtraBodyBullets>
+                );
+              })}
+          </ol>
+        </S.CPAExtraBodyContainer>
+        <S.CPAExtraBodyContainer>
+          <S.CPAExtraBodyItem>
+            <S.CPAExtraBodyDescription>{"Eligibility : "}</S.CPAExtraBodyDescription>
+            <S.CPAExtraBodyDescription>
+              {props.course?.eligibility}
+            </S.CPAExtraBodyDescription>
+          </S.CPAExtraBodyItem>
+        </S.CPAExtraBodyContainer>
+      </S.BodyContainer>
+    </S.StyledCourseSelectionScreen>
   );
 }
 
-function GSTDescriptionScreen(props) {
+const GSTDescriptionScreen = (props) => {
   return (
-    <StyledCourseSelectionScreen>
-      <h1 className="registration_title">{props.course.serviceName}</h1>
-      <div className="intro_body_container">
-        <h5 className="course_description_body">
-          {props.course.description?.intro}
-        </h5>
-      </div>
-      <div className="gst_extra_body_container">
-        <h5 className="course_description_heading">{"Requirement :"}</h5>
-        <h5 className="course_description_body">{props.course.requirements}</h5>
-      </div>
-      <div className="gst_extra_body_container">
-        <h5 className="course_description_heading">{"Certified By :"}</h5>
-        <h5 className="course_description_body">
-          {props.course.certificationBody}
-        </h5>
-      </div>
-      <div className="gst_extra_body_container">
-        <div className="gst_extra_body_item extra_body_description">
-          <h5 className="gst_extra_body_description">{"Duration :"}</h5>
-          <h5 className="gst_extra_body_description">
-            {props.course?.duration}
-          </h5>
-        </div>
-        <div className="gst_extra_body_item">
-          <h5 className="gst_extra_body_description">{"Eligibility"}</h5>
-          <h5 className="gst_extra_body_description">
-            {` : ${props.course?.eligibility}`}
-          </h5>
-        </div>
-      </div>
-    </StyledCourseSelectionScreen>
+    <S.StyledCourseSelectionScreen>
+      <h1>{props.course.serviceName}</h1>
+      <S.StyledImage alt="test" src={props.image}/>
+      <S.BodyContainer>
+        <S.IntroBodyContainer>
+          <S.CourseDescriptionBody>
+            {props.course.description?.intro}
+          </S.CourseDescriptionBody>
+        </S.IntroBodyContainer>
+        <S.CPAExtraBodyContainer>
+          <S.CourseDescriptionHeading>{"Requirement :"}</S.CourseDescriptionHeading>
+          <S.CourseDescriptionBody>{props.course.requirements}</S.CourseDescriptionBody>
+        </S.CPAExtraBodyContainer>
+        <S.CPAExtraBodyContainer>
+          <S.CourseDescriptionHeading>{"Certified By :"}</S.CourseDescriptionHeading>
+          <S.CourseDescriptionBody>
+            {props.course.certificationBody}
+          </S.CourseDescriptionBody>
+        </S.CPAExtraBodyContainer>
+        <S.CPAExtraBodyContainer>
+          <S.CPAExtraBodyItem>
+            <S.CPAExtraBodyDescription>{"Duration :"}</S.CPAExtraBodyDescription>
+            <S.CPAExtraBodyItem>
+              {props.course?.duration}
+            </S.CPAExtraBodyItem>
+          </S.CPAExtraBodyItem>
+          <S.CPAExtraBodyItem>
+            <S.CPAExtraBodyDescription>{"Eligibility"}</S.CPAExtraBodyDescription>
+            <S.CPAExtraBodyDescription>
+              {` : ${props.course?.eligibility}`}
+            </S.CPAExtraBodyDescription>
+          </S.CPAExtraBodyItem>
+        </S.CPAExtraBodyContainer>
+      </S.BodyContainer>
+    </S.StyledCourseSelectionScreen>
   );
 }
 
-export default function CourseDescription(props) {
+export const CourseDescription = (props) => {
   const [courseDetails, setCourseDetails] = React.useState(props.course);
-
   const targetCourse = (courseName) => {
+    let imageContainer = {};
     switch (courseName) {
       case "CPA":
-        return <CPADescriptionScreen course={courseDetails} />;
+        imageContainer = props.images?.find(img => img.fields?.title === "CPA image");
+        return <CPADescriptionScreen course={courseDetails} image={imageContainer?.fields?.file.url}/>;
       case "CGP":
-        return <CGPDescriptionScreen course={courseDetails} />;
+        imageContainer = props.images?.find(img => img.fields?.title === "CGP Image");
+        return <CGPDescriptionScreen course={courseDetails} image={imageContainer?.fields?.file.url}/>;
       case "CAT":
-        return <CATDescriptionScreen course={courseDetails} />;
+        imageContainer = props.images?.find(img => img.fields?.title === "CAT Image");
+        return <CATDescriptionScreen course={courseDetails} image={imageContainer?.fields?.file.url}/>;
       case "GST":
-        return <GSTDescriptionScreen course={courseDetails} />;
+        imageContainer = props.images?.find(img => img.fields?.title === "GST Image");
+        return <GSTDescriptionScreen course={courseDetails} image={imageContainer?.fields?.file.url}/>;
       default:
         return <DefaultScreen />;
     }
@@ -218,8 +221,8 @@ export default function CourseDescription(props) {
   }, [props.course]);
 
   return (
-    <div className="flexbox-grid-column">
+    <S.CourseFlexBox>
       {targetCourse(courseDetails?.serviceAbbr)}
-    </div>
+    </S.CourseFlexBox>
   );
 }
