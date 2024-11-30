@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { createClient } from "contentful";
-
+// constants
 import { TESTIMONIAL_TITLE, UserTestimonials } from "./TestimonialContent";
 import right from "../../../images/right.png";
 
+// styled
 import * as S from "./TestimonialStyledComponents";
 
-export default function Testimonials() {
+export const Testimonials = () => {
   const [testimonialsSectionData, settestimonialsSectionData] = useState([]);
   const client = createClient({
     space: "5s10ucm8anhl",
@@ -23,7 +24,7 @@ export default function Testimonials() {
           servicesSectionData?.fields?.userTestimonials?.userTestimonials
         );
       } catch (error) {
-        console.log("==Data not received", error);
+        console.log("Data not received", error);
         settestimonialsSectionData(UserTestimonials);
       }
     };
