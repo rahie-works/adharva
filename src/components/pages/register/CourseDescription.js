@@ -16,10 +16,10 @@ const DefaultScreen = () => {
 const CPADescriptionScreen = (props) => {
   return (
     <S.StyledCourseSelectionScreen>
-      <S.CPAStickyTitle>{props.course.serviceName}</S.CPAStickyTitle>
       <S.StyledImage alt="test" src={props.image}/>
       <S.BodyContainer>
         <S.IntroBodyContainer>
+          <S.CPAStickyTitle>{props.course.serviceName}</S.CPAStickyTitle>
           <S.CourseDescriptionBody>
             {props.course.description?.intro}
           </S.CourseDescriptionBody>
@@ -60,9 +60,9 @@ const CGPDescriptionScreen = (props) => {
   const objectives = props.course.description.extras;
   return (
     <S.StyledCourseSelectionScreen>
-      <h1>{props.course.serviceName}</h1>
       <S.StyledImage alt="test" src={props.image}/>
       <S.BodyContainer>
+        <S.CPAStickyTitle>{props.course.serviceName}</S.CPAStickyTitle>
         <S.IntroBodyContainer>
           <S.CourseDescriptionBody>
             {props.course.description?.intro}
@@ -104,9 +104,9 @@ const CGPDescriptionScreen = (props) => {
 const CATDescriptionScreen= (props) => {
   return (
     <S.StyledCourseSelectionScreen>
-      <h1>{props.course.serviceName}</h1>
       <S.StyledImage alt="test" src={props.image}/>
       <S.BodyContainer>
+        <S.CPAStickyTitle>{props.course.serviceName}</S.CPAStickyTitle>
         <S.IntroBodyContainer>
           <S.CourseDescriptionBody>
             {props.course.description?.intro}
@@ -157,9 +157,9 @@ const CATDescriptionScreen= (props) => {
 const GSTDescriptionScreen = (props) => {
   return (
     <S.StyledCourseSelectionScreen>
-      <h1>{props.course.serviceName}</h1>
       <S.StyledImage alt="test" src={props.image}/>
       <S.BodyContainer>
+      <S.CPAStickyTitle>{props.course.serviceName}</S.CPAStickyTitle>
         <S.IntroBodyContainer>
           <S.CourseDescriptionBody>
             {props.course.description?.intro}

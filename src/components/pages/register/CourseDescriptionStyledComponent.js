@@ -155,7 +155,10 @@ export const CATExtraBodyDescription = styled.li`
 `;
 
 export const CPAStickyTitle = styled.h1`
-    position: ;
+    position: relative;
+    margin-bottom: 5vh;
+    position: sticky;
+    font-size: 8vw;
     top: 0;
 `;
 

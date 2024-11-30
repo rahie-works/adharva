@@ -15,7 +15,7 @@ import { NAVIGATION_LINKS, NAVIGATION_BAR_BUTTON } from "./NavigationConstants";
 import "./NavigationBar.css";
 import * as S from "./NavBarStyledComponents"
 
-export default function NavigationBar() {
+export const NavigationBar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const currentTabRef = useRef();

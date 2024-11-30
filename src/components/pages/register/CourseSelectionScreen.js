@@ -14,7 +14,7 @@ export default function CourseSelectionScreen(props) {
   return (
     <StyledCourseSelectionScreen>
       <h1>Register</h1>
-      <h5 className="course_selection_label">Select your preferred course:</h5>
+      <p className="course_selection_label">Select your preferred course:</p>
       <div className="service_list flexbox-grid-row">
         {serviceList?.map((eachService, index) => {
           return (
@@ -27,8 +27,8 @@ export default function CourseSelectionScreen(props) {
               key={index}
               onClick={() => onSelectedCourse(eachService, index)}
             >
-              <h3>{eachService.serviceName}</h3>
-              <h5>{eachService.serviceAbbr}</h5>
+              <p>{eachService.serviceName}</p>
+              <p>{eachService.serviceAbbr}</p>
             </div>
           );
         })}

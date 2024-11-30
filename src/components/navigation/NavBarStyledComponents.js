@@ -5,7 +5,6 @@ export const NavBar = styled.nav`
     background-color: #1a3d6b;
     align-items: center;
     font-size: 1.2rem;
-    height: 80px;
     width: 100%;
     position: fixed;
     z-index: 1;

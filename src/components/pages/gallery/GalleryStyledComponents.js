@@ -20,13 +20,13 @@ export const GalleryTabBar = styled.span`
     display: flex;
     width: 100%;
     height: 20vh;
+    margin: 2vw;
 `
 
 export const TabBarItem = styled.h1`
     display: flex;
     width: 100%;
     font-size: 4rem;
-    margin-inline: 2vw;
     align-items: center;
     justify-content: center;
     animation: 2s ${fadeInAnimation};

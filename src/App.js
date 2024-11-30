@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router";
 import Connect from "./components/pages/connect/Connect";
 import FaqSection from "./components/pages/faq/FaqSection";
 import Home from "./components/home/Home";
-import NavigationBar from "./components/navigation/NavigationBar";
+import { NavigationBar } from "./components/navigation/NavigationBar";
 import Partners from "./components/pages/partners/Partners";
 import { Register } from "./components/pages/register/Register";
 import { Services } from "./components/pages/services/Services";
