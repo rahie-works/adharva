@@ -89,13 +89,6 @@ const handlers = useSwipeable({
         <S.StyledBannerFigure>
           <S.StyledBannerImage
             src={homePageBanner}
-            srcset="
-              small-image.jpg 640w,
-              medium-image.jpg 1280w,
-              large-image.jpg 1920w,
-              extra-large-image.jpg 3840w
-            " 
-            sizes="100vw"
             alt="home_page_banner"
           />
         </S.StyledBannerFigure>
