@@ -129,9 +129,11 @@
 
 
   .phone {
+    color: #0076fc;
     transform: rotate(180deg) scale(1.1);
     transition: 500ms;
     margin-right: 5px;
+    margin-left: 5px;
   }
 }
 

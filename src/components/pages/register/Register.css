@@ -23,12 +23,6 @@ body {
   display: flex;
   flex-direction: row;
 }
-
-.course_selection_label {
-  margin-top: 3vh;
-  text-align: center;
-  font-size: 1.7vh;
-}
 .course_description_body {
   padding-inline: 5vw;
   margin-top: 2vh;

@@ -60,16 +60,12 @@ export const ConnectImmediateIcons = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    // @media only screen and (max-width: 399px) {
-    //     flex-direction: column;
-    // }
 `;
 
-export const WhatsappIconH3 = styled.h3`
-    padding: 4vw;
+export const WhatsappIconP = styled.p`
+    padding: 3vw;
     @media only screen and (min-width: 400px) and (max-width: 767px) {
-        font-size: 8.5vw;
+        font-size: 6.5vw;
     }
     @media only screen and (min-width: 768px) and (max-width: 1023px) {
         font-size: 3vw;
@@ -84,9 +80,19 @@ export const Divider = styled.div`
     height: 100px;
     width: 2px;
     background-color: #fff;
-    margin-inline: 20px 80px;
+    margin-inline: 4vw 4vw;
 
     @media only screen and (max-width: 399px) {
         margin-inline: 30px 30px;
     }
+`;
+
+export const ConnectButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 2vw;
+    border-radius: 10px;
+    background: rgba(110, 110, 110, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px);
 `;

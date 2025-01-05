@@ -16,11 +16,16 @@ export const HomePageSection = () => {
 
   const [homePageBanner, setHomePageBanner] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const [homePageDesktopSlidesImage, setHomePageDesktopSlidesImage] = useState([]);
   const [homePageMobileSlidesImage, setHomePageMobileSlidesImage] = useState([]);
+
+  const isMobileDevice = () => {
+    return /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+  };
 
   useEffect(() => {
     const fecthData = async () => {
@@ -50,6 +55,7 @@ export const HomePageSection = () => {
     };
 
     window.addEventListener("resize", handleResize);
+    setIsMobile(isMobileDevice())
 
     return () => {
       clearInterval(intervalId);
@@ -95,14 +101,14 @@ const handlers = useSwipeable({
         </S.StyledBannerFigure>
       )}
       <S.SlideContainer>
-        {screenWidth > 500 && <S.StyledHomePageButton left={"10px"} onClick={goToPreviousSlide}>
+        {!isMobile && <S.StyledHomePageButton left={"10px"} onClick={goToPreviousSlide}>
           <i class="fas fa-chevron-left"></i>
         </S.StyledHomePageButton>}
-        {screenWidth > 500 &&<S.StyledHomePageButton right={"10px"} onClick={goToNextSlide}>
+        {!isMobile && <S.StyledHomePageButton right={"10px"} onClick={goToNextSlide}>
           <i class="fas fa-chevron-right"></i>
         </S.StyledHomePageButton>}
 
-        {(screenWidth > 500 ? homePageDesktopSlidesImage : homePageMobileSlidesImage).map((src, index) => (
+        {(!isMobile || screenWidth > 600 ? homePageDesktopSlidesImage : homePageMobileSlidesImage).map((src, index) => (
           <img
             {...handlers}
             key={index}

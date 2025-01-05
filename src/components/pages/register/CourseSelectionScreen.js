@@ -1,20 +1,11 @@
-import styled, { keyframes } from "styled-components";
-import { fadeIn } from "react-animations";
+import * as S from "./CourseSelectionStyledComponents"
 
-const simpleAnimation = keyframes`${fadeIn}`;
-
-const StyledCourseSelectionScreen = styled.div`
-  color: white;
-  margin-top: 10vh;
-  font-size: 1.5vw;
-  animation: 2.5s ${simpleAnimation};
-`;
 export default function CourseSelectionScreen(props) {
   const { clickedCourseId, serviceList, onSelectedCourse } = props;
   return (
-    <StyledCourseSelectionScreen>
-      <h1>Register</h1>
-      <p className="course_selection_label">Select your preferred course:</p>
+    <S.StyledCourseSelectionScreen>
+      <S.StyledRegisterTitle>Register</S.StyledRegisterTitle>
+      <S.CourseSelectionLabel>Select your preferred course:</S.CourseSelectionLabel>
       <div className="service_list flexbox-grid-row">
         {serviceList?.map((eachService, index) => {
           return (
@@ -33,6 +24,6 @@ export default function CourseSelectionScreen(props) {
           );
         })}
       </div>
-    </StyledCourseSelectionScreen>
+    </S.StyledCourseSelectionScreen>
   );
 }

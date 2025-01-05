@@ -9,6 +9,15 @@ import * as S from "./ConnectStyledComponents";
 import { CONNECT_TITLE, ENCODED_WHATSAPP_TEXT } from "./ConnectConstant";
 
 export default function Connect(props) {
+
+  const handleChat = () => {
+    window.location.href = `https://wa.me/+918891502071?text=${ENCODED_WHATSAPP_TEXT}`;
+  };
+
+  const handleCall = () => {
+    window.location.href = `tel:+918891502071`;
+  };
+
   return (
     <S.ConnectContainer page={props.page}>
       <S.ConnectHeadline1>{CONNECT_TITLE}</S.ConnectHeadline1>
@@ -48,25 +57,29 @@ export default function Connect(props) {
       </S.SocialIcons>
       <S.ConnectHeadline3>Or why wait?</S.ConnectHeadline3>
       <S.ConnectImmediateIcons>
-        <Link
-          className="social-icon-link-bottom whatsapp"
-          target="_blank"
-          to={`https://wa.me/+918891502071?text=${ENCODED_WHATSAPP_TEXT}`}
-          aria-label="Whatsapp"
-        >
-          <i className="fab fa-whatsapp" />
-        </Link>
-        <S.WhatsappIconH3>Chat</S.WhatsappIconH3>
+        <S.ConnectButtonWrapper onClick={handleChat}>
+          <Link
+            className="social-icon-link-bottom whatsapp"
+            target="_blank"
+            to={`https://wa.me/+918891502071?text=${ENCODED_WHATSAPP_TEXT}`}
+            aria-label="Whatsapp"
+          >
+            <i className="fab fa-whatsapp" />
+          </Link>
+          <S.WhatsappIconP>Chat</S.WhatsappIconP>
+        </S.ConnectButtonWrapper>
         <S.Divider></S.Divider>
-        <Link
-          className="social-icon-link-bottom phone"
-          target="_blank"
-          to={`tel:+918891502071`}
-          aria-label="call"
-        >
-          <i className="fas fa-phone"></i>
-        </Link>
-        <S.WhatsappIconH3>Call</S.WhatsappIconH3>
+        <S.ConnectButtonWrapper onClick={handleCall}>
+          <Link
+            className="social-icon-link-bottom phone"
+            target="_blank"
+            to={`tel:+918891502071`}
+            aria-label="call"
+          >
+            <i className="fas fa-phone"></i>
+          </Link>
+          <S.WhatsappIconP>Call</S.WhatsappIconP>
+        </S.ConnectButtonWrapper>
       </S.ConnectImmediateIcons>
     </S.ConnectContainer>
   );
