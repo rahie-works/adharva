@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/adharva/static/css/main.b042bdd5.css",
-    "main.js": "/adharva/static/js/main.77842a36.js",
+    "main.css": "/adharva/static/css/main.4b9c57fb.css",
+    "main.js": "/adharva/static/js/main.868a25ae.js",
     "static/media/adharvalogoblue.jpeg": "/adharva/static/media/adharvalogoblue.f5a2c21f0fb1d4c4a5ed.jpeg",
     "static/media/right.png": "/adharva/static/media/right.5bdeacde7a51aae3a2c7.png",
     "index.html": "/adharva/index.html",
-    "main.b042bdd5.css.map": "/adharva/static/css/main.b042bdd5.css.map",
-    "main.77842a36.js.map": "/adharva/static/js/main.77842a36.js.map"
+    "main.4b9c57fb.css.map": "/adharva/static/css/main.4b9c57fb.css.map",
+    "main.868a25ae.js.map": "/adharva/static/js/main.868a25ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.b042bdd5.css",
-    "static/js/main.77842a36.js"
+    "static/css/main.4b9c57fb.css",
+    "static/js/main.868a25ae.js"
   ]
 }
