@@ -11,7 +11,6 @@ export const SlideContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   img {
     width: 100%;
     height: 100%;
@@ -52,8 +51,8 @@ export const StyledBannerFigure = styled.figure`
     height: 20vh;
 `
 export const StyledBannerImage = styled.img`
-    width: 100%;
-    height: 20vh;
+    // width: 100%;
+    // height: 20vh;
 `
 
 export const StyledHomePageButton = styled.span`

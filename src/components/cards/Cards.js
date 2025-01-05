@@ -1,19 +1,10 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
-import { fadeIn } from "react-animations";
+
+import * as S from "./CardsStyledComponents";
 
 // components
 import CardItem from "./CardItem";
-
-// styles
-import "./Cards.css";
-
-const simpleAnimation = keyframes`${fadeIn}`;
-
-const FadeInTitle = styled.h1`
-  animation: 1s ${simpleAnimation};
-`;
 
 function Cards(props) {
   const { sectionData, cardData } = props;
@@ -34,13 +25,13 @@ function Cards(props) {
   }, [isIntersecting]);
 
   return (
-    <div className="cards_background_for_services" ref={ref}>
-      {isIntersecting && <FadeInTitle>{sectionData.title}</FadeInTitle>}
-      <div className="cards__container">
-        <div className="cards__wrapper">
+    <S.CardsBackgroundForServices ref={ref}>
+      {isIntersecting && <S.FadeInTitle>{sectionData.title}</S.FadeInTitle>}
+      <S.CardContainer>
+        <S.CardsWrapper>
           {cardData.map((eachRow, index) => {
             return (
-              <ul className="cards__items">
+              <S.CardsItems>
                 <CardItem
                   key={index}
                   intersecting={isIntersecting}
@@ -53,12 +44,12 @@ function Cards(props) {
                   label={eachRow.serviceAbbr}
                   path="/services"
                 />
-              </ul>
+              </S.CardsItems>
             );
           })}
-        </div>
-      </div>
-    </div>
+        </S.CardsWrapper>
+      </S.CardContainer>
+    </S.CardsBackgroundForServices>
   );
 }
 

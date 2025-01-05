@@ -1,33 +1,33 @@
 // component
 import Partners from "../pages/partners/Partners";
 // styles
-import "./FAQCards.css";
+import * as S from "./FAQStyledComponents"
 
 export default function FAQCards(props) {
   const { cardData, sectionData } = props;
 
   return (
-    <div className="cards_background_for_faq">
+    <S.CardsBackgroundForFAQ>
       <Partners />
-      <h1>{sectionData.title}</h1>
-      <div className="faq_cards__container">
-        <div className="faq_cards__wrapper">
+      <S.FAQTitle>{sectionData.title}</S.FAQTitle>
+      <S.FAQCardsContainer>
+        <S.FAQCardsWrapper>
           {cardData.map((eachRow, index) => {
             return (
-              <ul className=".faq_cards__item" key={index}>
+              <S.FAQCardsItem key={index}>
                 {eachRow.map((eachItem, index) => {
                   return (
-                    <li className="faq_card__item" key={index}>
-                      <h2 className="faq_question">? {eachItem.question}</h2>
-                      <h3 id="faq_answer"> {eachItem.answer}</h3>
-                    </li>
+                    <S.FAQCardItem key={index}>
+                      <S.FAQQuestion>? {eachItem.question}</S.FAQQuestion>
+                      <S.FAQAnswer> {eachItem.answer}</S.FAQAnswer>
+                    </S.FAQCardItem>
                   );
                 })}
-              </ul>
+              </S.FAQCardsItem>
             );
           })}
-        </div>
-      </div>
-    </div>
+        </S.FAQCardsWrapper>
+      </S.FAQCardsContainer>
+    </S.CardsBackgroundForFAQ>
   );
 }

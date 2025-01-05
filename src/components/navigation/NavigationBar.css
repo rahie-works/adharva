@@ -49,9 +49,6 @@
 }
 
 @media screen and (max-width: 960px) {
-  .NavbarItems {
-    position: relative;
-  }
 
   .nav-menu {
     display: flex;
@@ -81,15 +78,11 @@
   }
 
   .nav-links:hover {
-    /* background-color: #fff; */
     color: #ffffff;
     border-radius: 0;
   }
 
   .navbar-logo {
-    /* position: absolute;
-    top: 0;
-    left: 0; */
     transform: translate(-50%, 0%);
   }
 

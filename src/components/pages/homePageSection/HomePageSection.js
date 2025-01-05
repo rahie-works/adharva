@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { createClient } from "contentful";
+import { useSwipeable } from "react-swipeable";
 
 // styles
 import "../../../App.css";
@@ -16,7 +17,10 @@ export const HomePageSection = () => {
   const [homePageBanner, setHomePageBanner] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [homePageSlidesImage, setHomePageSlidesImage] = useState([]);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  const [homePageDesktopSlidesImage, setHomePageDesktopSlidesImage] = useState([]);
+  const [homePageMobileSlidesImage, setHomePageMobileSlidesImage] = useState([]);
 
   useEffect(() => {
     const fecthData = async () => {
@@ -25,34 +29,53 @@ export const HomePageSection = () => {
         setHomePageBanner(
           homePageData?.fields?.homePageBanner?.fields?.file.url
         );
-        setHomePageSlidesImage(homePageData.fields?.slideShowImages.map(img => img.fields.file.url));
+        console.log("==homePageData", homePageData)
+        setHomePageDesktopSlidesImage(homePageData.fields?.slideShowImages.map(img => img.fields.file.url));
+        setHomePageMobileSlidesImage(homePageData.fields?.slideShowImagesMobile.map(img => img.fields.file.url));
       } catch (error) {
         console.log("==Data not received", error);
       }
     };
+
     fecthData();
+
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-          prevIndex === homePageSlidesImage.length - 1 ? 0 : prevIndex + 1
+          prevIndex === homePageDesktopSlidesImage.length - 1 ? 0 : prevIndex + 1
       );
     }, 10000);
 
-    return () => clearInterval(intervalId);
-  }, [homePageSlidesImage.length]);
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearInterval(intervalId);
+      window.removeEventListener("resize", handleResize);
+    }
+  }, [homePageDesktopSlidesImage.length]);
 
 
   const goToPreviousSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? homePageSlidesImage.length - 1 : prevIndex - 1
+      prevIndex === 0 ? homePageDesktopSlidesImage.length - 1 : prevIndex - 1
     );
 };
 
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex === homePageSlidesImage.length - 1 ? 0 : prevIndex + 1
+      prevIndex === homePageDesktopSlidesImage.length - 1 ? 0 : prevIndex + 1
     );
 };
 
+const handlers = useSwipeable({
+  onSwipedLeft: () => setCurrentIndex((prevIndex) => 
+    prevIndex === homePageMobileSlidesImage.length - 1 ? 0 : prevIndex + 1),
+  onSwipedRight: () =>  setCurrentIndex((prevIndex) => 
+    prevIndex === 0 ? homePageMobileSlidesImage.length - 1 : prevIndex - 1),
+});
 
   return (
     <div>
@@ -60,29 +83,36 @@ export const HomePageSection = () => {
         <S.StyledBannerFigure>
           <S.StyledBannerImage
             src={homePageBanner}
+            srcset="
+              small-image.jpg 640w,
+              medium-image.jpg 1280w,
+              large-image.jpg 1920w,
+              extra-large-image.jpg 3840w
+            " 
+            sizes="100vw"
             alt="home_page_banner"
           />
         </S.StyledBannerFigure>
       )}
       <S.SlideContainer>
-        <S.StyledHomePageButton left={"10px"} onClick={goToPreviousSlide}>
+        {screenWidth > 500 && <S.StyledHomePageButton left={"10px"} onClick={goToPreviousSlide}>
           <i class="fas fa-chevron-left"></i>
-        </S.StyledHomePageButton>
-        <S.StyledHomePageButton right={"10px"} onClick={goToNextSlide}>
+        </S.StyledHomePageButton>}
+        {screenWidth > 500 &&<S.StyledHomePageButton right={"10px"} onClick={goToNextSlide}>
           <i class="fas fa-chevron-right"></i>
-        </S.StyledHomePageButton>
+        </S.StyledHomePageButton>}
 
-        {homePageSlidesImage.map((src, index) => (
+        {(screenWidth > 500 ? homePageDesktopSlidesImage : homePageMobileSlidesImage).map((src, index) => (
           <img
+            {...handlers}
             key={index}
             src={src}
             alt={`Slide ${index}`}
             className={index === currentIndex ? "active" : ""}
           />
         ))}
-
         <div className="indicator-container">
-          {homePageSlidesImage.map((_, index) => (
+          {homePageDesktopSlidesImage.map((_, index) => (
             <div
               key={index}
               className={`indicator ${index === currentIndex? "active" : ""}`}

@@ -28,7 +28,7 @@ export const CoreValuesBackground = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
-    padding: 4rem;
+    padding: 3rem;
 
     @media screen and (max-width: 480px) {
         padding: 1rem;

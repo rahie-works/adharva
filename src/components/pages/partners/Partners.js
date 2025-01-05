@@ -28,7 +28,6 @@ function Partners() {
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log("==entry", entry);
         setIsIntersecting(entry.isIntersecting);
       },
       { rootMargin: "0px" }

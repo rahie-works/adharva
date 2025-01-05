@@ -1,19 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import styled, { keyframes } from "styled-components";
-import { fadeIn } from "react-animations";
 
 // components
 import Button from "../button/Button";
 
 // styles
-import "./Cards.css";
 import "../button/Button.css";
 
-const simpleAnimation = keyframes`${fadeIn}`;
-
-const FadeInButtons = styled.div`
-  animation: 5s ${simpleAnimation};
-`;
+import * as S from "./CardsStyledComponents";
 
 export default function CardItem(props) {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -41,24 +34,24 @@ export default function CardItem(props) {
 
   return (
     <>
-      <div className="cards__item" ref={ref}>
-        <div className="cards__item__block">
-          <div className="cards__item__pic-wrap">
-            <div className="card_text">{props.name}</div>
-            <div className="card_text_abbr">[ {props.abbr} ]</div>
-            <div className="card_sub_text_container">
-              <h5 className="card_sub_text">
+      <S.CardsItem ref={ref}>
+        <S.CardItemBlock>
+          <S.CardItemPicWrap>
+            <S.CardText>{props.name}</S.CardText>
+            <S.CardTextAbbr>[ {props.abbr} ]</S.CardTextAbbr>
+            <S.CardSubTextContainer>
+              <S.CardSubText>
                 Eligibility : {props.eligibility}
-              </h5>
+              </S.CardSubText>
               {props.duration && (
-                <h5 className="card_sub_text">Duration : {props.duration}</h5>
+                <S.CardSubText>Duration : {props.duration}</S.CardSubText>
               )}
               {props.certificationBody && (
-                <h5 className="card_sub_text">
+                <S.CardSubText>
                   Certification : {props.certificationBody}
-                </h5>
+                </S.CardSubText>
               )}
-              <FadeInButtons className="register-btns">
+              <S.RegisterButtons className="register-btns">
                 <Button
                   buttonName="Register"
                   className="btns"
@@ -68,12 +61,12 @@ export default function CardItem(props) {
                 >
                   {"Learn More & Register"}
                 </Button>
-              </FadeInButtons>
-            </div>
-            <div className="card_abbr_line"></div>
-          </div>
-        </div>
-      </div>
+              </S.RegisterButtons>
+            </S.CardSubTextContainer>
+            <S.CardBottomLine></S.CardBottomLine>
+          </S.CardItemPicWrap>
+        </S.CardItemBlock>
+      </S.CardsItem>
     </>
   );
 }
