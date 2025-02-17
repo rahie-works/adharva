@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavBar = styled.nav`
     position: relative;
-    background-color: #1a3d6b;
+    background-color: ${(props) => ( props.showBackgroundColor ? "#1a3d6b" : "transparent")};
     align-items: center;
     font-size: 1.2rem;
     width: 100%;

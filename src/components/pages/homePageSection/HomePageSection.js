@@ -84,7 +84,7 @@ const handlers = useSwipeable({
 });
 
   return (
-    <div>
+    <div style={{backgroundColor: "black"}}>
        {homePageBanner && (
         <S.StyledBannerFigure>
           <S.StyledBannerImage
@@ -106,6 +106,7 @@ const handlers = useSwipeable({
             {...handlers}
             key={index}
             src={src}
+            style={!isMobile || screenWidth > 600 ? {objectFit: "cover"} : {objectFit: "contain"}}
             alt={`Slide ${index}`}
             className={index === currentIndex ? "active" : ""}
           />

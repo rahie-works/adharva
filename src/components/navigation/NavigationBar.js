@@ -18,6 +18,7 @@ import * as S from "./NavBarStyledComponents"
 export const NavigationBar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const [showNavBarColor, setShowNavBarColor] = useState(false)
   const currentTabRef = useRef();
   const previousTabRef = useRef();
 
@@ -45,6 +46,14 @@ export const NavigationBar = () => {
     }
   };
 
+  const handleScroll = () => {
+    if(window.scrollY > 10) {
+      setShowNavBarColor(true)
+    } else {
+      setShowNavBarColor(false)
+    }
+  }
+
   useEffect(() => {
     showButton();
     const fecthData = async () => {
@@ -56,14 +65,18 @@ export const NavigationBar = () => {
       }
     };
     fecthData();
-    window.addEventListener("resize", showButton);
 
-    return () =>  window.removeEventListener("resize", showButton);
+    window.addEventListener("resize", showButton);
+    window.addEventListener("scroll", handleScroll)
+    return () =>  {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", showButton);
+    }
   }, []);
 
 
   return (
-      <S.NavBar>
+      <S.NavBar showBackgroundColor={showNavBarColor}>
         <S.NavBarContainer>
           <Link to="/adharva" className="navbar-logo" onClick={closeMobileMenu}>
             <S.NavBarLogo
